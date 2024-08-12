@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    background-color: #060607;
+}
+
+
+@media (max-width: 480px) {
+    .logo {
+        width: 180px;
+    }
+  }
+  
+

@@ -1,5 +1,8 @@
+
 import { Inter } from "next/font/google";
 import "./globals.css";
+
+import Carousel from "../components/Carousel/Carousel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,18 +12,22 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+	
+	  
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<div className="bg-yellow-500 p-4">
-					<h1>This is Navbar</h1>
+				<div>
+					
+					<Carousel />
 				</div>
 				
         {children}
 
-				<div className="fixed bottom-0 left-0 right-0 bg-pink-300 text-center p-2">
+				{/* <div className="fixed bottom-0 left-0 right-0 bg-pink-300 text-center p-2">
 					<h1 className="text-black">This is Footer</h1>
-				</div>
+				</div> */}
 			</body>
 		</html>
 	);
