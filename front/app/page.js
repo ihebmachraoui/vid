@@ -1,14 +1,14 @@
 "use client"
 import { useEffect } from 'react';
+import Carousel from "../components/Carousel/Carousel";
 
 export default function Home() {
-  useEffect(() => {
-		import('flowbite');
-	  }, []);
+
 
   return (
     <main >
-     <h1>First</h1>
+     <Carousel />
+     <div className="h-36"></div>
     </main>
   );
 }

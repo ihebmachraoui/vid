@@ -52,9 +52,7 @@ const HeroSlider = () => {
 
   return (
     <>
-      <div className='fixed z-50 w-full mx-auto justify-between'>
-        <Navbar />
-      </div>
+   
       <div className="hero-slider" data-carousel>
         <div
           className="carousel-cell"
