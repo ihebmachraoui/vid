@@ -8,53 +8,54 @@ import * as images from '../../assets/index';
 import Button from '../../constants/Button/Button';
 
 const HeroSlider = () => {
+  if (typeof window === "undefined") {
+    return;
+  }
   useEffect(() => {
-    // Ensure the code runs only on the client side
-    if (typeof window !== 'undefined') {
-      const options = {
-        accessibility: true,
-        prevNextButtons: true,
-        pageDots: true,
-        setGallerySize: false,
-        autoPlay: 3000, 
-        wrapAround: true, 
-        arrowShape: {
-          x0: 10,
-          x1: 60,
-          y1: 50,
-          x2: 60,
-          y2: 45,
-          x3: 15
-        }
-      };
+    const options = {
+      accessibility: true,
+      prevNextButtons: true,
+      pageDots: true,
+      setGallerySize: false,
+      autoPlay: 3000, 
+      wrapAround: true, 
+      arrowShape: {
+        x0: 10,
+        x1: 60,
+        y1: 50,
+        x2: 60,
+        y2: 45,
+        x3: 15
+      }
+    };
 
-      const carousel = document.querySelector('[data-carousel]');
-      const slides = document.getElementsByClassName('carousel-cell');
-      const flkty = new Flickity(carousel, options);
+    const carousel = document.querySelector('[data-carousel]');
+    const slides = document.getElementsByClassName('carousel-cell');
+    const flkty = new Flickity(carousel, options);
 
-      const restartAutoPlay = () => {
-        flkty.playPlayer();
-      };
+    const restartAutoPlay = () => {
+      flkty.playPlayer(); 
+    };
 
-      flkty.on('scroll', function () {
-        flkty.slides.forEach(function (slide, i) {
-          const image = slides[i];
-          const x = (slide.target + flkty.x) * -1 / 3;
-          image.style.backgroundPosition = `${x}px`;
-        });
+    flkty.on('scroll', function () {
+      flkty.slides.forEach(function (slide, i) {
+        const image = slides[i];
+        const x = (slide.target + flkty.x) * -1 / 3;
+        image.style.backgroundPosition = `${x}px`;
       });
+    });
 
-      flkty.on('change', restartAutoPlay);
-      flkty.on('staticClick', restartAutoPlay);
+    flkty.on('change', restartAutoPlay); 
+    flkty.on('staticClick', restartAutoPlay);
 
-      return () => {
-        flkty.destroy();
-      };
-    }
+    return () => {
+      flkty.destroy();
+    };
   }, []);
 
   return (
     <>
+   
       <div className="hero-slider" data-carousel>
         <div
           className="carousel-cell"
