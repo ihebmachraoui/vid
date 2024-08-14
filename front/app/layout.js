@@ -9,6 +9,7 @@ import {
 	SignedOut,
 	UserButton,
 } from "@clerk/nextjs";
+import Footer from "../components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
 					{/* <div className="fixed bottom-0 left-0 right-0 bg-pink-300 text-center p-2">
 					<h1 className="text-black">This is Footer</h1>
 				</div> */}
+				<Footer/>
 				</body>
 			</html>
 		</ClerkProvider>
