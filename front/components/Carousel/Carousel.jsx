@@ -8,9 +8,6 @@ import * as images from '../../assets/index';
 import Button from '../../constants/Button/Button';
 
 const HeroSlider = () => {
-  if (typeof window === "undefined") {
-    return;
-  }
   useEffect(() => {
     const options = {
       accessibility: true,
