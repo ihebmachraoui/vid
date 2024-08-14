@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <main >
      <Carousel />
-     <div className="h-36"></div>
     </main>
   );
 }
