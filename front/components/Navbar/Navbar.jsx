@@ -15,11 +15,11 @@ const Navbar = () => {
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   const links = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
-    { name: "Study Case", href: "#studycase" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Study Case", href: "/studycase" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const pathname = usePathname()
