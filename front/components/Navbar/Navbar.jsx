@@ -21,6 +21,7 @@ const Navbar = () => {
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
+  
 
   const pathname = usePathname()
 
