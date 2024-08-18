@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from 'next/navigation'
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,26 +22,32 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const pathname = usePathname()
+
   useEffect(() => {
+	const handleScroll = () => {
+	  const scrollPosition = window.scrollY;
+
+	  // Set isScrolled based on scroll position
+	  if (scrollPosition > 50 || pathname !== "/") {
+		setIsScrolled(true);
+	  } else {
+		setIsScrolled(false);
+	  }
+	};
+
 	if (typeof window !== "undefined") {
-		const handleScroll = () => {
-			const scrollPosition = window.scrollY;
+	  // Check the initial scroll position and path
+	  handleScroll(); 
 
-			if (scrollPosition > 50) {
-				setIsScrolled(true);
-			} else {
-				setIsScrolled(false);
-			}
-		};
+	  window.addEventListener("scroll", handleScroll);
 
-		window.addEventListener("scroll", handleScroll);
-
-		// Clean up the event listener on unmount
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
+	  // Clean up the event listener on unmount
+	  return () => {
+		window.removeEventListener("scroll", handleScroll);
+	  };
 	}
-}, []);
+  }, [pathname]);
 
   return (
     <>

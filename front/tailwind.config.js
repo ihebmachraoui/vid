@@ -20,6 +20,9 @@ module.exports = {
         eduVic: ['"Edu VIC WA NT Beginner"', 'sans-serif'],
         newAmsterdam: ['"New Amsterdam"', 'serif'],
       },
+      backgroundColor: {
+        'pagination': 'linear-gradient(45deg, rgba(var(--primary-color-rgb), .8), rgba(var(--secondary-color-rgb), .8))',
+      },
     },
   },
   plugins: [
