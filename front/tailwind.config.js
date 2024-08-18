@@ -16,6 +16,10 @@ module.exports = {
       boxShadow: {
         'booking': 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
       },
+      fontFamily: {
+        eduVic: ['"Edu VIC WA NT Beginner"', 'sans-serif'],
+        newAmsterdam: ['"New Amsterdam"', 'serif'],
+      },
     },
   },
   plugins: [

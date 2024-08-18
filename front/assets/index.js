@@ -5,11 +5,13 @@ import Flower from './images/flower.webp'
 import FlowerTop from './images/flowertop.webp'
 import AboutIMG from './images/About-IMG.png'
 
+import little from './images/little.png'
 export {
     Logo,
     imgCarousel1,
     imgCarousel2,
     Flower,
     FlowerTop,
-    AboutIMG
+    AboutIMG,
+    little
 }

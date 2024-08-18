@@ -22,17 +22,25 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50);
-    };
+	if (typeof window !== "undefined") {
+		const handleScroll = () => {
+			const scrollPosition = window.scrollY;
 
-    window.addEventListener("scroll", handleScroll);
+			if (scrollPosition > 50) {
+				setIsScrolled(true);
+			} else {
+				setIsScrolled(false);
+			}
+		};
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+		window.addEventListener("scroll", handleScroll);
+
+		// Clean up the event listener on unmount
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}
+}, []);
 
   return (
     <>
