@@ -26,7 +26,7 @@ export default function Preview() {
         <img
         src={images.FlowerTop.src}
         alt=""
-        className="absolute top-0 left-0 w-32 lg:w-96"
+        className="absolute top-0 left-0 w-32 lg:w-[30%]"
       />
       <div className="flex flex-col items-center pt-24">
         <span className="rounded-full text-black font-semibold px-3 mb-2 bg-[#e1ffd4] py-2 text-center">

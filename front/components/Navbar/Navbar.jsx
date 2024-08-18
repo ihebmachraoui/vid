@@ -15,7 +15,7 @@ const Navbar = () => {
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   const links = [
-    { name: "Home", href: "#home" },
+    { name: "Home", href: "/" },
     { name: "About Us", href: "#about" },
     { name: "Study Case", href: "#studycase" },
     { name: "Blog", href: "#blog" },
