@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from 'next/navigation'
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,38 +14,44 @@ const Navbar = () => {
 	const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
 	const links = [
-		{ name: "Home", href: "#home" },
-		{ name: "About Us", href: "#about" },
-		{ name: "Study Case", href: "#studycase" },
-		{ name: "Blog", href: "#blog" },
-		{ name: "Contact", href: "#contact" },
+		{ name: "Home", href: "/" },
+		{ name: "About Us", href: "about" },
+		{ name: "Study Case", href: "studycase" },
+		{ name: "Blog", href: "blog" },
+		{ name: "Contact", href: "contact" },
 	];
 
+	const pathname = usePathname()
+
 	useEffect(() => {
-		if (typeof window !== "undefined") {
-			const handleScroll = () => {
-				const scrollPosition = window.scrollY;
-
-				if (scrollPosition > 50) {
-					setIsScrolled(true);
-				} else {
-					setIsScrolled(false);
-				}
-			};
-
-			window.addEventListener("scroll", handleScroll);
-
-			// Clean up the event listener on unmount
-			return () => {
-				window.removeEventListener("scroll", handleScroll);
-			};
+	  const handleScroll = () => {
+		const scrollPosition = window.scrollY;
+  
+		// Set isScrolled based on scroll position
+		if (scrollPosition > 50 || pathname !== "/") {
+		  setIsScrolled(true);
+		} else {
+		  setIsScrolled(false);
 		}
-	}, []);
+	  };
+  
+	  if (typeof window !== "undefined") {
+		// Check the initial scroll position and path
+		handleScroll(); 
+  
+		window.addEventListener("scroll", handleScroll);
+  
+		// Clean up the event listener on unmount
+		return () => {
+		  window.removeEventListener("scroll", handleScroll);
+		};
+	  }
+	}, [pathname]);
 	return (
 		<>
 			<nav
 				className={`relative transition-colors duration-500 ${
-					isScrolled ? "bg-white" : "bg-transparent"
+					isScrolled ? "bg-white shadow-booking" : "bg-transparent"
 				}`}>
 				<div
 					className={`max-w-screen-xl flex flex-wrap items-center justify-between custom2:justify-between custom1:justify-center mx-auto transition-all duration-500 ${
