@@ -14,18 +14,18 @@ import Footer from "../components/Footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
 	return (
-		<ClerkProvider>
+	
 			<html lang="en">
 				<body className={inter.className}>
 					{/* this is the clerk button , just ignore it for now */}
-					<div className="hidden">
+					{/* <div className="hidden">
 						<SignedOut>
 							<SignInButton />
 						</SignedOut>
 						<SignedIn>
 							<UserButton />
 						</SignedIn>
-					</div>
+					</div> */}
 
 					<div className="fixed z-50 w-full mx-auto justify-between">
 						<Navbar />
@@ -39,6 +39,6 @@ export default function RootLayout({ children }) {
 				<Footer/>
 				</body>
 			</html>
-		</ClerkProvider>
+	
 	);
 }

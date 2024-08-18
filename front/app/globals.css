@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Grey+Qo&family=Italiana&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=New+Amsterdam&display=swap');
 
 @tailwind base;
@@ -5,8 +6,12 @@
 @tailwind utilities;
 
 
-
-
+.grey-qo-regular {
+    font-family: "Grey Qo", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
 
 @media (max-width: 480px) {
     .logo {

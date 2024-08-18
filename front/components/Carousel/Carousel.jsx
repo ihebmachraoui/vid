@@ -53,7 +53,7 @@ const HeroSlider = () => {
   return (
     <>
    
-      <div className="hero-slider" data-carousel>
+      <div className="hero-slider bg-[#11111a]" data-carousel>
         <div
           className="carousel-cell"
           style={{
@@ -69,6 +69,7 @@ const HeroSlider = () => {
             </a>
           </div>
         </div>
+        
         <div
           className="carousel-cell"
           style={{

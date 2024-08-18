@@ -1,3 +1,8 @@
+"use client"
+
+import About from '../components/About/About';
+import Testimonial from '../components/Testimonial/Testimonial';
+import Services from '../components/Services/Services';
 import dynamic from 'next/dynamic';
 
 const DynamicCarousel = dynamic(() => import('../components/Carousel/Carousel'), {
@@ -6,8 +11,13 @@ const DynamicCarousel = dynamic(() => import('../components/Carousel/Carousel'),
 
 export default function Home() {
   return (
-    <main>
-      <DynamicCarousel />
-    </main>
+    <>
+ 
+   <DynamicCarousel />
+     <About/>
+     <Testimonial />
+     <Services />
+     </>
+
   );
 }
