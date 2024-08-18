@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import * as images from "../../assets/index";
@@ -6,11 +7,10 @@ import { BiSupport } from "react-icons/bi";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [doubleDropdownOpen, setDoubleDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
-  const toggleDoubleDropdown = () => setDoubleDropdownOpen(!doubleDropdownOpen);
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   const links = [
@@ -21,10 +21,31 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <nav className="relative">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <nav
+        className={`relative transition-colors duration-500 ${
+          isScrolled ? "bg-white shadow-xl" : "bg-transparent"
+        }`}
+      >
+        <div
+          className={`max-w-screen-xl flex flex-wrap items-center justify-between custom2:justify-between custom1:justify-center mx-auto transition-all duration-500 ${
+            isScrolled ? "" : "p-4"
+          }`}
+        >
           <Image
             src={images.Logo.src}
             alt="Company Logo"
@@ -39,7 +60,10 @@ const Navbar = () => {
               <BiSupport className="text-4xl text-[#83cc61] font-bold mx-2" />
               <p
                 type="button"
-                className="text-white focus:outline-none font-medium rounded-full text-sm py-2 text-center dark:hover:drop-shadow-md flex flex-col items-center"
+                className={`text-center font-medium rounded-full text-sm py-2 flex flex-col items-center 
+                  transition-colors duration-500 ${
+                    isScrolled ? "text-black" : "text-white"
+                  } focus:outline-none dark:hover:drop-shadow-md`}
               >
                 <span>Need help?</span>
                 <span className="font-semibold text-base">+216 28 888 490</span>
@@ -47,14 +71,16 @@ const Navbar = () => {
             </div>
             <button
               type="button"
-              className="hidden lg:block text-white bg-[#83cc61] focus:outline-none font-medium rounded-full text-sm px-8 py-4 text-center dark:hover:drop-shadow-md"
+              className="hidden lg:block text-white bg-[#83cc61] focus:outline-none font-medium rounded-full text-sm px-8 py-4 text-center dark:hover:shadow-booking"
             >
               Make Appointment
             </button>
 
             <button
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden focus:outline-none"
+              className={`inline-flex items-center p-2 w-10 h-10 justify-center text-sm transition-colors duration-500 ${
+                isScrolled ? "text-black" : "text-white"
+              } rounded-lg md:hidden focus:outline-none`}
               onClick={toggleMobileMenu}
             >
               <span className="sr-only">Open main menu</span>
@@ -104,7 +130,7 @@ const Navbar = () => {
                 />
               </svg>
             </button>
-            <ul className="flex flex-col p-4 space-y-4">
+            <ul className="flex flex-col p-4 space-y-4 md:hidden">
               {links.map((link, index) => (
                 <li key={index}>
                   <Link href={link.href} passHref>
@@ -165,7 +191,6 @@ const Navbar = () => {
                         </span>
                       </Link>
                     </li>
-                  
                   </ul>
                 </div>
               </li>
@@ -176,12 +201,14 @@ const Navbar = () => {
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-cta"
           >
-            <ul className="bg-white flex flex-col font-medium p-4 md:p-0 mt-4 border lg:bg-transparent border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-white dark:border-gray-700">
+            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border lg:bg-transparent border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-white dark:border-gray-700">
               {links.slice(0, 2).map((link, index) => (
                 <li key={index}>
                   <Link href={link.href} passHref>
                     <span
-                      className={`block py-2 px-3 md:p-0 rounded text-white hover:bg-gray-100 md:hover:bg-transparent text-sm  ${
+                      className={`block py-2 px-3 md:p-0 rounded transition-colors duration-500 ${
+                        isScrolled ? "text-black" : "text-white"
+                      } hover:bg-gray-100 md:hover:bg-transparent text-sm ${
                         link.active ? "text-white" : "text-gray-900"
                       } ${link.active ? "md:bg-transparent" : ""}`}
                       aria-current={link.active ? "page" : undefined}
@@ -195,7 +222,9 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={toggleDropdown}
-                  className="flex items-center justify-between w-full text-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 text-white"
+                  className={`flex items-center justify-between w-full text-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 transition-colors duration-500 ${
+                    isScrolled ? "text-black" : "text-white"
+                  }`}
                 >
                   Services
                   <svg
@@ -237,7 +266,6 @@ const Navbar = () => {
                         </span>
                       </Link>
                     </li>
-                  
                   </ul>
                 </div>
               </li>
@@ -245,7 +273,9 @@ const Navbar = () => {
                 <li key={index + 2}>
                   <Link href={link.href} passHref>
                     <span
-                      className={`block py-2 px-3 md:p-0 rounded text-white hover:bg-gray-100 md:hover:bg-transparent text-sm  ${
+                      className={`block py-2 px-3 md:p-0 rounded transition-colors duration-500 ${
+                        isScrolled ? "text-black" : "text-white"
+                      } hover:bg-gray-600 md:hover:bg-transparent text-sm ${
                         link.active ? "text-white" : "text-gray-900"
                       } ${link.active ? "md:bg-transparent" : ""}`}
                       aria-current={link.active ? "page" : undefined}

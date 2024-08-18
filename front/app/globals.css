@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Grey+Qo&family=Italiana&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-body {
-    background-color: #060607;
-}
-
+.grey-qo-regular {
+    font-family: "Grey Qo", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
 
 @media (max-width: 480px) {
     .logo {

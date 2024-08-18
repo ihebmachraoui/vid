@@ -52,11 +52,8 @@ const HeroSlider = () => {
 
   return (
     <>
-      <div className='fixed z-50 w-full mx-auto justify-between'>
-        <Navbar />
-      </div>
-      <img src={images.Flower.src} className='absolute z-50 bottom-0 w-72 lg:w-[30%]' alt="" />
-      <div className="hero-slider" data-carousel>
+   
+      <div className="hero-slider bg-[#11111a]" data-carousel>
         <div
           className="carousel-cell"
           style={{
