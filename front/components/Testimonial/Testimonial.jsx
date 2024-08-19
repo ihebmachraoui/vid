@@ -13,7 +13,7 @@ const Testimonial = () => {
         <div className="relative max-w-screen-xl mx-auto px-4 md:px-8">
                 <div className="max-w-3xl mx-auto text-center">
                     <div className="pb-6">
-                        <img src={images.Logo.src} width={150} className="mx-auto border border-dashed rounded-full" />
+                        <img src={images.Logo.src} width={150} alt="logo" className="mx-auto border border-dashed rounded-full" />
                     </div>
                     <figure>
                         <blockquote>

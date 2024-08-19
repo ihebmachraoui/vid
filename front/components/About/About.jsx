@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { TiTick } from "react-icons/ti";
 import Button from "../../constants/Button/Button";
 import Facts from "../Facts/Facts";
-import PlayStop from "../../constants/Button/PlayStop/PlayStop";
+import PlayStop from "../../constants/PlayStop/PlayStop";
 
 export default () => {
   const [isPlaying, setIsPlaying] = useState(false);

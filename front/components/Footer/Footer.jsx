@@ -5,7 +5,7 @@ import Image from "next/image";
 function Footer() {
 	const currentYear = new Date().getFullYear();
 	return (
-		<div>
+		<div id="footer">
 
 		<div className="p-16 ">
 			<div className="grid-2 grid   md:grid-cols-1 lg:grid-cols-2">
@@ -16,6 +16,7 @@ function Footer() {
 								src={images.little.src}
 								width={100}
 								height={100}
+								alt="little"
 								priority
 							/>
 							<p className="text-7xl text-white font-newAmsterdam">Soci</p>
@@ -67,8 +68,8 @@ function Footer() {
 											r="1"
 											gradientUnits="userSpaceOnUse"
 											gradientTransform="translate(7.41436 51.017) scale(65.31 65.2708)">
-											<stop offset="0.09" stop-color="#FA8F21" />
-											<stop offset="0.78" stop-color="#D82D7E" />
+											<stop offset="0.09" stopColor="#FA8F21" />
+											<stop offset="0.78" stopColor="#D82D7E" />
 										</radialGradient>
 										<radialGradient
 											id="paint1_radial_7092_54404"
@@ -79,10 +80,10 @@ function Footer() {
 											gradientTransform="translate(31.1086 53.257) scale(51.4733 51.4424)">
 											<stop
 												offset="0.64"
-												stop-color="#8C3AAA"
-												stop-opacity="0"
+												stopColor="#8C3AAA"
+												stopOpacity="0"
 											/>
-											<stop offset="1" stop-color="#8C3AAA" />
+											<stop offset="1" stopColor="#8C3AAA" />
 										</radialGradient>
 									</defs>
 								</svg>
@@ -104,9 +105,9 @@ function Footer() {
 								</svg>
 								<div className="absolute top-full left-0 w-full h-full rounded-full bg-black z-0 transition-all duration-500 group-hover:top-0"></div>
 							</button>
-							<button class="w-10 h-10 flex items-center relative overflow-hidden justify-center rounded-full bg-white shadow-gray-200 group transition-all duration-300">
+							<button className="w-10 h-10 flex items-center relative overflow-hidden justify-center rounded-full bg-white shadow-gray-200 group transition-all duration-300">
 								<svg
-									class="fill-gray-900 relative z-10 transition-all duration-500 group-hover:fill-white"
+									className="fill-gray-900 relative z-10 transition-all duration-500 group-hover:fill-white"
 									xmlns="http://www.w3.org/2000/svg"
 									width="30"
 									height="30"
@@ -117,7 +118,7 @@ function Footer() {
 										fill=""
 									/>
 									<path
-										class="fill-white transition-all duration-100 group-hover:fill-gray-900"
+										className="fill-white transition-all duration-100 group-hover:fill-gray-900"
 										d="M22.1502 41.7161L28.8783 31.0428C29.1314 30.6409 29.4651 30.2959 29.8583 30.0295C30.2514 29.7631 30.6955 29.5812 31.1626 29.4951C31.6296 29.409 32.1094 29.4206 32.5717 29.5293C33.034 29.638 33.4688 29.8414 33.8485 30.1266L39.2024 34.1406C39.4414 34.3195 39.7322 34.4157 40.0308 34.4147C40.3293 34.4137 40.6194 34.3154 40.8572 34.1348L48.0835 28.6493C49.0455 27.9163 50.3052 29.073 49.6639 30.098L42.93 40.7656C42.6769 41.1674 42.3433 41.5124 41.9501 41.7788C41.5569 42.0452 41.1128 42.2272 40.6458 42.3133C40.1787 42.3994 39.6989 42.3877 39.2366 42.279C38.7743 42.1703 38.3396 41.967 37.9598 41.6818L32.606 37.6678C32.367 37.4889 32.0762 37.3926 31.7776 37.3937C31.479 37.3947 31.1889 37.4929 30.9512 37.6735L23.7249 43.1591C22.7629 43.892 21.5032 42.7411 22.1502 41.7161Z"
 										fill="white"
 									/>
@@ -129,14 +130,14 @@ function Footer() {
 											r="1"
 											gradientUnits="userSpaceOnUse"
 											gradientTransform="translate(20.6729 58.8084) scale(50.3892 50.3892)">
-											<stop stop-color="#0099FF" />
-											<stop offset="0.6" stop-color="#A033FF" />
-											<stop offset="0.9" stop-color="#FF5280" />
-											<stop offset="1" stop-color="#FF7061" />
+											<stop stopColor="#0099FF" />
+											<stop offset="0.6" stopColor="#A033FF" />
+											<stop offset="0.9" stopColor="#FF5280" />
+											<stop offset="1" stopColor="#FF7061" />
 										</radialGradient>
 									</defs>
 								</svg>
-								<div class="absolute top-full left-0 w-full h-full rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-pink-500 z-0 transition-all duration-300 group-hover:top-0"></div>
+								<div className="absolute top-full left-0 w-full h-full rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-pink-500 z-0 transition-all duration-300 group-hover:top-0"></div>
 							</button>
 
 							<button className="w-10 h-10 flex items-center relative overflow-hidden justify-center rounded-full bg-white  shadow-gray-200 group transition-all duration-300">
@@ -152,8 +153,8 @@ function Footer() {
 										fill=""
 									/>
 									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
+										fillRule="evenodd"
+										clipRule="evenodd"
 										d="M44.0259 36.8847C43.5787 36.5249 43.0549 36.2716 42.4947 36.1442C41.9344 36.0168 41.3524 36.0186 40.793 36.1495C39.9524 36.4977 39.4093 37.8134 38.8661 38.4713C38.7516 38.629 38.5833 38.7396 38.3928 38.7823C38.2024 38.8251 38.0028 38.797 37.8316 38.7034C34.7543 37.5012 32.1748 35.2965 30.5122 32.4475C30.3704 32.2697 30.3033 32.044 30.325 31.8178C30.3467 31.5916 30.4555 31.3827 30.6286 31.235C31.2344 30.6368 31.6791 29.8959 31.9218 29.0809C31.9756 28.1818 31.7691 27.2863 31.3269 26.5011C30.985 25.4002 30.3344 24.42 29.4518 23.6762C28.9966 23.472 28.4919 23.4036 27.9985 23.4791C27.5052 23.5546 27.0443 23.7709 26.6715 24.1019C26.0242 24.6589 25.5104 25.3537 25.168 26.135C24.8256 26.9163 24.6632 27.7643 24.6929 28.6165C24.6949 29.0951 24.7557 29.5716 24.8739 30.0354C25.1742 31.1497 25.636 32.2144 26.2447 33.1956C26.6839 33.9473 27.163 34.6749 27.6801 35.3755C29.3607 37.6767 31.4732 39.6305 33.9003 41.1284C35.1183 41.8897 36.42 42.5086 37.7799 42.973C39.1924 43.6117 40.752 43.8568 42.2931 43.6824C43.1711 43.5499 44.003 43.2041 44.7156 42.6755C45.4281 42.1469 45.9995 41.4518 46.3795 40.6512C46.6028 40.1675 46.6705 39.6269 46.5735 39.1033C46.3407 38.0327 44.9053 37.4007 44.0259 36.8847Z"
 										fill=""
 									/>
@@ -164,19 +165,19 @@ function Footer() {
 					</div>
 				</div>
 				<div className=" items-center p-4">
-				<div class="mx-6 py-10 text-center md:text-left">
-					<div class="grid   md:grid-cols-2 lg:grid-cols-2">
+				<div className="mx-6 py-10 text-center md:text-left">
+					<div className="grid   md:grid-cols-2 lg:grid-cols-2">
 						<div>
-							<h6 class="my-4 flex justify-center font-semibold uppercase md:justify-start">
+							<h6 className="my-4 flex justify-center font-semibold uppercase md:justify-start">
 								Products
 							</h6>
-							<p class="mb-4">
+							<p className="mb-4">
 								<a href="#!">Angular</a>
 							</p>
-							<p class="mb-4">
+							<p className="mb-4">
 								<a href="#!">React</a>
 							</p>
-							<p class="mb-4">
+							<p className="mb-4">
 								<a href="#!">Vue</a>
 							</p>
 							<p>
@@ -185,11 +186,11 @@ function Footer() {
 						</div>
 
 						<div>
-							<h6 class="my-4  flex justify-center font-semibold uppercase md:justify-start">
+							<h6 className="my-4  flex justify-center font-semibold uppercase md:justify-start">
 								Contact
 							</h6>
-							<p class="mb-4 flex items-center justify-center md:justify-start">
-								<span class="me-3 [&>svg]:h-5 [&>svg]:w-5">
+							<p className="mb-4 flex items-center justify-center md:justify-start">
+								<span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 24 24"
@@ -200,8 +201,8 @@ function Footer() {
 								</span>
 								New York, NY 10012, US
 							</p>
-							<p class="mb-4 flex items-center justify-center md:justify-start">
-								<span class="me-3 [&>svg]:h-5 [&>svg]:w-5">
+							<p className="mb-4 flex items-center justify-center md:justify-start">
+								<span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 24 24"
@@ -212,31 +213,31 @@ function Footer() {
 								</span>
 								info@example.com
 							</p>
-							<p class="mb-4 flex items-center justify-center md:justify-start">
-								<span class="me-3 [&>svg]:h-5 [&>svg]:w-5">
+							<p className="mb-4 flex items-center justify-center md:justify-start">
+								<span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 24 24"
 										fill="currentColor">
 										<path
-											fill-rule="evenodd"
+											fillRule="evenodd"
 											d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
-											clip-rule="evenodd"
+											clipRule="evenodd"
 										/>
 									</svg>
 								</span>
 								+ 01 234 567 88
 							</p>
-							<p class="flex items-center justify-center md:justify-start">
-								<span class="me-3 [&>svg]:h-5 [&>svg]:w-5">
+							<p className="flex items-center justify-center md:justify-start">
+								<span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 24 24"
 										fill="currentColor">
 										<path
-											fill-rule="evenodd"
+											fillRule="evenodd"
 											d="M7.875 1.5C6.839 1.5 6 2.34 6 3.375v2.99c-.426.053-.851.11-1.274.174-1.454.218-2.476 1.483-2.476 2.917v6.294a3 3 0 003 3h.27l-.155 1.705A1.875 1.875 0 007.232 22.5h9.536a1.875 1.875 0 001.867-2.045l-.155-1.705h.27a3 3 0 003-3V9.456c0-1.434-1.022-2.7-2.476-2.917A48.716 48.716 0 0018 6.366V3.375c0-1.036-.84-1.875-1.875-1.875h-8.25zM16.5 6.205v-2.83A.375.375 0 0016.125 3h-8.25a.375.375 0 00-.375.375v2.83a49.353 49.353 0 019 0zm-.217 8.265c.178.018.317.16.333.337l.526 5.784a.375.375 0 01-.374.409H7.232a.375.375 0 01-.374-.409l.526-5.784a.373.373 0 01.333-.337 41.741 41.741 0 018.566 0zm.967-3.97a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H18a.75.75 0 01-.75-.75V10.5zM15 9.75a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75V10.5a.75.75 0 00-.75-.75H15z"
-											clip-rule="evenodd"
+											clipRule="evenodd"
 										/>
 									</svg>
 								</span>
