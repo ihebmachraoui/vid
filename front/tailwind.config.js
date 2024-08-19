@@ -19,9 +19,17 @@ module.exports = {
       fontFamily: {
         eduVic: ['"Edu VIC WA NT Beginner"', 'sans-serif'],
         newAmsterdam: ['"New Amsterdam"', 'serif'],
+        jost: ['"Jost"', 'Helvetica', 'Arial', 'sans-serif'],
+
       },
       backgroundColor: {
         'pagination': 'linear-gradient(45deg, rgba(var(--primary-color-rgb), .8), rgba(var(--secondary-color-rgb), .8))',
+      },
+      colors:{
+        'primary' : "#83cc61",
+        'secondary' : "#212529",
+        'third' : "#7b8893",
+        
       },
     },
   },
