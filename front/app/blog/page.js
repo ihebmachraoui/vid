@@ -99,7 +99,7 @@ function page() {
 									clipRule="evenodd"
 								/>
 							</svg>
-							Blog
+							Blogs
 						</li>
 					</ol>
 				</div>
