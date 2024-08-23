@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Button from "../../constants/Button/Button.jsx"
 
 function page() {
 	const blogs = [
@@ -227,14 +228,12 @@ function page() {
 				{blogs.map((blog, index) => (
 					<div key={index} className="">
 						<div>
-							<a
-								href="/blog/2"
-								className="block relative no-underline">
+							<a href="/blog/2" className="block relative no-underline">
 								<div className="relative">
-									<span className="absolute top-3 right-2 leading-4 bg-primary rounded-md text-sm text-white p-2 uppercase">
+									<span className="absolute top-3 right-2 leading-4 bg-[#ffb7cec6] rounded-md text-sm text-white p-2 uppercase">
 										{blog.type}
 									</span>
-									<img src={blog.src} alt="Image" className="rounded-lg" />
+									<img src={blog.src} alt="Image" className="w-full h-56 object-cover rounded-lg" />
 								</div>
 
 								<h1 className="font-jost text-xl text-secondary capitalize font-semibold pt-6">
@@ -277,6 +276,25 @@ function page() {
 						</div>
 					</div>
 				))}
+			</div>
+			<div className="grid grid-cols-1 lg:grid-cols-[1fr,2fr] gap-4 items-center p-4">
+				<div className="hidden lg:block py-5 px-9">
+					<img className="rounded-md" src="https://images.unsplash.com/photo-1483546363825-7ebf25fb7513?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+				</div>
+				<div className="col-span-1 lg:col-span-1">
+				<div className=" flex flex-col justify-center text-center items-center p-6 rounded-lg ">
+  <h2 className="text-5xl font-eduVic font-semibold mb-4">Share Your Story</h2>
+  <p className="text-secondary font-jost ">
+    Do you have a story or issue you'd like to share? Whether it's a personal experience, a challenge you're facing, or something that's been on your mind, this is the place for you. By sharing, you can receive valuable opinions from others and even gain insights from a professional sociologist.
+  </p>
+  <p className="text-gray-400 italic text-sm">
+
+  Join the conversation, connect, and find support. We're here to listen.
+    </p>
+	<Button text="Add a blog" href={"blog/add-blog"} className="my-4 cursor-pointer"/>
+</div>
+
+				</div>
 			</div>
 		</>
 	);
