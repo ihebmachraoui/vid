@@ -99,17 +99,18 @@ function page() {
 	};
  
     const createblog = async () => {
-    
-        try {
-          const response = await axios.post('https://sociosolution-api.vercel.app/blogs', blog);
-    
-          console.log('Blog created:', response.data);
-          // Handle success (e.g., redirect, show a success message, etc.)
-        } catch (error) {
-          console.error('Error creating blog:', error);
-          // Handle error (e.g., show an error message)
-        } 
-      };
+  try {
+    const response = await axios.post('https://sociosolution-api.vercel.app/blogs', blog);
+
+    console.log('Blog created:', response.data);
+    // Redirect to /blogs using location.assign
+    location.assign('/blog');
+  } catch (error) {
+    console.error('Error creating blog:', error);
+    // Handle error (e.g., show an error message)
+  } 
+};
+
 
 	return (
 		<>
