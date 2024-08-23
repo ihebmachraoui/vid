@@ -249,13 +249,7 @@ function page() {
 							required
 							className="mt-1 block w-full text-sm text-gray-500 file:py-2 file:px-4 file:border file:border-gray-300 file:rounded-md file:text-sm file:font-medium file:bg-gray-100 hover:file:bg-gray-200"
 						/>
-						{imageUrl && (
-							<img
-								src={imageUrl}
-								alt="Uploaded preview"
-								className="mt-4 w-32 h-32 object-cover"
-							/>
-						)}
+
 					</div>
 					{/* Type Input */}
 					<div className="mb-4">

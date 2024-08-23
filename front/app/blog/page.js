@@ -1,147 +1,11 @@
-import Image from "next/image";
+"use client"
 import React from "react";
+import {useState , useEffect} from "react";
+import Image from "next/image";
 import Button from "../../constants/Button/Button.jsx"
-
+import axios  from 'axios';
 function page() {
-	const blogs = [
-		{
-			type: "Tricks & Tips",
-			src: "https://images.pexels.com/photos/1843768/pexels-photo-1843768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-			title: "Rajli khani",
-			description:
-				"This is the first blog in the world that hasdiscription quia delectus ea quisquam molestiae sit nesciunt ducimus! Id galisum enim quo tenetur recusandae ea doloribus dolores rem omnis quia qui inventore natus. Non officiis vitae ab inventore soluta et invento.",
-			usersrc:
-				"https://madebydesignesia.com/themes/mindthera/images/testimonial/1.jpg",
-			username: "John Smith",
-			date: "10/12/2015",
-			comments: [
-				{
-					id: 1,
-					author: "Jane Doe",
-					content:
-						"This is a great post! I really enjoyed reading it and found the information very helpful.",
-					timestamp: "2024-08-19T14:32:00Z",
-				},
-				{
-					id: 2,
-					author: "John Smith",
-					content:
-						"I have a question about the third section. Could you provide more details on that?",
-					timestamp: "2024-08-19T15:45:00Z",
-				},
-				{
-					id: 3,
-					author: "Alice Johnson",
-					content:
-						"Thanks for sharing this! The tips you provided are very useful for my project.",
-					timestamp: "2024-08-19T16:22:00Z",
-				},
-			],
-		},
-		{
-			type: "Tricks & Tips",
-			src: "https://images.pexels.com/photos/1843768/pexels-photo-1843768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-			title: "Rajli khani",
-			description:
-				"This is the first blog in the world that hasdiscription quia delectus ea quisquam molestiae sit nesciunt ducimus! Id galisum enim quo tenetur recusandae ea doloribus dolores rem omnis quia qui inventore natus. Non officiis vitae ab inventore soluta et invento.",
-			usersrc:
-				"https://madebydesignesia.com/themes/mindthera/images/testimonial/1.jpg",
-			username: "John Smith",
-			date: "10/12/2015",
-			comments: [
-				{
-					id: 1,
-					author: "Jane Doe",
-					content:
-						"This is a great post! I really enjoyed reading it and found the information very helpful.",
-					timestamp: "2024-08-19T14:32:00Z",
-				},
-				{
-					id: 2,
-					author: "John Smith",
-					content:
-						"I have a question about the third section. Could you provide more details on that?",
-					timestamp: "2024-08-19T15:45:00Z",
-				},
-				{
-					id: 3,
-					author: "Alice Johnson",
-					content:
-						"Thanks for sharing this! The tips you provided are very useful for my project.",
-					timestamp: "2024-08-19T16:22:00Z",
-				},
-			],
-		},
-
-		{
-			type: "Tricks & Tips",
-			src: "https://images.pexels.com/photos/1843768/pexels-photo-1843768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-			title: "Rajli khani",
-			description:
-				"This is the first blog in the world that hasdiscription quia delectus ea quisquam molestiae sit nesciunt ducimus! Id galisum enim quo tenetur recusandae ea doloribus dolores rem omnis quia qui inventore natus. Non officiis vitae ab inventore soluta et invento.",
-			usersrc:
-				"https://madebydesignesia.com/themes/mindthera/images/testimonial/1.jpg",
-			username: "John Smith",
-			date: "10/12/2015",
-			comments: [
-				{
-					id: 1,
-					author: "Jane Doe",
-					content:
-						"This is a great post! I really enjoyed reading it and found the information very helpful.",
-					timestamp: "2024-08-19T14:32:00Z",
-				},
-				{
-					id: 2,
-					author: "John Smith",
-					content:
-						"I have a question about the third section. Could you provide more details on that?",
-					timestamp: "2024-08-19T15:45:00Z",
-				},
-				{
-					id: 3,
-					author: "Alice Johnson",
-					content:
-						"Thanks for sharing this! The tips you provided are very useful for my project.",
-					timestamp: "2024-08-19T16:22:00Z",
-				},
-			],
-		},
-		{
-			type: "Tricks & Tips",
-			src: "https://images.pexels.com/photos/1843768/pexels-photo-1843768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-			title: "Rajli khani",
-			description:
-				"This is the first blog in the world that hasdiscription quia delectus ea quisquam molestiae sit nesciunt ducimus! Id galisum enim quo tenetur recusandae ea doloribus dolores rem omnis quia qui inventore natus. Non officiis vitae ab inventore soluta et invento.",
-			usersrc:
-				"https://madebydesignesia.com/themes/mindthera/images/testimonial/1.jpg",
-			username: "John Smith",
-			date: "10/12/2015",
-			comments: [
-				{
-					id: 1,
-					author: "Jane Doe",
-					content:
-						"This is a great post! I really enjoyed reading it and found the information very helpful.",
-					timestamp: "2024-08-19T14:32:00Z",
-				},
-				{
-					id: 2,
-					author: "John Smith",
-					content:
-						"I have a question about the third section. Could you provide more details on that?",
-					timestamp: "2024-08-19T15:45:00Z",
-				},
-				{
-					id: 3,
-					author: "Alice Johnson",
-					content:
-						"Thanks for sharing this! The tips you provided are very useful for my project.",
-					timestamp: "2024-08-19T16:22:00Z",
-				},
-			],
-		},
-	];
+	
 	const truncateText = (text, wordLimit) => {
 		const words = text.split(" ");
 		if (words.length > wordLimit) {
@@ -149,6 +13,23 @@ function page() {
 		}
 		return text;
 	};
+	const [blogs, setBlogs] = useState([]);
+
+	useEffect(() => {
+	  const fetchBlogs = async () => {
+		try {
+		  const response = await axios.get('https://sociosolution-api.vercel.app/blogs');
+		  setBlogs(response.data);
+		  
+		} catch (error) {
+		  console.error('Error fetching blogs:', error);
+		}
+	  };
+  
+	  fetchBlogs();
+	}, []);
+	
+	
 	return (
 		<>
 			<div
@@ -223,12 +104,14 @@ function page() {
 					</ol>
 				</div>
 			</div>
-
+{ blogs.length <0 ? (
+<p className="text-5xl">no blogs for now</p>
+):(
 			<div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 lg:p-28">
 				{blogs.map((blog, index) => (
 					<div key={index} className="">
 						<div>
-							<a href="/blog/2" className="block relative no-underline">
+							<a href={`/blog/${blog._id}`} className="block relative no-underline">
 								<div className="relative">
 									<span className="absolute top-3 right-2 leading-4 bg-[#ffb7cec6] rounded-md text-sm text-white p-2 uppercase">
 										{blog.type}
@@ -277,11 +160,10 @@ function page() {
 					</div>
 				))}
 			</div>
-			<div className="grid grid-cols-1 lg:grid-cols-[1fr,2fr] gap-4 items-center p-4">
-				<div className="hidden lg:block py-5 px-9">
-					<img className="rounded-md" src="https://images.unsplash.com/photo-1483546363825-7ebf25fb7513?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-				</div>
-				<div className="col-span-1 lg:col-span-1">
+			)}
+			<div className=" items-center p-4">
+		
+				<div className="">
 				<div className=" flex flex-col justify-center text-center items-center p-6 rounded-lg ">
   <h2 className="text-5xl font-eduVic font-semibold mb-4">Share Your Story</h2>
   <p className="text-secondary font-jost ">
