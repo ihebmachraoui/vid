@@ -16,11 +16,12 @@ const Navbar = () => {
 
   const links = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "#about" },
-    { name: "Study Case", href: "#studycase" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
+    { name: "About Us", href: "/about" },
+    { name: "Study Case", href: "/studycase" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
+  
 
   const pathname = usePathname()
 
