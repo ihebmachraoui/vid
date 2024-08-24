@@ -12,35 +12,34 @@ function page() {
 	const [blogs, setBlogs] = useState([]);
 	useEffect(() => {
 		const fetchBlog = async () => {
-			try {
-				const response = await axios.get(
-					`https://sociosolution-api.vercel.app/blogs/${blogId}`,
-				);
-				setBlog(response.data);
-				console.log(response.data);
-			} catch (err) {
-				setError("Failed to fetch blog data.");
-			}
+		  try {
+			const response = await axios.get(
+			  `https://sociosolution-api.vercel.app/blogs/${blogId}`,
+			);
+			setBlog(response.data);
+			console.log(response.data);
+		  } catch (err) {
+			setError("Failed to fetch blog data.");
+		  }
 		};
-
+	
 		const fetchBlogs = async () => {
-			try {
-				const response = await axios.post(
-					"https://sociosolution-api.vercel.app/blogs/limited",
-					{ excludeId: blogId },
-				);
-				setBlogs(response.data);
-			} catch (err) {
-				setError("Error fetching blogs.");
-			}
+		  try {
+			const response = await axios.post(
+			  'https://sociosolution-api.vercel.app/blogs/limited',
+			  { excludeId: blogId }
+			);
+			setBlogs(response.data);
+		  } catch (err) {
+			setError('Error fetching blogs.');
+		  }
 		};
-
+	
 		if (blogId) {
-			fetchBlog(); // Fetch the single blog by ID
-			fetchBlogs(); // Fetch other blogs excluding the current one
+		  fetchBlog();  // Fetch the single blog by ID
+		  fetchBlogs(); // Fetch other blogs excluding the current one
 		}
-	}, [blogId]);
-
+	  }, [blogId]);
 	if (error) {
 		return <p>{error}</p>;
 	}
@@ -150,6 +149,7 @@ function page() {
 		);
 	}
 
+
 	return (
 		<>
 			<div
@@ -258,27 +258,28 @@ function page() {
 							{blog.title}
 						</h1>
 						<div className="relative">
-							<span className="absolute top-3 right-2 leading-4 bg-[#ffb7cec6] rounded-md text-sm text-white p-2 uppercase">
+						<span className="absolute top-3 right-2 leading-4 bg-[#ffb7cec6] rounded-md text-sm text-white p-2 uppercase">
 								{blog.type}
 							</span>
-							<img
-								src={blog.src}
-								className="w-full h-96 object-cover rounded-lg"
-								alt="details"
-							/>
+						<img
+							src={blog.src}
+							className="w-full h-96 object-cover rounded-lg"
+							alt="details"
+						/>
 						</div>
 						<p className="pt-4 text-xl font-sans font-semibold tracking-wide">
 							{blog.description}
 						</p>
 						<div className="flex items-center justify-between pt-2">
-							<div className="flex">
-								<img
-									src={blog.usersrc}
-									alt="Image"
-									className="h-7 w-7 ml-2 rounded-full object-cover"
-								/>
-								<p className="text-third font-semibold ml-1">{blog.username}</p>
-							</div>
+						<div className="flex">
+
+							<img
+								src={blog.usersrc}
+								alt="Image"
+								className="h-7 w-7 ml-2 rounded-full object-cover"
+							/>
+							<p className="text-third font-semibold ml-1">{blog.username}</p>
+						</div>
 							<div className="flex ml-5">
 								<svg
 									className="w-[20px] h-[20px] fill-[#648d79] ml-2 mr-1"
@@ -403,14 +404,16 @@ function page() {
 						</form>
 					</div>
 				</div>
-				<div className="col-span-1 p-4">
-					<h1 className="text-xl font-semibold py-4">Recent Posts</h1>
-					{blogs.length > 0 ? (
-						blogs.map((blog) => <Recent key={blog._id} blog={blog} />)
-					) : (
-						<p>No recent posts available.</p>
-					)}
-				</div>
+   <div className="col-span-1 p-4">
+        <h1 className="text-xl font-semibold py-4">Recent Posts</h1>
+        {blogs.length > 0 ? (
+          blogs.map((blog) => (
+            <Recent key={blog._id} blog={blog} />
+          ))
+        ) : (
+          <p>No recent posts available.</p>
+        )}
+      </div>
 			</div>
 		</>
 	);

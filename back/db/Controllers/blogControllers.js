@@ -45,9 +45,11 @@ const getBlogs = async (req, res) => {
 
     // Build the query
     const query = excludeId ? { _id: { $ne: excludeId } } : {};
-
+ 
     const blogs = await Blog.find(query).limit(limit);
-
+   console.log('====================================');
+    console.log(blogs );
+    console.log('====================================');
     res.status(200).json(blogs);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching blogs', error });
