@@ -1,11 +1,12 @@
 import React from "react";
 
-function recent({ blog }) {
+function Recent({ blog }) {
+
 	return (
 		<div className="flex py-4">
 			<img
-				src="https://plus.unsplash.com/premium_photo-1661963177932-bfd09e514cc5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-				className="h-24 rounded-lg"
+				src={blog.src}
+				className="h-24 w-24 object-cover rounded-lg"
 				alt="recent"
 			/>
 			<div className="flex  flex-col ml-2">
@@ -35,4 +36,4 @@ function recent({ blog }) {
 	);
 }
 
-export default recent;
+export default Recent;
