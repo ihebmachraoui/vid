@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const studentRoutes = require('../db/Routes/studentRoutes');
+const blogRoutes = require('../db/Routes/blogRoutes.js');
 const connectDatabase = require('../db/config.js'); // Import your database connection function
 
 // Connect to the database
@@ -15,6 +16,7 @@ app.use(bodyParser.json()); // Parse JSON requests
 // Use the student routes
 
 app.use('/', studentRoutes);
+app.use('/', blogRoutes);
 
 // Create an HTTP server and attach the Express app
 const server = http.createServer(app);

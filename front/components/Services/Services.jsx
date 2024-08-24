@@ -24,8 +24,8 @@ export default function Preview() {
     <section className="relative max-w-screen-2xl mx-auto w-full px-3 sm:px-8 lg:px-16 xl:px-32">
         <img
         src={images.FlowerTop.src}
-        alt=""
-        className="absolute top-0 left-0 w-32 lg:w-[30%]"
+        alt="flower top"
+        className="absolute top-0 left-0 w-32 lg:w-96"
       />
       <div className="flex flex-col items-center pt-24">
         <span className="rounded-full text-black font-semibold px-3 mb-2 bg-[#e1ffd4] py-2 text-center">
