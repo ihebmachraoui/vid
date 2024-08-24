@@ -6,11 +6,19 @@ import { useParams } from "next/navigation";
 import "./styles.css";
 import Recent from "./Recent";
 function page() {
-	const { blogId } = useParams(); // Get the blogId from the URL
 	const [blog, setBlog] = useState(false);
 	const [error, setError] = useState(null);
 	const [blogs, setBlogs] = useState([]);
 	useEffect(() => {
+		if (typeof window !== 'undefined') { 
+			const url = new URL(window.location.href);
+			const blogId = url.searchParams.get('blogId');
+	  
+			if (!blogId) {
+			  setError('Blog ID is missing.');
+			  return;
+			}
+		}
 		const fetchBlog = async () => {
 		  try {
 			const response = await axios.get(
