@@ -37,8 +37,26 @@ const createBlog = async (req, res) => {
   }
 };
 
+// Get 3 blogs at a time, excluding a specific blog by ID
+const getBlogs = async (req, res) => {
+  try {
+    const { excludeId } = req.body; // ID to exclude is now in the request body
+    const limit = 3;
+
+    // Build the query
+    const query = excludeId ? { _id: { $ne: excludeId } } : {};
+
+    const blogs = await Blog.find(query).limit(limit);
+
+    res.status(200).json(blogs);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching blogs', error });
+  }
+};
+
 module.exports = {
   getAllBlogs,
+  getBlogs,
   getSingleBlog,
   createBlog,
 };
