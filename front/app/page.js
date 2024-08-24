@@ -6,7 +6,7 @@ import Services from '../components/Services/Services';
 import dynamic from 'next/dynamic';
 
 const DynamicCarousel = dynamic(() => import('../components/Carousel/Carousel'), {
-  ssr: false, // This disables server-side rendering for the component
+  ssr: false,
 });
 
 export default function Home() {
