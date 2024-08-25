@@ -1,56 +1,63 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import "./styles.css";
 import Recent from "./Recent";
+
 function page() {
-	const [blog, setBlog] = useState(false);
-	const [error, setError] = useState(null);
-	const [blogs, setBlogs] = useState([]);
-	useEffect(() => {
-		if (typeof window !== 'undefined') { 
-			const url = new URL(window.location.href);
-			const blogId = url.searchParams.get('blogId');
-	  
-			if (!blogId) {
-			  setError('Blog ID is missing.');
-			  return;
-			}
-		}
-		const fetchBlog = async () => {
-		  try {
-			const response = await axios.get(
-			  `https://sociosolution-api.vercel.app/blogs/${blogId}`,
-			);
-			setBlog(response.data);
-			console.log(response.data);
-		  } catch (err) {
-			setError("Failed to fetch blog data.");
-		  }
-		};
-	
-		const fetchBlogs = async () => {
-		  try {
-			const response = await axios.post(
-			  'https://sociosolution-api.vercel.app/blogs/limited',
-			  { excludeId: blogId }
-			);
-			setBlogs(response.data);
-		  } catch (err) {
-			setError('Error fetching blogs.');
-		  }
-		};
-	
-		if (blogId) {
-		  fetchBlog();  // Fetch the single blog by ID
-		  fetchBlogs(); // Fetch other blogs excluding the current one
-		}
-	  }, [blogId]);
-	if (error) {
-		return <p>{error}</p>;
-	}
+  const [blogId, setBlogId] = useState(null);
+  const [blog, setBlog] = useState(null);
+  const [error, setError] = useState(null);
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const pathname = window.location.pathname;
+      const segments = pathname.split("/");
+      const id = segments.pop();
+      setBlogId(id);
+
+      if (!id) {
+        alert("Blog ID is missing.");
+        return;
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const response = await axios.get(
+          `https://sociosolution-api.vercel.app/blogs/${blogId}`
+        );
+        setBlog(response.data);
+        console.log(response.data);
+      } catch (err) {
+        setError("Failed to fetch blog data.");
+      }
+    };
+
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.post(
+          "https://sociosolution-api.vercel.app/blogs/limited",
+          { excludeId: blogId }
+        );
+        setBlogs(response.data);
+      } catch (err) {
+        setError("Error fetching blogs.");
+      }
+    };
+
+    if (blogId) {
+      fetchBlog(); // Fetch the single blog by ID
+      fetchBlogs(); // Fetch other blogs excluding the current one
+    }
+  }, [blogId]);
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
 	if (!blog) {
 		return (
