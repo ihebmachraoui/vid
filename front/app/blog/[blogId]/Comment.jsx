@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Comment = ({blog}) => {
+const Comment = ({blog, settrack}) => {
   const [comment, setComment] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -13,7 +13,6 @@ const Comment = ({blog}) => {
     const commentData = {
       blogId: blog._id, // Set this dynamically based on your app
       comment: {
-        id: Date.now(), // Simple way to generate a unique ID, use a better method in production
         author: 'Nabbar', // Replace with dynamic user data if needed
         content: comment,
         timestamp: new Date().toISOString(),
@@ -24,10 +23,12 @@ const Comment = ({blog}) => {
 
     try {
       const response = await axios.post(
-        'https://sociosolution-api.vercel.app/blogs/update-comments',
+        'https://sociosolution-api.vercel.app/blogs/update-comment',
         commentData
       );
       setSuccess('Comment submitted successfully!');
+      settrack(Math.random());
+
       setComment(''); // Clear the textarea
     } catch (err) {
       setError('Error submitting comment.',err.message); 
