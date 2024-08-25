@@ -2,6 +2,7 @@ import Button from "../../constants/Button/Button";
 import * as images from '../../assets/index'
 function BgCard({ headline, content, buttonHref, buttonText, imageSrc }) {
   return (
+    <>
     <div className="flex max-w-md flex-col items-start gap-4 overflow-hidden rounded-2xl border border-slate-200">
       <div
         className="flex w-full items-center h-72 justify-center bg-cover bg-center bg-no-repeat"
@@ -10,19 +11,17 @@ function BgCard({ headline, content, buttonHref, buttonText, imageSrc }) {
       <div className="flex flex-col items-start gap-3 px-4 py-4">
         <p className="text-xl font-semibold tracking-tight">{headline}</p>
         <p className="text-sm text-slate-500">{content}</p>
-        <Button
-          href={buttonHref}
-          text={buttonText}
-          className="w-full text-center self-end p-0"
-        />
+      
       </div>
     </div>
+      
+      </>
   );
 }
 
 export default function Preview() {
   return (
-    <section className="relative max-w-screen-2xl m-auto w-full px-3 sm:px-8 lg:px-16 xl:px-32">
+    <section className="relative max-w-screen-2xl mx-auto w-full px-3 sm:px-8 lg:px-16 xl:px-32">
         <img
         src={images.FlowerTop.src}
         alt="flower top"
@@ -42,47 +41,26 @@ export default function Preview() {
           <BgCard
             headline="Career Counseling"
             content="Another description of a Service with a Read More."
-            buttonHref="#"
-            buttonText="This is button"
+           
             imageSrc="https://images.pexels.com/photos/4491461/pexels-photo-4491461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           />
           <BgCard
             headline="Individual Therapy"
             content="Another description of a Service with a Read More."
-            buttonHref="#"
-            buttonText="Learn More"
-            imageSrc="https://madebydesignesia.com/themes/mindthera/images/services/1.webp"
+           imageSrc="https://madebydesignesia.com/themes/mindthera/images/services/1.webp"
           />
           <BgCard
             headline="Depression Therapy"
             content="Another description of a Service with a Read More."
-            buttonHref="#"
-            buttonText="Get Started"
             imageSrc="https://madebydesignesia.com/themes/mindthera/images/services/6.webp"
           />
 
-          <BgCard
-            headline="Stress management"
-            content="Another description of a Service with a Read More."
-            buttonHref="#"
-            buttonText="This is button"
-            imageSrc="https://madebydesignesia.com/themes/mindthera/images/services/4.webp"
-          />
-          <BgCard
-            headline="Anxiety Treatment"
-            content="Another description of a Service with a Read More."
-            buttonHref="#"
-            buttonText="Learn More"
-            imageSrc="https://madebydesignesia.com/themes/mindthera/images/services/5.webp"
-          />
-          <BgCard
-            headline="Couples Counseling"
-            content="Another description of a Service with a Read More."
-            buttonHref="#"
-            buttonText="Get Started"
-            imageSrc="https://madebydesignesia.com/themes/mindthera/images/services/2.webp"
-          />
+          
         </div>
+      </div>
+      <div className="flex mx-auto justify-center">
+
+        <Button href="/services" text="Show More" />
       </div>
     </section>
   );
