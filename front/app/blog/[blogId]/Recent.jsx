@@ -1,16 +1,26 @@
 import React from "react";
 
 function Recent({ blog }) {
-
+	const truncateText = (text = "", wordLimit) => {
+		const words = text.split(" ");
+		if (words.length > wordLimit) {
+		  return words.slice(0, wordLimit).join(" ") + "...";
+		}
+		return text;
+	  };
 	return (
 		<div className="flex py-4">
+			
 			<img
 				src={blog.src}
 				className="h-24 w-24 object-cover rounded-lg"
 				alt="recent"
 			/>
 			<div className="flex  flex-col ml-2">
-				<h1 className="font-light text-xl">{blog.title}</h1>
+			<a href={`/blog/${blog._id}`}>
+
+				<h1 className="font-light text-xl">{truncateText(blog.title,6)}</h1>
+				</a>
 				<div className="flex   pt-2">
 					<div className="flex">
 						<svg
