@@ -77,7 +77,6 @@ function Page() {
             <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
               People's Stories
             </h2>
-
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
               Filter :
               {categories.map((category, index) => (

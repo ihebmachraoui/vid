@@ -1,5 +1,50 @@
 const mongoose = require('mongoose');
 
+const replySchema = new mongoose.Schema({
+
+  author: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  },
+  timestamp: {
+    type: Date,
+    default: Date.now,
+    required: true
+  },
+  imageUrl: {
+    type: String
+  }
+});
+
+const commentSchema = new mongoose.Schema({
+
+  author: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  },
+  timestamp: {
+    type: Date,
+    default: Date.now,
+    required: true
+  },
+  imageUrl: {
+    type: String
+  },
+  canReply: {
+    type: Boolean,
+    default: true
+  },
+  replies: [replySchema] // Add replies as an array of replySchema
+});
+
 const blogSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -30,7 +75,7 @@ const blogSchema = new mongoose.Schema({
     required: true
   },
   comments: {
-    type: [String],
+    type: [commentSchema],
     default: []
   }
 });
