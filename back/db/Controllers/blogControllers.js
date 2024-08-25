@@ -60,10 +60,44 @@ const getBlogs = async (req, res) => {
   }
 };
 
+const updateComments = async (req, res) => {
+  try {
+    const { blogId, comment, replyToCommentId } = req.body;
 
+    // Find the blog by ID
+    const blog = await Blog.findById(blogId);
+
+    if (!blog) {
+      return res.status(404).json({ message: 'Blog not found' });
+    }
+
+    if (replyToCommentId) {
+      // Find the comment to reply to
+      const commentToReplyTo = blog.comments.id(replyToCommentId);
+
+      if (!commentToReplyTo) {
+        return res.status(404).json({ message: 'Comment to reply to not found' });
+      }
+
+      // Add the new reply to the comment's replies array
+      commentToReplyTo.replies.push(comment);
+    } else {
+      // Add the new comment to the comments array
+      blog.comments.push(comment);
+    }
+
+    // Save the updated blog
+    await blog.save();
+
+    res.status(200).json({ message: 'Comment or reply added successfully', blog });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating comments', error });
+  }
+};
 module.exports = {
   getAllBlogs,
   getBlogs,
   getSingleBlog,
   createBlog,
+  updateComments
 };
