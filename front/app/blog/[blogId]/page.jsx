@@ -9,6 +9,7 @@ function page() {
 	const [blog, setBlog] = useState(null);
 	const [error, setError] = useState(null);
 	const [blogs, setBlogs] = useState([]);
+	const [track,settrack] =useState(null);
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
@@ -25,6 +26,7 @@ function page() {
 	}, []);
 
 	useEffect(() => {
+		console.log(track)
 		const fetchBlog = async () => {
 			try {
 				const response = await axios.get(
@@ -53,7 +55,7 @@ function page() {
 			fetchBlog(); // Fetch the single blog by ID
 			fetchBlogs(); // Fetch other blogs excluding the current one
 		}
-	}, [blogId]);
+	}, [blogId,track]);
 
 	if (error) {
 		return <p>{error}</p>;
@@ -267,7 +269,7 @@ function page() {
 
 			<div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:p-24 pt-5">
 {/* Blog details */}
-<BlogDetails blog={blog}/>
+<BlogDetails blog={blog} settrack={settrack}/>
 {/* End */}
 				{/* The recent section  */}
 				<div className="col-span-1 p-4">

@@ -1,6 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import moment from 'moment';
+import axios from "axios";
 import Comment from "./Comment";
-function BlogDetails({ blog }) {
+function BlogDetails({ blog , settrack}) {
+	const [isReplying, setIsReplying] = useState(false);
+	const [replyText, setReplyText] = useState("");
+	const [idclicked, setIdclicked] = useState("");
+	const [error, setError] = useState("");
+	const handleReplyClick = (id) => {
+		setIdclicked(id);
+		setIsReplying(!isReplying);
+	};
+
+	const handleReplyChange = (e) => {
+		setReplyText(e.target.value);
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		// Prepare reply data
+		const replyData = {
+			blogId: blog._id, // Blog ID dynamically set
+			comment: {
+				author: "Nabbar", // Replace with dynamic user data if needed
+				content: replyText, // Reply content
+				timestamp: new Date().toISOString(),
+				imageUrl:
+					"https://i.pinimg.com/474x/16/3c/d4/163cd47627e3599a752c4815c62442c9.jpg", // Add image URL if needed
+			},
+			replyToCommentId: idclicked, // ID of the comment being replied to
+		};
+
+		try {
+			const response = await axios.post(
+				"https://sociosolution-api.vercel.app/blogs/update-comment",
+				replyData,
+			);
+            setIsReplying(false)
+			setReplyText(""); // Clear the textarea
+		} catch (err) {
+			setError(`Error submitting reply: ${err.message}`);
+		}
+	};
+
 	return (
 		<div className="col-span-1 lg:col-span-2  p-4">
 			<div className="lg:px-14">
@@ -45,61 +88,97 @@ function BlogDetails({ blog }) {
 					Comments ({blog.comments?.length || 0})
 				</h1>
 				<hr className="font-extrabold mt-2 border-2 border-gray-300" />
-				{blog.comments && blog.comments.length > 0 && (
-					<div className="py-5 flex">
-						<img
-							src={blog.comments[0]?.imageurl}
-							className="w-full h-56 object-cover  rounded-lg"
-							alt="comment user"
-						/>
-						<div className="px-4">
-							<h1 className="text-third font-semibold">
-								{blog.comments[0]?.author}
-							</h1>
-							<span className="text-xs text-[#5ece60] border-r-4 px-2 border-[#5ece60c1]">
-								85days
-							</span>
-							<span className="text-xs text-[#46bb48] px-2 cursor-pointer">
-								Reply
-							</span>
-							<p className="text-gray-700 pb-2">{blog.comments[0].content}</p>
+				{blog.comments &&
+					blog.comments.length > 0 &&
+					blog.comments.map((comment) => (
+						<div key={comment._id} className="py-5 flex">
+							<img
+								src={comment.imageUrl}
+								className="h-16 w-16 object-cover rounded-full"
+								alt={`comment by ${comment.author}`}
+							/>
 
-							<hr />
+							<div className="px-4">
+								<h1 className="text-third font-semibold">{comment.author}</h1>
+								<span className="text-xs text-[#5ece60] border-r-4 px-2 border-[#5ece60c1]">
+									{moment(comment.timestamp).fromNow()}{" "}
+									{/* Format timestamp as needed */}
+								</span>
+								{comment.canReply && (
+									<>
+										<span
+											className="text-xs text-[#46bb48] px-2 cursor-pointer"
+											onClick={() => handleReplyClick(comment._id)} // Pass function reference, not result
+										>
+											{isReplying && comment._id === idclicked
+												? "Cancel"
+												: "Reply"}
+										</span>
+										{isReplying && comment._id === idclicked && (
+											<div className="mt-2">
+												<textarea
+													className="w-full p-2 border border-gray-300 rounded"
+													rows="3"
+													value={replyText}
+													onChange={handleReplyChange}
+													placeholder="Type your reply..."
+												/>
+												<button
+													className="mt-2 px-4 py-2 bg-[#46bb48] text-white rounded"
+													onClick={handleSubmit}>
+													Submit
+												</button>
+											</div>
+										)}
+									</>
+								)}
+								<p className="text-gray-700 pb-2">{comment.content}</p>
+								{comment.replies && comment.replies.length > 0 && (
+									<div className="pl-4 border-l-2 border-gray-300" >
+										{comment.replies.map((reply) => (
+											<div key={reply.id}>
+												<div className="py-5 flex">
+													<img
+														src={reply.imageUrl}
+														className="h-16 w-16 object-cover rounded-full"
+														alt={`reply by ${reply.author}`}
+													/>
 
-							{/* <div className="block pt-2">
-                        <div className="flex">
-                            <img
-                                src={blog?.comments[2]?.authorsrc}
-                                className="h-14 rounded-lg"
-                                alt="comment user"
-                            />
-                            <div className="px-4">
-                                <h1 className="text-third font-semibold">
-                                    {blog.comments[2]?.author}
-                                </h1>
-                                <span className="text-xs text-[#5ece60] border-r-4 px-2 border-[#5ece60c1]">
-                                    85days
-                                </span>
-                                <span className="text-xs text-[#46bb48] px-2 cursor-pointer">
-                                    Reply
-                                </span>
-                            </div>
-                        </div>
+													<div className="px-4">
+														<h1 className="text-third font-semibold">
+															{reply.author}
+														</h1>
+														<span className="text-xs text-[#5ece60] border-r-4 px-2 border-[#5ece60c1]">
+															{moment(reply.timestamp).fromNow()}{" "}
+															{/* Format timestamp as needed */}
+														</span>
+														{reply.canReply && (
+															<span className="text-xs text-[#46bb48] px-2 cursor-pointer">
+																Reply
+															</span>
+														)}
+														<p className="text-gray-700 pb-2">
+															{reply.content}
+														</p>
 
-                        <p className="text-gray-700 py-2">
-                            {blog.comments[2].content}
-                        </p>
-                    </div> */}
+														<hr />
+													</div>
+												</div>
+											</div>
+										))}
+									</div>
+								)}
+								<hr />
+							</div>
 						</div>
-					</div>
-				)}
+					))}
 			</div>
 
 			{/* The comment section  */}
 			<h1 className="text-xl font-semibold py-2  lg:pt-10 lg:pl-12 ">
 				Leave a comment
 			</h1>
-			<Comment blog={blog} />
+			<Comment blog={blog} settrack={settrack}/>
 			{/* End */}
 		</div>
 	);
