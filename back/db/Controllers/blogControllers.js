@@ -43,18 +43,23 @@ const getBlogs = async (req, res) => {
     const { excludeId } = req.body; // ID to exclude is now in the request body
     const limit = 3;
 
-    // Build the query
-    const query = excludeId ? { _id: { $ne: excludeId } } : {};
- 
-    const blogs = await Blog.find(query).limit(limit);
-   console.log('====================================');
-    console.log(blogs );
-    console.log('====================================');
+    // Build the query for excluding the specified ID
+    const matchQuery = excludeId ? { _id: { $ne: excludeId } } : {};
+
+    // Use aggregation to randomly select blogs
+    const blogs = await Blog.aggregate([
+      { $match: matchQuery },
+      { $sample: { size: limit } } // Randomly sample 3 blogs
+    ]);
+
+
+    
     res.status(200).json(blogs);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching blogs', error });
   }
 };
+
 
 module.exports = {
   getAllBlogs,
