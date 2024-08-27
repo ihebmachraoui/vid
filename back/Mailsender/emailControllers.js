@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 // Send email function
 const sender = async (req, res) => {
   const { to, subject, html } = req.body;
-console.log("aaaaaé");
+
 
 
   // Validate the incoming data

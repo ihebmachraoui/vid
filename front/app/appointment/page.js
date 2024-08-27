@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../../constants/Button/Button";
 import * as images from "../../assets/index";
 import Form from "./Form";
-import  axios  from 'axios';
+import axios from "axios";
 import Link from "next/link";
 
 function page() {
@@ -21,10 +21,6 @@ function page() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 
-
-
-
-
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target;
 		setFormData({
@@ -35,113 +31,118 @@ function page() {
 	const validateFormData = (data) => {
 		// Check if any required fields are empty
 		return (
-		  data.firstName.trim() !== "" &&
-		  data.lastName.trim() !== "" &&
-		  data.phoneNumber.trim() !== "" &&
-		  data.email.trim() !== "" &&
-		  data.age.trim() !== "" &&
-		  data.date.trim() !== "" &&
-		  data.time.trim() !== "" &&
-		  data.consultation.trim() !== ""
+			data.firstName.trim() !== "" &&
+			data.lastName.trim() !== "" &&
+			data.phoneNumber.trim() !== "" &&
+			data.email.trim() !== "" &&
+			data.age.trim() !== "" &&
+			data.date.trim() !== "" &&
+			data.time.trim() !== "" &&
+			data.consultation.trim() !== ""
 		);
-	  };
-	  
-	  const onSubmit = async () => {
+	};
+
+	const onSubmit = async () => {
 		// Validate form data
 		if (!validateFormData(formData)) {
-		  alert("Please fill out all required fields.");
-		  return; // Stop further execution if validation fails
+			alert("Please fill out all required fields.");
+			return; // Stop further execution if validation fails
 		}
-	  
+	
+		// Open the modal and show loading
 		setIsOpen(!isOpen);
 		setIsLoading(true);
-	  
+	
 		
-		  await sendEmail();
-		  
-		
-		  		  // Simulate loading time
-		  setTimeout(() => {
-			setIsLoading(false);
-		  }, 1000); // Change the time as needed
-		
-	  };
-	  
-	  
+			// Send the form data to the backend
+			const response = await axios.post('http://127.0.0.1:3100/appointment', formData);
+			
+			if (response.status === 200) {
+				// Email sending
+				
+				
+				await sendEmail(response.data._id);
+	
+				// Simulate loading time
+				setTimeout(() => {
+					setIsLoading(false);
+					alert("Appointment successfully created!");
+					// Optionally reset the form after submission
+					setFormData({
+						firstName: "",
+						lastName: "",
+						phoneNumber: "",
+						email: "",
+						age: "",
+						date: "",
+						time: "",
+						consultation: "",
+						urgent: "no",
+					});
+				}, 1000); // Adjust the time as needed
+			} else {
+				alert("Failed to create an appointment. Please try again.");
+				setIsLoading(false);
+			}
+		 
+	}
 
-	const sendEmail = async () => {
-		const timenow =new Date().getFullYear()
+	const sendEmail = async (id) => {
+		const timenow = new Date().getFullYear();
 		const emailContent = `
-		  			<section className="max-w-2xl px-6 py-8 mx-auto bg-white dark:bg-gray-900">
-				<header>
-					<a href="http://sociosolution.vercel.app/" target="_blank">
-						<img className="w-auto h-12 sm:h-14" src="https://sociosolution.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo.248c666a.png&w=256&q=75" alt="" />
-					</a>
-				</header>
+				<section className="container">
+					<header>
+						<a href="http://sociosolution.vercel.app/" target="_blank">
+						<img className="logo" src="https://sociosolution.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo.248c666a.png&w=256&q=75" alt="" />
+						</a>
+					</header>
 
-				<main className="mt-8">
-					<h2 className="text-gray-700 dark:text-gray-200">Hi ${formData.firstName},</h2>
+				<main className="content">
+					<h2 className="greeting">Hi ${formData.firstName},</h2>
 
-					<p className="mt-2 leading-loose text-gray-600 dark:text-gray-300">
-						You have succefully deployed your request ,
-						Continue to the payment to get in touch with our {" "}
-						<span className="font-semibold ">SociAlly Expert</span>.
+					<p className="message">
+					You have successfully deployed your request. Continue to the payment to get in touch with our
+					<span className="highlight">SociAlly Expert</span>.
 					</p>
 
-					<button className="px-6 py-2 mt-4 text-sm font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-lg hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
-						Pay Online
-					</button>
-					
-					<p className="mt-8 text-gray-600 dark:text-gray-300">
-						Thanks For Trusting in, <br />
-						SociAlly team
+					<a href="https://sociosolution.vercel.app/request/${id}" target="_blank" className="pay-link">
+					Click To Pay
+					</a>
+
+					<p className="thank-you">
+					Thanks For Trusting in, <br />
+					SociAlly team
 					</p>
 				</main>
 
-				<footer className="mt-8">
-					<p className="text-gray-500 dark:text-gray-400">
-						This email was sent to{" "}
-						<a
-							href="#"
-							className="text-blue-600 hover:underline dark:text-blue-400"
-							target="_blank">
-							${formData.email}
-						</a>
-						. If you'd rather not receive this kind of email, you can{" "}
-						<a
-							href="#"
-							className="text-blue-600 hover:underline dark:text-blue-400">
-							unsubscribe
-						</a>{" "}
-						or{" "}
-						<a
-							href="#"
-							className="text-blue-600 hover:underline dark:text-blue-400">
-							manage your email preferences
-						</a>
-						.
-					</p>
-					<p className="mt-3 text-gray-500 dark:text-gray-400">
-						© ${timenow} SociAlly. All Rights Reserved.
-					</p>
-				</footer>
+			<footer className="footer">
+				<p className="email-info">
+				This email was sent to
+				<a href="#" className="email-link" target="_blank">${formData.email}</a>.
+				If you'd rather not receive this kind of email, you can
+				<a href="#" className="email-link">unsubscribe</a> or
+				<a href="#" className="email-link">manage your email preferences</a>.
+				</p>
+				<p className="copyright">
+				© ${timenow} SociAlly. All Rights Reserved.
+				</p>
+			</footer>
 			</section>
+
+
 		`;
-	
+
 		try {
-		  await axios.post('https://sociosolution-api.vercel.app/send-email', {
-			to: formData.email,
-			subject: 'Booking an appointment',
-			html: emailContent,
-		  });
-		  console.log('Email sent successfully');
+			await axios.post("https://sociosolution-api.vercel.app/send-email", {
+				to: formData.email,
+				subject: "Booking an appointment",
+				html: emailContent,
+			});
+			console.log("Email sent successfully");
 		} catch (error) {
-		  alert('Error sending email:', error.message);
+			alert("Error sending email:", error.message);
 		}
-	  };
-
-
-
+	};
 
 	return (
 		<>
@@ -235,17 +236,15 @@ function page() {
 											</p>
 										</div>
 										<div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-										<Link href="/">
-
-											
-											<button
-												onClick={() => setIsOpen(!isOpen)}
-												data-modal-hide="static-modal"
-												type="button"
-												className="text-white bg-primary hover:bg-[#599e54] focus:ring-4 focus:outline-none focus:ring-[#83cc61] font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#83cc61] dark:hover:bg-[#599e54] dark:focus:ring-[#83cc61]">
-												I Understand
-											</button>
-										</Link>
+											<Link href="/">
+												<button
+													onClick={() => setIsOpen(!isOpen)}
+													data-modal-hide="static-modal"
+													type="button"
+													className="text-white bg-primary hover:bg-[#599e54] focus:ring-4 focus:outline-none focus:ring-[#83cc61] font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#83cc61] dark:hover:bg-[#599e54] dark:focus:ring-[#83cc61]">
+													I Understand
+												</button>
+											</Link>
 										</div>
 									</div>
 								)}
@@ -254,7 +253,6 @@ function page() {
 					</div>
 				</>
 			)}
-
 		</>
 	);
 }

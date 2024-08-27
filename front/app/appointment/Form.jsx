@@ -3,19 +3,19 @@ import TooltipButton from "./../../constants/Tooltip/TooltopButton";
 
 function Form({ handleChange, formData , onSubmit}) {
 	return (
-		<div class="flex flex-col items-center lg:justify-center px-8 py-16 lg:py-8 lg:mx-40">
+		<div className="flex flex-col items-center lg:justify-center px-8 py-16 lg:py-8 lg:mx-40">
 			<div>
 				<h1 className="text-5xl font-jost mb-7">Step 1</h1>
 			</div>
-			<div class="mx-auto w-full ">
+			<div className="mx-auto w-full ">
 				<form className="block lg:flex lg:justify-between">
 					<div>
-						<div class="-mx-3 flex flex-wrap">
-							<div class="w-full px-3 sm:w-1/2">
-								<div class="mb-5">
+						<div className="-mx-3 flex flex-wrap">
+							<div className="w-full px-3 sm:w-1/2">
+								<div className="mb-5">
 									<label
-										for="fName"
-										class="mb-3 block text-base font-medium text-[#07074D]">
+										htmlFor="fName"
+										className="mb-3 block text-base font-medium text-[#07074D]">
 										First Name
 									</label>
 									<input
@@ -26,15 +26,15 @@ function Form({ handleChange, formData , onSubmit}) {
 										name="firstName"
 										id="fName"
 										placeholder="First Name"
-										class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e3e3e3] focus:shadow-md"
+										className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e3e3e3] focus:shadow-md"
 									/>
 								</div>
 							</div>
-							<div class="w-full px-3 sm:w-1/2">
-								<div class="mb-5">
+							<div className="w-full px-3 sm:w-1/2">
+								<div className="mb-5">
 									<label
-										for="lName"
-										class="mb-3 block text-base font-medium text-[#07074D]">
+										htmlFor="lName"
+										className="mb-3 block text-base font-medium text-[#07074D]">
 										Last Name
 									</label>
 									<input
@@ -44,17 +44,17 @@ function Form({ handleChange, formData , onSubmit}) {
 										name="lastName"
 										id="lName"
 										placeholder="Last Name"
-										class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+										className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
 									/>
 								</div>
 							</div>
 						</div>
-						<div class="-mx-3 flex flex-wrap">
-							<div class="w-full px-3 sm:w-1/2">
-								<div class="mb-5">
+						<div className="-mx-3 flex flex-wrap">
+							<div className="w-full px-3 sm:w-1/2">
+								<div className="mb-5">
 									<label
-										for="Number"
-										class="mb-3 block text-base font-medium text-[#07074D]">
+										htmlFor="Number"
+										className="mb-3 block text-base font-medium text-[#07074D]">
 										Phone Number
 									</label>
 									<input
@@ -65,15 +65,15 @@ function Form({ handleChange, formData , onSubmit}) {
 										name="phoneNumber"
 										id="Number"
 										placeholder="Phone Number"
-										class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e3e3e3] focus:shadow-md"
+										className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e3e3e3] focus:shadow-md"
 									/>
 								</div>
 							</div>
-							<div class="w-full px-3 sm:w-1/2">
-								<div class="mb-5">
+							<div className="w-full px-3 sm:w-1/2">
+								<div className="mb-5">
 									<label
-										for="age"
-										class="mb-3 block text-base font-medium text-[#07074D]">
+										htmlFor="age"
+										className="mb-3 block text-base font-medium text-[#07074D]">
 										Age
 									</label>
 									<input
@@ -84,18 +84,18 @@ function Form({ handleChange, formData , onSubmit}) {
 										id="age"
 										placeholder="Age"
 										min="0"
-										class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+										className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
 									/>
 								</div>
 							</div>
 						</div>
-						<div class="-mx-3">
-							<div class="w-full px-3">
-								<div class="mb-5">
+						<div className="-mx-3">
+							<div className="w-full px-3">
+								<div className="mb-5">
 									<div className="flex mb-3  items-center">
 										<label
-											for="Email"
-											class=" flex items-center text-base font-medium text-[#07074D]">
+											htmlFor="Email"
+											className=" flex items-center text-base font-medium text-[#07074D]">
 											Email
 										</label>
 									</div>
@@ -106,7 +106,7 @@ function Form({ handleChange, formData , onSubmit}) {
 										name="email"
 										id="Email"
 										placeholder="Email Address"
-										class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e3e3e3] focus:shadow-md"
+										className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e3e3e3] focus:shadow-md"
 									/>
 								</div>
 							</div>
@@ -114,12 +114,12 @@ function Form({ handleChange, formData , onSubmit}) {
 					</div>
 
 					<div>
-						<div class="-mx-3 flex flex-wrap">
-							<div class="w-full px-3 sm:w-1/2">
-								<div class="mb-5">
+						<div className="-mx-3 flex flex-wrap">
+							<div className="w-full px-3 sm:w-1/2">
+								<div className="mb-5">
 									<label
-										for="date"
-										class="mb-3 block text-base font-medium text-[#07074D]">
+										htmlFor="date"
+										className="mb-3 block text-base font-medium text-[#07074D]">
 										Date
 									</label>
 									<input
@@ -128,15 +128,15 @@ function Form({ handleChange, formData , onSubmit}) {
 										type="date"
 										name="date"
 										id="date"
-										class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+										className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
 									/>
 								</div>
 							</div>
-							<div class="w-full px-3 sm:w-1/2">
-								<div class="mb-5">
+							<div className="w-full px-3 sm:w-1/2">
+								<div className="mb-5">
 									<label
-										for="time"
-										class="mb-3 block text-base font-medium text-[#07074D]">
+										htmlFor="time"
+										className="mb-3 block text-base font-medium text-[#07074D]">
 										Time
 									</label>
 									<input
@@ -145,19 +145,19 @@ function Form({ handleChange, formData , onSubmit}) {
 										type="time"
 										name="time"
 										id="time"
-										class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+										className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
 									/>
 								</div>
 							</div>
 						</div>
 
-						<div class="-mx-3">
-							<div class="w-full px-3">
-								<div class="mb-5">
+						<div className="-mx-3">
+							<div className="w-full px-3">
+								<div className="mb-5">
 									<div className="flex mb-3  items-center">
 										<label
-											for="consultation"
-											class=" flex items-center text-base font-medium text-[#07074D]">
+											htmlFor="consultation"
+											className=" flex items-center text-base font-medium text-[#07074D]">
 											Why you want to consult
 										</label>
 										<TooltipButton className="" />
@@ -169,14 +169,14 @@ function Form({ handleChange, formData , onSubmit}) {
 										name="consultation"
 										id="consultation"
 										placeholder="Describe in two lines your issue"
-										class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e3e3e3] focus:shadow-md"
+										className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e3e3e3] focus:shadow-md"
 									/>
 								</div>
 							</div>
 						</div>
 
-						<div class="mb-5">
-							<label class="mb-3 block text-base font-medium text-[#07074D]">
+						<div className="mb-5">
+							<label className="mb-3 block text-base font-medium text-[#07074D]">
 								Do you consider your case Urgent ?
 							</label>
 							<div className="flex items-center space-x-6">
@@ -219,7 +219,7 @@ function Form({ handleChange, formData , onSubmit}) {
 				<div className="flex flex-col items-center">
 					
                     
-                    <button onClick={onSubmit} class="hover:shadow-form rounded-md bg-[#ffb7ce] py-3 px-8 text-center text-base font-semibold text-white outline-none">
+                    <button onClick={onSubmit} className="hover:shadow-form rounded-md bg-[#ffb7ce] py-3 px-8 text-center text-base font-semibold text-white outline-none">
 						Submit
 					</button>
 				</div>
