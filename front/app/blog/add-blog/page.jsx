@@ -97,20 +97,22 @@ function page() {
 			username: newToggle ? "Anonymous" : "Iheb Machraoui",
 		}));
 	};
- 
-    const createblog = async () => {
-  try {
-    const response = await axios.post('https://sociosolution-api.vercel.app/blogs', blog);
 
-    console.log('Blog created:', response.data);
-    // Redirect to /blogs using location.assign
-    location.assign('/blog');
-  } catch (error) {
-    console.error('Error creating blog:', error);
-    // Handle error (e.g., show an error message)
-  } 
-};
+	const createblog = async () => {
+		try {
+			const response = await axios.post(
+				"https://sociosolution-api.vercel.app/blogs",
+				blog,
+			);
 
+			console.log("Blog created:", response.data);
+			// Redirect to /blogs using location.assign
+			location.assign("/blog");
+		} catch (error) {
+			console.error("Error creating blog:", error);
+			// Handle error (e.g., show an error message)
+		}
+	};
 
 	return (
 		<>
@@ -212,6 +214,13 @@ function page() {
 					</ol>
 				</div>
 			</div>
+			<div>
+				<p className="mt-4 text-sm text-gray-600 leading-6 px-4 sm:px-12 sm:text-base sm:leading-8 lg:px-80 text-center">
+					Create a new blog Lorem ipsum dolor sit amet consectetur adipisicing
+					elit. Porro, amet voluptas voluptatem rerum, delectus impedit quos
+					dignissimos consequatur alias aperiam molestias.
+				</p>
+			</div>
 			<div className="grid grid-cols-3 gap-4 p-4 lg:p-20">
 				{/* First div */}
 				<div className="bg-gray-200 p-4 col-span-3 lg:col-span-2 lg:max-w-[600px] ">
@@ -250,7 +259,6 @@ function page() {
 							required
 							className="mt-1 block w-full text-sm text-gray-500 file:py-2 file:px-4 file:border file:border-gray-300 file:rounded-md file:text-sm file:font-medium file:bg-gray-100 hover:file:bg-gray-200"
 						/>
-
 					</div>
 					{/* Type Input */}
 					<div className="mb-4">
@@ -369,11 +377,14 @@ function page() {
 								{blog.comments.length}
 							</p>
 						</div>
-
 					</div>
-						<div className="flex justify-center py-5    ">
-							<Button onClick={createblog} text="Create" className="self-center" />
-						</div>
+					<div className="flex justify-center py-5    ">
+						<Button
+							onClick={createblog}
+							text="Create"
+							className="self-center"
+						/>
+					</div>
 				</div>
 			</div>
 		</>
