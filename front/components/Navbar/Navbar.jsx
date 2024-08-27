@@ -16,10 +16,10 @@ const Navbar = () => {
 
   const links = [
     { name: "Home", href: "/" },
+    { name: "Book Appointment", href: "/appointment" },
     { name: "About Us", href: "/about" },
     { name: "Study Case", href: "/studycase" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
   ];
   
 
@@ -150,7 +150,7 @@ const Navbar = () => {
             <ul className="flex flex-col p-4 space-y-4 md:hidden">
               {links.map((link, index) => (
                 <li key={index}>
-                  <Link href={link.href} passHref>
+                  <Link href={link.href} onClick={toggleMobileMenu}>
                     <span
                       className={`block mx-auto py-2 px-3 text-white hover:bg-gray-100 text-base text-center ${
                         link.active ? "text-white" : "text-gray-900"

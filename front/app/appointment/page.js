@@ -4,6 +4,8 @@ import Button from "../../constants/Button/Button";
 import * as images from "../../assets/index";
 import Form from "./Form";
 import  axios  from 'axios';
+import Link from "next/link";
+
 function page() {
 	const [formData, setFormData] = useState({
 		firstName: "",
@@ -70,56 +72,56 @@ function page() {
 	const sendEmail = async () => {
 		const timenow =new Date().getFullYear()
 		const emailContent = `
-		  			<section class="max-w-2xl px-6 py-8 mx-auto bg-white dark:bg-gray-900">
+		  			<section className="max-w-2xl px-6 py-8 mx-auto bg-white dark:bg-gray-900">
 				<header>
 					<a href="http://sociosolution.vercel.app/" target="_blank">
-						<img class="w-auto h-12 sm:h-14" src=${images.Logo.src} alt="" />
+						<img className="w-auto h-12 sm:h-14" src="https://sociosolution.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo.248c666a.png&w=256&q=75" alt="" />
 					</a>
 				</header>
 
-				<main class="mt-8">
-					<h2 class="text-gray-700 dark:text-gray-200">Hi {formData.firstName},</h2>
+				<main className="mt-8">
+					<h2 className="text-gray-700 dark:text-gray-200">Hi ${formData.firstName},</h2>
 
-					<p class="mt-2 leading-loose text-gray-600 dark:text-gray-300">
+					<p className="mt-2 leading-loose text-gray-600 dark:text-gray-300">
 						You have succefully deployed your request ,
 						Continue to the payment to get in touch with our {" "}
-						<span class="font-semibold ">SociAlly Expert</span>.
+						<span className="font-semibold ">SociAlly Expert</span>.
 					</p>
 
-					<button class="px-6 py-2 mt-4 text-sm font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-lg hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
+					<button className="px-6 py-2 mt-4 text-sm font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-lg hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
 						Pay Online
 					</button>
 					
-					<p class="mt-8 text-gray-600 dark:text-gray-300">
+					<p className="mt-8 text-gray-600 dark:text-gray-300">
 						Thanks For Trusting in, <br />
 						SociAlly team
 					</p>
 				</main>
 
-				<footer class="mt-8">
-					<p class="text-gray-500 dark:text-gray-400">
+				<footer className="mt-8">
+					<p className="text-gray-500 dark:text-gray-400">
 						This email was sent to{" "}
 						<a
 							href="#"
-							class="text-blue-600 hover:underline dark:text-blue-400"
+							className="text-blue-600 hover:underline dark:text-blue-400"
 							target="_blank">
 							${formData.email}
 						</a>
 						. If you'd rather not receive this kind of email, you can{" "}
 						<a
 							href="#"
-							class="text-blue-600 hover:underline dark:text-blue-400">
+							className="text-blue-600 hover:underline dark:text-blue-400">
 							unsubscribe
 						</a>{" "}
 						or{" "}
 						<a
 							href="#"
-							class="text-blue-600 hover:underline dark:text-blue-400">
+							className="text-blue-600 hover:underline dark:text-blue-400">
 							manage your email preferences
 						</a>
 						.
 					</p>
-					<p class="mt-3 text-gray-500 dark:text-gray-400">
+					<p className="mt-3 text-gray-500 dark:text-gray-400">
 						© ${timenow} SociAlly. All Rights Reserved.
 					</p>
 				</footer>
@@ -178,12 +180,12 @@ function page() {
 					<div className="fixed inset-0 z-50 flex items-center justify-center">
 						<div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
 						<div className="relative bg-white rounded-lg shadow-lg p-6 w-full max-w-md mx-auto">
-							<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+							<div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
 								{isLoading ? (
 									<div role="status" className="text-center">
 										<svg
 											aria-hidden="true"
-											class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-pink-600"
+											className="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-pink-600"
 											viewBox="0 0 100 101"
 											fill="none"
 											xmlns="http://www.w3.org/2000/svg">
@@ -196,21 +198,21 @@ function page() {
 												fill="currentFill"
 											/>
 										</svg>
-										<span class="sr-only">Loading...</span>
+										<span className="sr-only">Loading...</span>
 									</div>
 								) : (
 									<div>
-										<div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-											<h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+										<div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+											<h3 className="text-xl font-semibold text-gray-900 dark:text-white">
 												Request Sent
 											</h3>
 											<button
 												onClick={() => setIsOpen(!isOpen)}
 												type="button"
-												class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+												className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
 												data-modal-hide="static-modal">
 												<svg
-													class="w-3 h-3"
+													className="w-3 h-3"
 													aria-hidden="true"
 													xmlns="http://www.w3.org/2000/svg"
 													fill="none"
@@ -223,23 +225,27 @@ function page() {
 														d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
 													/>
 												</svg>
-												<span class="sr-only">Close modal</span>
+												<span className="sr-only">Close modal</span>
 											</button>
 										</div>
-										<div class="p-4 md:p-5 space-y-4">
-											<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+										<div className="p-4 md:p-5 space-y-4">
+											<p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
 												An email has been sent to your address. Your request
 												will be pre-examined, and the first step is done now.
 											</p>
 										</div>
-										<div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+										<div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+										<Link href="/">
+
+											
 											<button
 												onClick={() => setIsOpen(!isOpen)}
 												data-modal-hide="static-modal"
 												type="button"
-												class="text-white bg-primary hover:bg-[#599e54] focus:ring-4 focus:outline-none focus:ring-[#83cc61] font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#83cc61] dark:hover:bg-[#599e54] dark:focus:ring-[#83cc61]">
+												className="text-white bg-primary hover:bg-[#599e54] focus:ring-4 focus:outline-none focus:ring-[#83cc61] font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#83cc61] dark:hover:bg-[#599e54] dark:focus:ring-[#83cc61]">
 												I Understand
 											</button>
+										</Link>
 										</div>
 									</div>
 								)}

@@ -217,7 +217,9 @@ function Form({ handleChange, formData , onSubmit}) {
 					</div>
 				</form>
 				<div className="flex flex-col items-center">
-					<button onClick={onSubmit} class="hover:shadow-form rounded-md bg-[#ffb7ce] py-3 px-8 text-center text-base font-semibold text-white outline-none">
+					
+                    
+                    <button onClick={onSubmit} class="hover:shadow-form rounded-md bg-[#ffb7ce] py-3 px-8 text-center text-base font-semibold text-white outline-none">
 						Submit
 					</button>
 				</div>
