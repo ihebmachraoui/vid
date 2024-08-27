@@ -16,15 +16,22 @@ const transporter = nodemailer.createTransport({
 });
 
 // Send email function
-const sendEmail = async (req, res) => {
-  const { to, subject, text } = req.body;
+const sender = async (req, res) => {
+  const { to, subject, html } = req.body;
+console.log("aaaaaé");
+
+
+  // Validate the incoming data
+  if (!to || !subject || !html) {
+    return res.status(400).send('Missing required fields');
+  }
 
   try {
     let info = await transporter.sendMail({
       from: '"Socially" <MS_tDUwIQ@trial-351ndgw991r4zqx8.mlsender.net>', // Sender address
       to: to, // List of receivers
       subject: subject, // Subject line
-      text: text, // Plain text body
+      html: html, // HTML body
     });
 
     console.log('Message sent: %s', info.messageId);
@@ -35,4 +42,5 @@ const sendEmail = async (req, res) => {
   }
 };
 
-module.exports = { sendEmail };
+
+module.exports = { sender };
