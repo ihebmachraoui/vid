@@ -12,8 +12,8 @@ const generatePayment = async (req, res) => {
         amount: amount.toString(),
         accept_card: "true",
         session_timeout_secs: 1200,
-        success_link: `http://localhost:3000/appointment/payment/${appointmentId}`,
-        fail_link: `http://localhost:3000/appointment/${appointmentId}`,
+        success_link: `https://sociosolution.vercel.app/appointment/payment/${appointmentId}`,
+        fail_link: `https://sociosolution.vercel.app/appointment/${appointmentId}`,
         developer_tracking_id: "eb99d98d-abbb-4ea8-a167-553dad2f1c9c"
     };
 
