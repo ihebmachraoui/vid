@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         // Set a timeout to simulate loading time (e.g., 500ms)
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 2000);
+        }, 1000);
 
         // Clean up timeout if pathname changes again before timeout
         return () => clearTimeout(timer);
