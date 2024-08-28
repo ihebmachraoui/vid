@@ -1,15 +1,14 @@
 const axios = require('axios');
-require('dotenv').config();
+
 
 const generatePayment = async (req, res) => {
     const { amount ,appointmentId} = req.body;
-    console.log(amount);
 
     // Define the URL and payload
     const url = 'https://developers.flouci.com/api/generate_payment';
     const payload = {
-        app_token: process.env.APP_TOKEN,
-        app_secret: process.env.APP_SECRET,
+        app_token: "fdc39504-ad12-463d-a754-8acab6ff9332",
+        app_secret: "cc9f042f-8130-497a-8386-022e5fc0fec1",
         amount: amount.toString(),
         accept_card: "true",
         session_timeout_secs: 1200,
@@ -22,7 +21,6 @@ const generatePayment = async (req, res) => {
     const headers = {
         'Content-Type': 'application/json'
     };
-console.log(payload);
 
     try {
         // Make the POST request
@@ -44,8 +42,8 @@ const verifyPayment = async (req, res) => {
     // Define the headers
     const headers = {
         'Content-Type': 'application/json',
-        'apppublic': process.env.APP_TOKEN,
-        'appsecret': process.env.APP_SECRET
+        'apppublic': "fdc39504-ad12-463d-a754-8acab6ff9332",
+        'appsecret': 'cc9f042f-8130-497a-8386-022e5fc0fec1'
     };
 
     try {
