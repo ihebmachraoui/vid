@@ -6,6 +6,7 @@ const generatePayment = async (req, res) => {
 
     // Define the URL and payload
     const url = 'https://developers.flouci.com/api/generate_payment';
+    const fail = `https://sociosolution.vercel.app/appointment/${appointmentId}`
     const payload = {
         app_token: "fdc39504-ad12-463d-a754-8acab6ff9332",
         app_secret: "cc9f042f-8130-497a-8386-022e5fc0fec1",
@@ -13,7 +14,7 @@ const generatePayment = async (req, res) => {
         accept_card: "true",
         session_timeout_secs: 1200,
         success_link: `https://sociosolution.vercel.app/appointment/payment/${appointmentId}`,
-        fail_link: `www.google.com`,
+        fail_link: fail ,
         developer_tracking_id: "eb99d98d-abbb-4ea8-a167-553dad2f1c9c"
     };
 
