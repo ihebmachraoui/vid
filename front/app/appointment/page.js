@@ -66,7 +66,7 @@ function page() {
 				// Simulate loading time
 				setTimeout(() => {
 					setIsLoading(false);
-					alert("Appointment successfully created!");
+					
 					// Optionally reset the form after submission
 					setFormData({
 						firstName: "",
