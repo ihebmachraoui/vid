@@ -7,6 +7,7 @@ const blogRoutes = require('../db/Routes/blogRoutes.js');
 const connectDatabase = require('../db/config.js'); // Import your database connection function
 const mailRoutes= require('../Mailsender/emailRoute.js')
 const appointmentRoutes = require('../db/Routes/appointmentRoutes.js');
+const paymentRoutes = require('../Payment/paymentRoutes.js');
 // Connect to the database
 connectDatabase();
 
@@ -18,6 +19,7 @@ app.use(bodyParser.json()); // Parse JSON requests
 app.use('/', blogRoutes);
 app.use('/', mailRoutes);
 app.use('/', appointmentRoutes);
+app.use('/', paymentRoutes)
 // Create an HTTP server and attach the Express app
 const server = http.createServer(app);
 

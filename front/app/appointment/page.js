@@ -55,7 +55,7 @@ function page() {
 	
 		
 			// Send the form data to the backend
-			const response = await axios.post('http://127.0.0.1:3100/appointment', formData);
+			const response = await axios.post('https://sociosolution-api.vercel.app/appointment', formData);
 			
 			if (response.status === 200) {
 				// Email sending
@@ -105,7 +105,7 @@ function page() {
 					<span className="highlight">SociAlly Expert</span>.
 					</p>
 
-					<a href="https://sociosolution.vercel.app/request/${id}" target="_blank" className="pay-link">
+					<a href="https://sociosolution.vercel.app/appointment/${id}" target="_blank" className="pay-link">
 					Click To Pay
 					</a>
 
