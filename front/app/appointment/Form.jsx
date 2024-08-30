@@ -31,7 +31,7 @@ function Form({ handleChange, formData, onSubmit }) {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row w-full items-center lg:justify-center">
+    <div className="flex flex-col lg:flex-row w-full items-center lg:justify-center bg-white">
       <div className="hidden lg:w-1/2 lg:flex w-full h-screen justify-center items-center">
         <img
           src={images.Appointment.src}
@@ -40,23 +40,26 @@ function Form({ handleChange, formData, onSubmit }) {
         />
       </div>
 
-      <div className="lg:w-1/2 w-full h-full flex items-center mt-8 px-4 py-16 lg:py-0 lg:mt-24 lg:px-8">
+      <div className="lg:w-1/2 w-full h-full flex items-center px-4 py-16 lg:py-0 lg:px-8">
         <div className="w-full h-full">
-          <h1 className="text-2xl mb-5 font-sans font-bold text-green-800">
-            Book An Appointment !
-          </h1>
-          <div className="mx-auto w-full">
+        <div class="bg-gradient-to-r from-[#E6EFE6] to-[#64a646] font-sans px-6 py-12">
+      <div class="container mx-auto flex flex-col justify-center items-center text-center">
+        <h2 class="text-white sm:text-4xl text-3xl font-bold mb-4">Book An Appointment!</h2>
+      
+      </div>
+    </div>
+          <div className="mx-auto w-full mt-8">
             <form
               className="block lg:grid lg:grid-cols-2 lg:gap-4"
               onSubmit={handleFormSubmit}
             >
               <div className="mb-4">
-                <label
-                  htmlFor="fName"
-                  className="mb-2 block text-sm font-medium "
-                >
-                  First Name
-                </label>
+              <label
+                    htmlFor="FirstName"
+                    className="mb-2 block text-sm font-medium "
+                  >
+                    First Name
+                  </label>
                 <input
                   required
                   value={formData.firstName}
@@ -68,19 +71,19 @@ function Form({ handleChange, formData, onSubmit }) {
                   className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
                 />
                 {errorMessages.firstName && (
-                  <p className="text-red-600 bg-red-50 py-2 mt-2 rounded-md px-4 text-sm">
+                  <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
                     {errorMessages.firstName}
                   </p>
                 )}
               </div>
 
               <div className="mb-4">
-                <label
-                  htmlFor="lName"
-                  className="mb-2 block text-sm font-medium "
-                >
-                  Last Name
-                </label>
+              <label
+                    htmlFor="LastName"
+                    className="mb-2 block text-sm font-medium "
+                  >
+                    Last Name
+                  </label>
                 <input
                   value={formData.lastName}
                   onChange={handleChange}
@@ -91,82 +94,85 @@ function Form({ handleChange, formData, onSubmit }) {
                   className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
                 />
                 {errorMessages.lastName && (
-                  <p className="text-red-600 bg-red-50 py-2 mt-2 rounded-md px-4 text-sm">
+                  <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
                     {errorMessages.lastName}
                   </p>
                 )}
               </div>
 
-              <div className="mb-4">
-                <label
-                  htmlFor="Number"
-                  className="mb-2 block text-sm font-medium "
-                >
-                  Phone Number
-                </label>
-                <input
-                  required
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  type="tel"
-                  name="phoneNumber"
-                  id="Number"
-                  placeholder="Phone Number"
-                  className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
-                />
-                {errorMessages.phoneNumber && (
-                  <p className="text-red-600 bg-red-50 py-2 mt-2 rounded-md px-4 text-sm">
-                    {errorMessages.phoneNumber}
-                  </p>
-                )}
+              <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+                <div>
+                  <label
+                    htmlFor="Email"
+                    className="mb-2 block text-sm font-medium "
+                  >
+                    Email
+                  </label>
+                  <input
+                    value={formData.email}
+                    onChange={handleChange}
+                    type="text"
+                    name="email"
+                    id="Email"
+                    placeholder="Email Address"
+                    className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
+                  />
+                  {errorMessages.email && (
+                    <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
+                      {errorMessages.email}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="Number"
+                    className="mb-2 block text-sm font-medium "
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    required
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    type="tel"
+                    name="phoneNumber"
+                    id="Number"
+                    placeholder="Phone Number"
+                    className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
+                  />
+                  {errorMessages.phoneNumber && (
+                    <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
+                      {errorMessages.phoneNumber}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="age"
+                    className="mb-2 block text-sm font-medium "
+                  >
+                    Age
+                  </label>
+                  <input
+                    value={formData.age}
+                    onChange={handleChange}
+                    type="number"
+                    name="age"
+                    id="age"
+                    placeholder="Age"
+                    min="0"
+                    className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:right-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
+                  />
+                  {errorMessages.age && (
+                    <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
+                      {errorMessages.age}
+                    </p>
+                  )}
+                </div>
               </div>
 
-              <div className="mb-4">
-                <label
-                  htmlFor="age"
-                  className="mb-2 block text-sm font-medium "
-                >
-                  Age
-                </label>
-                <input
-                  value={formData.age}
-                  onChange={handleChange}
-                  type="number"
-                  name="age"
-                  id="age"
-                  placeholder="Age"
-                  min="0"
-                  className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:right-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
-                />
-                {errorMessages.age && (
-                  <p className="text-red-600 bg-red-50 py-2 mt-2 rounded-md px-4 text-sm">
-                    {errorMessages.age}
-                  </p>
-                )}
-              </div>
-
-              <div className="col-span-2 mb-4">
-                <label
-                  htmlFor="Email"
-                  className="mb-2 block text-sm font-medium "
-                >
-                  Email
-                </label>
-                <input
-                  value={formData.email}
-                  onChange={handleChange}
-                  type="text"
-                  name="email"
-                  id="Email"
-                  placeholder="Email Address"
-                  className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
-                />
-                {errorMessages.email && (
-                  <p className="text-red-600 bg-red-50 py-2 mt-2 rounded-md px-4 text-sm">
-                    {errorMessages.email}
-                  </p>
-                )}
-              </div>
 
               <div className="mb-4">
                 <label
@@ -184,7 +190,7 @@ function Form({ handleChange, formData, onSubmit }) {
                   className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
                 />
                 {errorMessages.date && (
-                  <p className="text-red-600 bg-red-50 py-2 mt-2 rounded-md px-4 text-sm">
+                  <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
                     {errorMessages.date}
                   </p>
                 )}
@@ -206,7 +212,7 @@ function Form({ handleChange, formData, onSubmit }) {
                   className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
                 />
                 {errorMessages.time && (
-                  <p className="text-red-600 bg-red-50 py-2 mt-2 rounded-md px-4 text-sm">
+                  <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
                     {errorMessages.time}
                   </p>
                 )}
@@ -231,7 +237,7 @@ function Form({ handleChange, formData, onSubmit }) {
                   className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
                 />
                 {errorMessages.consultation && (
-                  <p className="text-red-600 bg-red-50 py-2 mt-2 rounded-md px-4 text-sm">
+                  <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
                     {errorMessages.consultation}
                   </p>
                 )}
