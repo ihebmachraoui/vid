@@ -4,10 +4,10 @@ import * as images from "../../../assets/index";
 import axios from "axios";
 import Button from "../../../constants/Button/Button";
 import Modal from "../../../constants/Modal/Modal";
-function app() {
+
+function App() {
 	const [paymentFailed, setPaymentFailed] = useState(false);
 	const [appointmentId, setAppointmentId] = useState("");
-	const [found, setFound] = useState(true);
 	const [appointment, setAppointment] = useState({
 		firstName: "John",
 		lastName: "Doe",
@@ -56,23 +56,16 @@ function app() {
 			fetchAppointment(); // Fetch the single blog by ID
 		}
 	}, [appointmentId]);
+
 	const generateReq = async () => {
 		try {
-			// Define the amount to send
 			const amount = 100;
-
-			// Send POST request to your backend with the amount
 			const response = await axios.post(
 				"https://sociosolution-api.vercel.app/generate-payment",
 				{ amount, appointmentId },
 			);
-			console.log(response);
-
-			// Check if the response contains a link
 			const { link } = response.data.result;
-
 			if (link) {
-				// Redirect to the received link if on the client side
 				if (typeof window !== "undefined") {
 					window.location.href = link;
 				} else {
@@ -87,70 +80,33 @@ function app() {
 	};
 
 	return (
-		<>			
+		<>
 			{paymentFailed && (
 				<Modal
 					setPaymentFailed={setPaymentFailed}
 					paymentFailed={paymentFailed}
 				/>
 			)}
-			<div className="mx-auto max-w-screen-lg pt-8 text-center bg-white">
-				<div className="relative mt-24 bg-[#f9f9f9] px-4 sm:px-8 sm:py-12">
-					{/* <span className="rounded-full text-black font-medium px-3 mb-2 bg-[#e1ffd4] py-2">
-							Blogs
-						</span> */}
-					<h1 className="mt-4 text-3xl font-extrabold text-gray-900 sm:text-4xl">
-						Continue Payment
-					</h1>
-					<p className="mt-4 pb-2 text-xs text-gray-600 leading-6 px-4 sm:px-12 sm:text-base sm:leading-8">
-						You can now proceed with payment. Choose from major credit cards
-						like Visa and MasterCard, or use alternative methods such as D17 and
-						e-Dinar. Follow the instructions to complete your payment securely.
-					</p>
-				</div>
-				<div
-					className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full bg-cover bg-center bg-repeat-round"
-					style={{ backgroundImage: `url(${images.Payment.src})` }}></div>
-
-				<div className="flex flex-wrap items-center justify-center space-x-4 space-y-2">
+			<div className="mx-auto w-full pt-8 text-left bg-white flex flex-wrap lg:flex-nowrap">
+				<div className="hidden lg:w-1/2 lg:flex w-full h-screen justify-center items-center">
 					<img
-						src="https://d17.tn/images/logod17bnk.png"
-						alt="D17"
-						className="h-8 w-auto mt-1"
-					/>
-					<img
-						src="https://www.biat.com.tn/sites/default/files/logobiat_0_0.png"
-						alt="BIAT"
-						className="h-8 w-auto"
-					/>
-					<img
-						src="https://www.attijaribank.com.tn/sites/default/files/Logo_attijari_0.png"
-						alt="Attijari"
-						className="h-8 w-auto"
-					/>
-					<img
-						src="https://www.bh.com.tn/sites/all/themes/bhabitat/logo.png"
-						alt="BH"
-						className="h-8 w-auto"
-					/>
-					<img
-						src="https://www.banquezitouna.com/themes/custom/particuliers/logo.svg"
-						alt="Zitouna"
-						className="h-8 w-auto"
+						src={images.Appointment.src}
+						alt="Consultation"
+						className="w-full h-full object-cover"
 					/>
 				</div>
-			</div>
 
-
-			<div className="">
-				<div className="bg-white border rounded-lg shadow-lg px-6 py-8 max-w-md mx-auto mt-8">
-					<h1 className="font-bold text-2xl my-4 text-center text-secondary">
-						SOCIALLY Services
-					</h1>
-					<hr className="mb-2" />
-					<div className="flex justify-between mb-6">
+				<div className="bg-white rounded-lg p-4 max-w-md mx-auto mt-16 lg:px-8 lg:w-1/2 lg:max-w-none">
+				<div class="bg-gradient-to-r from-[#E6EFE6] to-[#64a646] font-sans px-6 py-12">
+      <div class="container mx-auto flex flex-col justify-center items-center text-center">
+        <h2 class="text-white sm:text-4xl text-3xl font-bold mb-4">Payment Details</h2>
+      
+      </div>
+    </div>
+					<hr className="mb-4 border-gray-300" />
+					<div className="flex justify-between mb-6 ">
 						<h1 className="text-lg font-bold">Invoice</h1>
-						<div className="text-gray-700">
+						<div className="text-gray-700 text-right">
 							<div>Date: {new Date().toLocaleDateString()}</div>
 							<div>Invoice #: INV{appointmentId.slice(-4)}</div>
 						</div>
@@ -163,49 +119,49 @@ function app() {
 						</div>
 						<div className="text-gray-700">{appointment.email}</div>
 					</div>
-					<div className="mb-8">
+					<div className="mb-8 bg-gray-50 p-4 rounded-lg">
 						<h2 className="text-lg font-bold mb-2">Description:</h2>
 						<div className="text-gray-700">{appointment.consultation}</div>
 					</div>
-					<table className="w-full mb-4">
+					<table className="w-full mb-4 border border-gray-300">
 						<thead>
-							<tr>
-								<th className="text-left font-bold text-gray-700">Service</th>
-								<th className="text-right font-bold text-gray-700">Amount</th>
+							<tr className="bg-gray-100">
+								<th className="text-left font-bold text-gray-700 p-2">Service</th>
+								<th className="text-right font-bold text-gray-700 p-2">Amount</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td className="text-left text-gray-700">
-									Individual Therapy {appointment.urgent ? "-Urgent" : ""}{" "}
+								<td className="text-left text-gray-700 p-2 border-t border-gray-300">
+									Individual Therapy {appointment.urgent ? "-Urgent" : ""}
 								</td>
-								<td className="text-right text-gray-700">$100.00</td>
+								<td className="text-right text-gray-700 p-2 border-t border-gray-300">$100.00</td>
 							</tr>
 						</tbody>
 						<tfoot>
 							<tr>
-								<td className="text-left font-bold text-gray-700">Total</td>
-								<td className="text-right font-bold text-gray-700">$100.00</td>
+								<td className="text-left font-bold text-gray-700 p-2 border-t border-gray-300">Total</td>
+								<td className="text-right font-bold text-gray-700 p-2 border-t border-gray-300">$100.00</td>
 							</tr>
 						</tfoot>
 					</table>
-					<div className="flex flex-col items-center mb-2">
+					<div className="flex flex-col items-center mt-8">
 						<Button
-							text="Confirm"
-							className={"cursor-pointer !py-2"}
+							text="Confirm Payment"
+							className="cursor-pointer py-2"
 							onClick={generateReq}
 						/>
 					</div>
 
-					<div className="text-gray-700 mb-2">Thank you for your business!</div>
-					<div className="text-gray-700 text-sm">
+					<div className="text-gray-700 mt-4 text-center">
+						Thank you for your business! <br />
 						Please remit payment before the booked day.
 					</div>
-					<div className="flex flex-col mt-4">
+					<div className="flex justify-center mt-4">
 						<img
 							src="https://sociosolution.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo.248c666a.png&w=256&q=75"
-							className="h-10 w-auto self-center"
-							alt="log"
+							alt="Socially Logo"
+							className="h-10 w-auto"
 						/>
 					</div>
 				</div>
@@ -214,4 +170,4 @@ function app() {
 	);
 }
 
-export default app;
+export default App;
