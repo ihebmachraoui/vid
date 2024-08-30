@@ -146,31 +146,7 @@ function page() {
 
 	return (
 		<>
-			<div className="mx-auto max-w-screen-lg pt-8 text-center bg-white">
-				<div className="relative mt-24 bg-[#f9f9f9] px-4 sm:px-8 sm:py-12">
-					{/* <span className="rounded-full text-black font-medium px-3 mb-2 bg-[#e1ffd4] py-2">
-        Blogs
-      </span> */}
-					<h1 className="mt-4 text-3xl font-extrabold text-gray-900 sm:text-4xl">
-						Book an Appointment
-					</h1>
-					<p className="mt-4 pb-2 text-sm text-gray-600 leading-6 px-4 sm:px-12 sm:text-base sm:leading-8">
-						Book an appointment with our sociologist to explore and address your
-						unique concerns. Whether it's personal issues, family dynamics, or
-						social challenges, we're here to provide tailored support. Fill in
-						the form below and choose a convenient time for a confidential
-						session.
-					</p>
-
-					<div className="mt-6"></div>
-				</div>
-
-				<img
-					className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover"
-					src={images.Appointment.src}
-					alt=""
-				/>
-			</div>
+		
 			<Form
 				handleChange={handleChange}
 				formData={formData}
