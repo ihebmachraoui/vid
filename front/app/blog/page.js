@@ -19,21 +19,21 @@ function Page() {
     return lastName ? `${firstName.charAt(0)}. ${lastName}` : username;
   };
 
-  const [blogs, setBlogs] = useState([]);
+	const [blogs, setBlogs] = useState([]);
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await axios.get(
-          "https://sociosolution-api.vercel.app/blogs"
-        );
-        setBlogs(response.data);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      }
-    };
-    fetchBlogs();
-  }, []);
+	useEffect(() => {
+		const fetchBlogs = async () => {
+			try {
+				const response = await axios.get(
+					"https://sociosolution-api.vercel.app/blogs",
+				);
+				setBlogs(response.data);
+			} catch (error) {
+				console.error("Error fetching blogs:", error);
+			}
+		};
+		fetchBlogs();
+	}, []);
 
   const categories = ["Type 1", "Type 2", "Type 3"];
 
@@ -77,7 +77,6 @@ function Page() {
             <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
               People's Stories
             </h2>
-
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
               Filter :
               {categories.map((category, index) => (

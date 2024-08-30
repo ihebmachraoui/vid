@@ -97,20 +97,22 @@ function page() {
 			username: newToggle ? "Anonymous" : "Iheb Machraoui",
 		}));
 	};
- 
-    const createblog = async () => {
-  try {
-    const response = await axios.post('https://sociosolution-api.vercel.app/blogs', blog);
 
-    console.log('Blog created:', response.data);
-    // Redirect to /blogs using location.assign
-    location.assign('/blog');
-  } catch (error) {
-    console.error('Error creating blog:', error);
-    // Handle error (e.g., show an error message)
-  } 
-};
+	const createblog = async () => {
+		try {
+			const response = await axios.post(
+				"https://sociosolution-api.vercel.app/blogs",
+				blog,
+			);
 
+			console.log("Blog created:", response.data);
+			// Redirect to /blogs using location.assign
+			location.assign("/blog");
+		} catch (error) {
+			console.error("Error creating blog:", error);
+			// Handle error (e.g., show an error message)
+		}
+	};
 
 	return (
 		<>
@@ -202,7 +204,7 @@ function page() {
 							className="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
 							aria-current="page">
 							<svg
-								class="w-[16px] h-[16px] fill-[#8e8e8e]"
+								className="w-[16px] h-[16px] fill-[#8e8e8e]"
 								viewBox="0 0 448 512"
 								xmlns="http://www.w3.org/2000/svg">
 								<path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"></path>
@@ -211,6 +213,13 @@ function page() {
 						</li>
 					</ol>
 				</div>
+			</div>
+			<div>
+				<p className="mt-4 text-sm text-gray-600 leading-6 px-4 sm:px-12 sm:text-base sm:leading-8 lg:px-80 text-center">
+					Create a new blog Lorem ipsum dolor sit amet consectetur adipisicing
+					elit. Porro, amet voluptas voluptatem rerum, delectus impedit quos
+					dignissimos consequatur alias aperiam molestias.
+				</p>
 			</div>
 			<div className="grid grid-cols-3 gap-4 p-4 lg:p-20">
 				{/* First div */}
@@ -250,7 +259,6 @@ function page() {
 							required
 							className="mt-1 block w-full text-sm text-gray-500 file:py-2 file:px-4 file:border file:border-gray-300 file:rounded-md file:text-sm file:font-medium file:bg-gray-100 hover:file:bg-gray-200"
 						/>
-
 					</div>
 					{/* Type Input */}
 					<div className="mb-4">
@@ -316,11 +324,11 @@ function page() {
 								{blog.type}
 							</span>
 							{isLoading ? (
-								<div class="flex items-center justify-center  w-full h-44">
+								<div className="flex items-center justify-center  w-full h-44">
 									<div
-										class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white"
+										className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white"
 										role="status">
-										<span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+										<span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
 											Loading...
 										</span>
 									</div>
@@ -369,11 +377,14 @@ function page() {
 								{blog.comments.length}
 							</p>
 						</div>
-
 					</div>
-						<div className="flex justify-center py-5    ">
-							<Button onClick={createblog} text="Create" className="self-center" />
-						</div>
+					<div className="flex justify-center py-5    ">
+						<Button
+							onClick={createblog}
+							text="Create"
+							className="self-center"
+						/>
+					</div>
 				</div>
 			</div>
 		</>

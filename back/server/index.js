@@ -3,21 +3,23 @@ const http = require('http');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const studentRoutes = require('../db/Routes/studentRoutes');
 const blogRoutes = require('../db/Routes/blogRoutes.js');
 const connectDatabase = require('../db/config.js'); // Import your database connection function
-
+const mailRoutes= require('../Mailsender/emailRoute.js')
+const appointmentRoutes = require('../db/Routes/appointmentRoutes.js');
+const paymentRoutes = require('../Payment/paymentRoutes.js');
 // Connect to the database
 connectDatabase();
 
 app.use(cors()); // Enable CORS for your server (configure as needed)
 app.use(bodyParser.json()); // Parse JSON requests
 
-// Use the student routes
+// Use the  routes
 
-app.use('/', studentRoutes);
 app.use('/', blogRoutes);
-
+app.use('/', mailRoutes);
+app.use('/', appointmentRoutes);
+app.use('/', paymentRoutes)
 // Create an HTTP server and attach the Express app
 const server = http.createServer(app);
 
