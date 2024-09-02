@@ -47,7 +47,7 @@ function Page() {
           <h1 className="mt-4 text-3xl font-extrabold text-gray-900 sm:text-4xl">
             Share Your Story
           </h1>
-          <p className="mt-4 text-sm text-gray-600 leading-6 px-4 sm:px-12 sm:text-base sm:leading-8">
+          <p className="mt-4 text-sm text-neutral-600 leading-6 px-4 sm:px-12 sm:text-base sm:leading-8">
             Do you have a story or issue you'd like to share? Whether it's a
             personal experience, a challenge you're facing, or something that's
             been on your mind, this is the place for you. By sharing, you can
@@ -74,7 +74,7 @@ function Page() {
       <aside aria-label="Recent Blogs" className="mx-auto max-w-screen-xl py-8">
         <div className="mx-auto max-w-screen-xl px-4 md:px-8">
           <div className="mb-10 md:mb-16">
-            <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
+            <h2 className="mb-4 text-center text-2xl font-bold text-neutral-600 md:mb-6 lg:text-3xl">
               People's Stories
             </h2>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
@@ -104,7 +104,7 @@ function Page() {
 
                   <div className="flex flex-col justify-between h-full">
                     <div className="py-2">
-                      <h2 className="text-lg font-bold text-gray-800">
+                      <h2 className="text-lg font-bold text-neutral-600">
                         <a
                           href={`/blog/${blog._id}`}
                           className="hover:text-rose-500 active:text-rose-600 transition duration-100"

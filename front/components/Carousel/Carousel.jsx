@@ -64,7 +64,7 @@ const HeroSlider = () => {
           <div className="inner">
             <h3 className="subtitle">SociAlly</h3>
             <h2 className="title">Transform your mental health</h2>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="btn">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="btn bg-[#296747] btn-round uppercase">
               Let's begin!
             </a>
           </div>
@@ -80,7 +80,7 @@ const HeroSlider = () => {
           <div className="inner">
             <h3 className="subtitle">SociAlly</h3>
             <h2 className="title">Begin your Inner Peace Journey</h2>
-            <Button href="#" text="Our Services" />
+            <Button href="#" text="Our Services" className='bg-[#296747] btn-round uppercase'/>
           </div>
         </div>
       </div>

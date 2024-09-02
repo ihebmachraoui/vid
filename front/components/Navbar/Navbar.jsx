@@ -1,5 +1,5 @@
 "use client";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,44 +16,45 @@ const Navbar = () => {
 
   const links = [
     { name: "Home", href: "/" },
-    { name: "Book Appointment", href: "/appointment" },
     { name: "About Us", href: "/about" },
+    /*  { name: "Book Appointment", href: "/appointment" }, */
+    { name: "Services", href: "/services" },
     { name: "Study Case", href: "/studycase" },
     { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
-  
 
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   useEffect(() => {
-	const handleScroll = () => {
-	  const scrollPosition = window.scrollY;
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
 
-	  // Set isScrolled based on scroll position
-	  if (scrollPosition > 50 || pathname !== "/") {
-		setIsScrolled(true);
-	  } else {
-		setIsScrolled(false);
-	  }
-	};
+      // Set isScrolled based on scroll position
+      if (scrollPosition > 50 || pathname !== "/") {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-	if (typeof window !== "undefined") {
-	  // Check the initial scroll position and path
-	  handleScroll(); 
+    if (typeof window !== "undefined") {
+      // Check the initial scroll position and path
+      handleScroll();
 
-	  window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
 
-	  // Clean up the event listener on unmount
-	  return () => {
-		window.removeEventListener("scroll", handleScroll);
-	  };
-	}
+      // Clean up the event listener on unmount
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
   }, [pathname]);
 
   return (
     <>
       <nav
-        className={`relative transition-colors duration-500 ${
+        className={`relative transition-colors duration-500 uppercase ${
           isScrolled ? "bg-white shadow-xl" : "bg-transparent"
         }`}
       >
@@ -86,12 +87,11 @@ const Navbar = () => {
               </p>
             </div>
             <a
-  href="/appointment"
-  className="hidden lg:flex items-center justify-center text-white bg-[#83cc61] focus:outline-none font-medium rounded-full text-sm px-8 py-4 text-center dark:hover:shadow-booking cursor-pointer"
->
-  Make Appointment
-</a>
-
+              href="/appointment"
+              className="hidden lg:flex items-center btn-width  justify-center text-white bg-[#296747] focus:outline-none font-medium btn-round text-sm py-4 text-center dark:hover:shadow-booking cursor-pointer"
+            >
+              Book Appointment
+            </a>
 
             <button
               type="button"
@@ -152,7 +152,7 @@ const Navbar = () => {
                 <li key={index}>
                   <Link href={link.href} onClick={toggleMobileMenu}>
                     <span
-                      className={`block mx-auto py-2 px-3 text-white hover:bg-gray-100 text-base text-center ${
+                      className={`block mx-auto py-2 px-3 text-white hover:bg-gray-100 text-base text-center  ${
                         link.active ? "text-white" : "text-gray-900"
                       }`}
                       aria-current={link.active ? "page" : undefined}
@@ -162,13 +162,13 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
-              <li className="relative">
+              {/*   <li className="relative">
                 <button
                   type="button"
                   onClick={toggleDropdown}
                   className="flex items-center mx-auto py-2 px-3 text-white text-base text-center"
                 >
-                  Services
+                  DropdownPH
                   <svg
                     className="w-2.5 h-2.5 ms-2.5"
                     aria-hidden="true"
@@ -190,7 +190,7 @@ const Navbar = () => {
                     dropdownOpen ? "block" : "hidden"
                   }`}
                 >
-                  <ul className="py-2 text-sm text-gray-700">
+                  <ul className="py-2 text-sm text-neutral-600">
                     <li>
                       <Link href="#" passHref>
                         <span className="block px-4 py-2 hover:bg-gray-100">
@@ -210,7 +210,7 @@ const Navbar = () => {
                     </li>
                   </ul>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -235,7 +235,7 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
-              <li className="relative">
+              {/*  <li className="relative">
                 <button
                   type="button"
                   onClick={toggleDropdown}
@@ -243,7 +243,7 @@ const Navbar = () => {
                     isScrolled ? "text-black" : "text-white"
                   }`}
                 >
-                  Services
+                  DropdownPC
                   <svg
                     className="w-2.5 h-2.5 ms-2.5"
                     aria-hidden="true"
@@ -265,7 +265,7 @@ const Navbar = () => {
                     dropdownOpen ? "block" : "hidden"
                   }`}
                 >
-                  <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                  <ul className="py-2 text-sm text-neutral-600 dark:text-gray-200">
                     <li>
                       <Link href="#" passHref>
                         <span className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
@@ -285,7 +285,7 @@ const Navbar = () => {
                     </li>
                   </ul>
                 </div>
-              </li>
+              </li> */}
               {links.slice(2).map((link, index) => (
                 <li key={index + 2}>
                   <Link href={link.href} passHref>

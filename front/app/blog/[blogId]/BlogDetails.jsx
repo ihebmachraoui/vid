@@ -132,7 +132,7 @@ function BlogDetails({ blog , settrack}) {
 										)}
 									</>
 								)}
-								<p className="text-gray-700 pb-2">{comment.content}</p>
+								<p className="text-neutral-600 pb-2">{comment.content}</p>
 								{comment.replies && comment.replies.length > 0 && (
 									<div className="pl-4 border-l-2 border-gray-300" >
 										{comment.replies.map((reply) => (
@@ -157,7 +157,7 @@ function BlogDetails({ blog , settrack}) {
 																Reply
 															</span>
 														)}
-														<p className="text-gray-700 pb-2">
+														<p className="text-neutral-600 pb-2">
 															{reply.content}
 														</p>
 

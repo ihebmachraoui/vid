@@ -1,19 +1,24 @@
-/* Button.css */
 .btn {
-    border-radius: 25px;
+  
     padding: 14px 18px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
-    letter-spacing: 3px;
+    min-width: 180px;
+    text-align: center;
+    justify-content: center;
     color: #fff;
     text-decoration: none;
     transition: all 0.2s ease;
     display: inline-block;
-    background: #83cc61;
     transition: box-shadow 0.2s;
+    cursor: pointer;
   }
-  
+   .btn-width {
+    min-width: 180px;
+   }
+
+  .btn-round {
+    border-radius: 0 20px;
+  }
   .btn:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
