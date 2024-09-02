@@ -1,7 +1,6 @@
 'use client'
 import React , {useState} from 'react'
 
-
 function Modal({setPaymentFailed ,paymentFailed}) {
     const [isOpen, setIsOpen] = useState(false);
   return (

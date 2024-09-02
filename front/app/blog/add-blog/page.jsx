@@ -131,7 +131,7 @@ function page() {
 					<ol className="flex items-center bg-white opacity-60 rounded-lg p-3 ">
 						<li className="inline-flex items-center">
 							<a
-								className="flex items-center text-sm text-gray-500 hover:text-gray-600 focus:outline-none  dark:text-neutral-500 "
+								className="flex items-center text-sm text-gray-500 hover:text-neutral-600 focus:outline-none  dark:text-neutral-500 "
 								href="/">
 								<svg
 									className="shrink-0 me-3 size-4"
@@ -164,7 +164,7 @@ function page() {
 							</svg>
 						</li>
 
-						<li className="flex items-center text-sm text-gray-500 hover:text-gray-600 focus:outline-none  dark:text-neutral-500 ">
+						<li className="flex items-center text-sm text-gray-500 hover:text-neutral-600 focus:outline-none  dark:text-neutral-500 ">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 16 16"
@@ -182,7 +182,7 @@ function page() {
 								/>
 							</svg>
 							<a
-								className="flex items-center text-sm text-gray-500 hover:text-gray-600 focus:outline-none  dark:text-neutral-500 "
+								className="flex items-center text-sm text-gray-500 hover:text-neutral-600 focus:outline-none  dark:text-neutral-500 "
 								href="/blog">
 								Blog
 							</a>
@@ -201,7 +201,7 @@ function page() {
 							</svg>
 						</li>
 						<li
-							className="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
+							className="inline-flex items-center text-sm font-semibold text-neutral-600 truncate dark:text-neutral-200"
 							aria-current="page">
 							<svg
 								className="w-[16px] h-[16px] fill-[#8e8e8e]"
@@ -215,7 +215,7 @@ function page() {
 				</div>
 			</div>
 			<div>
-				<p className="mt-4 text-sm text-gray-600 leading-6 px-4 sm:px-12 sm:text-base sm:leading-8 lg:px-80 text-center">
+				<p className="mt-4 text-sm text-neutral-600 leading-6 px-4 sm:px-12 sm:text-base sm:leading-8 lg:px-80 text-center">
 					Create a new blog Lorem ipsum dolor sit amet consectetur adipisicing
 					elit. Porro, amet voluptas voluptatem rerum, delectus impedit quos
 					dignissimos consequatur alias aperiam molestias.
@@ -228,7 +228,7 @@ function page() {
 					<div className="mb-4">
 						<label
 							htmlFor="title"
-							className="block text-sm font-medium text-gray-700">
+							className="block text-sm font-medium text-neutral-600">
 							Title
 						</label>
 						<input
@@ -247,7 +247,7 @@ function page() {
 					<div className="mb-4">
 						<label
 							htmlFor="image"
-							className="block text-sm font-medium text-gray-700">
+							className="block text-sm font-medium text-neutral-600">
 							Upload Image
 						</label>
 						<input
@@ -264,7 +264,7 @@ function page() {
 					<div className="mb-4">
 						<label
 							htmlFor="type"
-							className="block text-sm font-medium text-gray-700">
+							className="block text-sm font-medium text-neutral-600">
 							Type
 						</label>
 						<input
@@ -282,7 +282,7 @@ function page() {
 					<div className="mb-4">
 						<label
 							htmlFor="description"
-							className="block text-sm font-medium text-gray-700">
+							className="block text-sm font-medium text-neutral-600">
 							Description
 						</label>
 						<textarea

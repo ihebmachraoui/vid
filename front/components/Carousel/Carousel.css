@@ -11,6 +11,7 @@
     rgba(14, 29, 51, 0.2),
     rgba(14, 29, 51, 0.3)
   );
+  opacity: .1;
 }
 
 .hero-slider {

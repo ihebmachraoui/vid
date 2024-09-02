@@ -107,7 +107,7 @@ function page() {
 					<h1 className="mt-4 text-3xl font-extrabold text-gray-900 sm:text-4xl">
 						Payment Success
 					</h1>
-					<p className="mt-4  text-xs text-gray-600 leading-4 px-4 sm:px-12 sm:text-base sm:leading-8">
+					<p className="mt-4  text-xs text-neutral-600 leading-4 px-4 sm:px-12 sm:text-base sm:leading-8">
 						Thank you for completing your payment. Our team will reach out to
 						you shortly to provide further details and assist you with the next
 						steps in the process. We appreciate your patience and look forward
@@ -130,48 +130,48 @@ function page() {
 					<hr className="mb-2" />
 					<div className="flex justify-between mb-6">
 						<h1 className="text-lg font-bold">Invoice</h1>
-						<div className="text-gray-700">
+						<div className="text-neutral-600">
 							<div>Date: {new Date().toLocaleDateString()}</div>
 							<div>Invoice #: INV{appointmentId?.slice(-4)}</div>
 						</div>
 					</div>
 					<div className="mb-8">
 						<h2 className="text-lg font-bold mb-4">Bill To:</h2>
-						<div className="text-gray-700 mb-2">
+						<div className="text-neutral-600 mb-2">
 							{appointment.firstName + " "}
 							{appointment.lastName}
 						</div>
-						<div className="text-gray-700">{appointment.email}</div>
+						<div className="text-neutral-600">{appointment.email}</div>
 					</div>
 					<div className="mb-8">
 						<h2 className="text-lg font-bold mb-2">Description:</h2>
-						<div className="text-gray-700">{appointment.consultation}</div>
+						<div className="text-neutral-600">{appointment.consultation}</div>
 					</div>
 					<table className="w-full mb-4">
 						<thead>
 							<tr>
-								<th className="text-left font-bold text-gray-700">Service</th>
-								<th className="text-right font-bold text-gray-700">Amount</th>
+								<th className="text-left font-bold text-neutral-600">Service</th>
+								<th className="text-right font-bold text-neutral-600">Amount</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td className="text-left text-gray-700">
+								<td className="text-left text-neutral-600">
 									Individual Therapy {appointment.urgent ? "-Urgent" : ""}{" "}
 								</td>
-								<td className="text-right text-gray-700">$100.00</td>
+								<td className="text-right text-neutral-600">$100.00</td>
 							</tr>
 						</tbody>
 						<tfoot>
 							<tr>
-								<td className="text-left font-bold text-gray-700">Total</td>
-								<td className="text-right font-bold text-gray-700">$100.00</td>
+								<td className="text-left font-bold text-neutral-600">Total</td>
+								<td className="text-right font-bold text-neutral-600">$100.00</td>
 							</tr>
 						</tfoot>
 					</table>
 
-					<div className="text-gray-700 mb-2">Thank you for your business!</div>
-					<div className="text-gray-700 text-sm underline cursor-pointer" onClick={printDiv}>
+					<div className="text-neutral-600 mb-2">Thank you for your business!</div>
+					<div className="text-neutral-600 text-sm underline cursor-pointer" onClick={printDiv}>
 						Print The Invoice Now If Needed
 					</div>
 					<div className="flex flex-col mt-4">

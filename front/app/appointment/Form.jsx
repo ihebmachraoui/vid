@@ -42,9 +42,9 @@ function Form({ handleChange, formData, onSubmit }) {
 
       <div className="lg:w-1/2 w-full h-full flex items-center px-4 py-16 lg:py-0 lg:px-8">
         <div className="w-full h-full">
-        <div class="bg-gradient-to-r from-[#E6EFE6] to-[#64a646] font-sans px-6 py-12">
-      <div class="container mx-auto flex flex-col justify-center items-center text-center">
-        <h2 class="text-white sm:text-4xl text-3xl font-bold mb-4">Book An Appointment!</h2>
+        <div className="bg-gradient-to-r from-[#E6EFE6] to-[#64a646] font-sans px-6 py-12">
+      <div className="container mx-auto flex flex-col justify-center items-center text-center">
+        <h2 className="text-white sm:text-4xl text-3xl font-bold mb-4">Book An Appointment!</h2>
       
       </div>
     </div>

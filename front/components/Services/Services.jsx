@@ -1,5 +1,4 @@
 import Button from "../../constants/Button/Button";
-import * as images from '../../assets/index'
 function BgCard({ headline, content, buttonHref, buttonText, imageSrc }) {
   return (
     <>
@@ -21,18 +20,14 @@ function BgCard({ headline, content, buttonHref, buttonText, imageSrc }) {
 
 export default function Preview() {
   return (
-    <section className="relative max-w-screen-2xl mx-auto w-full px-3 sm:px-8 lg:px-16 xl:px-32">
-        <img
-        src={images.FlowerTop.src}
-        alt="flower top"
-        className="absolute top-0 left-0 w-32 lg:w-96"
-      />
+    <section className="relative max-w-5xl mx-auto w-full px-3 mb-8 sm:px-8 lg:px-4 xl:px-0">
+    
       <div className="flex flex-col items-center pt-24">
         <span className="rounded-full text-black font-semibold px-3 mb-2 bg-[#e1ffd4] py-2 text-center">
           Our Services
         </span>
-        <h1 className="text-5xl font-extrabold mt-8 capitalize dark:text-gray-900 lg:text-6xl text-center">
-          Therapist &<span className="text-[#83cc61] text-7xl grey-qo-regular"> Treatments</span>
+        <h1 className="text-4xl font-extrabold mt-8 capitalize dark:text-gray-900 lg:text-6xl text-center">
+          Therapist &<span className="text-[#83cc61]"> Treatments</span>
         </h1>
       </div>
 
@@ -60,7 +55,7 @@ export default function Preview() {
       </div>
       <div className="flex mx-auto justify-center">
 
-        <Button href="/services" text="Show More" />
+        <Button href="/services" text="Show More"  className="btn-round bg-[#296747]"/>
       </div>
     </section>
   );

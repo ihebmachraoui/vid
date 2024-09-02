@@ -25,7 +25,7 @@ export default () => {
 
   return (
     <>
-      <section className="dark:bg-gray-100 dark:text-gray-800 relative">
+      <section className="dark:bg-gray-100 dark:text-neutral-600 relative">
         <div className="min-h-screen grid gap-6 mx-auto lg:grid-cols-2 xl:grid-cols-5">
           <div className="relative xl:col-span-3 bg-[#83cc61] group">
             <video
@@ -50,12 +50,12 @@ export default () => {
             <span className="rounded-full text-black font-medium px-3 mb-2 bg-[#e1ffd4] py-2">
               About Us
             </span>
-            <h1 className="text-6xl font-extrabold mt-8 capitalize dark:text-gray-900">
+            <h1 className="text-4xl font-extrabold mt-8 capitalize lg:text-6xl">
               Transform your
               <br />
               <span className="text-[#83cc61]"> mental health</span>
             </h1>
-            <p className="my-8 text-gray-600 leading-8">
+            <p className="my-8 text-neutral-600 leading-8">
               <span className="font-semibold text-left bg-[#ffb7ce] rounded-r-full p-2 me-2 text-white">
                 SociAlly{" "}
               </span>
@@ -67,8 +67,8 @@ export default () => {
             </p>
             <div className="pb-4">
               {facts.map((fact, index) => (
-                <p key={index} className="flex items-center text-gray-800 py-3">
-                  <TiTick className="text-[#ffb7ce] text-2xl mr-2" />
+                <p key={index} className="flex items-center text-neutral-600 py-3">
+                  <TiTick className="text-[#296747] text-2xl mr-2" />
                   {fact}
                 </p>
               ))}
@@ -79,7 +79,7 @@ export default () => {
             <Button
               href="#"
               text="Learn More"
-              className="w-full text-center font-medium"
+              className="w-full text-center font-medium btn-round bg-[#296747] uppercase"
             />
           </div>
         </div>

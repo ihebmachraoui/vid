@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles.css";
+import { FaHome, FaChevronRight, FaUserCircle, FaCog } from 'react-icons/fa';
 import Recent from "./Recent";
 import BlogDetails from './BlogDetails';
 function page() {
@@ -79,7 +80,7 @@ function page() {
 						<ol className="flex items-center bg-white opacity-60 rounded-lg p-3 ">
 							<li className="inline-flex items-center">
 								<a
-									className="flex items-center text-sm text-gray-500 hover:text-gray-600 focus:outline-none  dark:text-neutral-500 "
+									className="flex items-center text-sm text-gray-500 hover:text-neutral-600 focus:outline-none  dark:text-neutral-500 "
 									href="/">
 								
 									Home
@@ -87,17 +88,17 @@ function page() {
 								
 							</li>
 
-							<li className="flex items-center text-sm text-gray-500 hover:text-gray-600 focus:outline-none  dark:text-neutral-500 ">
+							<li className="flex items-center text-sm text-gray-500 hover:text-neutral-600 focus:outline-none  dark:text-neutral-500 ">
 								
 								<a
-									className="flex items-center text-sm text-gray-500 hover:text-gray-600 focus:outline-none  dark:text-neutral-500 "
+									className="flex items-center text-sm text-gray-500 hover:text-neutral-600 focus:outline-none  dark:text-neutral-500 "
 									href="/blog">
 									Blog
 								</a>
 								
 							</li>
 							<li
-								className="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
+								className="inline-flex items-center text-sm font-semibold text-neutral-600 truncate dark:text-neutral-200"
 								aria-current="page">
 								
 								<p className="mx-2">Details</p>
@@ -122,35 +123,40 @@ function page() {
 					Blog{" "}
 				</p>
 
-				<div>
-					<ol className="flex items-center bg-white opacity-60 rounded-lg p-3 ">
-						<li className="inline-flex items-center">
-							<a
-								className="flex items-center text-sm text-gray-500 hover:text-gray-600 focus:outline-none  dark:text-neutral-500 "
-								href="/">
-								
-								Home
-							</a>
-							
-						</li>
+				<div className="bg-gray-200 dark:bg-gray-800">
+      <div className="container flex items-center px-6 py-4 mx-auto overflow-x-auto whitespace-nowrap">
+        <a href="/" className="text-neutral-600 dark:text-gray-200">
+          <FaHome className="w-5 h-5" />
+        </a>
 
-						<li className="flex items-center text-sm text-gray-500 hover:text-gray-600 focus:outline-none  dark:text-neutral-500 ">
-							
-							<a
-								className="flex items-center text-sm text-gray-500 hover:text-gray-600 focus:outline-none  dark:text-neutral-500 "
-								href="/blog">
-								Blog
-							</a>
-							
-						</li>
-						<li
-							className="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
-							aria-current="page">
-						
-							<p className="mx-2">Details</p>
-						</li>
-					</ol>
-				</div>
+        <span className="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
+          <FaChevronRight className="w-5 h-5" />
+        </span>
+
+        <a href="#" className="flex items-center text-neutral-600 -px-2 dark:text-gray-200 hover:underline">
+          <FaUserCircle className="w-6 h-6 mx-2" />
+          <span className="mx-2">Account</span>
+        </a>
+
+        <span className="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
+          <FaChevronRight className="w-5 h-5" />
+        </span>
+
+        <a href="#" className="flex items-center text-neutral-600 -px-2 dark:text-gray-200 hover:underline">
+          <FaCog className="w-6 h-6 mx-2" />
+          <span className="mx-2">Profile</span>
+        </a>
+
+        <span className="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
+          <FaChevronRight className="w-5 h-5" />
+        </span>
+
+        <a href="#" className="flex items-center text-blue-600 -px-2 dark:text-blue-400 hover:underline">
+          <FaCog className="w-6 h-6 mx-2" />
+          <span className="mx-2">Settings</span>
+        </a>
+      </div>
+    </div>
 			</div>
 
 			<div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:p-24 pt-5">

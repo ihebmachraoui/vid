@@ -108,7 +108,7 @@ function page() {
           <hr className="mb-2" />
           <div className="invoice-header">
             <h1 className="text-lg font-bold">Invoice</h1>
-            <div className="text-gray-700">
+            <div className="text-neutral-600">
               <div>Date: {new Date().toLocaleDateString()}</div>
               <div>Invoice #: INV{appointmentId?.slice(-4)}</div>
             </div>
@@ -127,22 +127,22 @@ function page() {
           <table className="w-full mb-4">
             <thead>
               <tr className="bg-gray-100">
-                <th className="text-left font-bold text-gray-700 p-2">Service</th>
-                <th className="text-right font-bold text-gray-700 p-2">Amount</th>
+                <th className="text-left font-bold text-neutral-600 p-2">Service</th>
+                <th className="text-right font-bold text-neutral-600 p-2">Amount</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="text-left text-gray-700 p-2 border-t border-gray-300">
+                <td className="text-left text-neutral-600 p-2 border-t border-gray-300">
                   Individual Therapy {appointment.urgent ? "-Urgent" : ""}
                 </td>
-                <td className="text-right text-gray-700 p-2 border-t border-gray-300">$100.00</td>
+                <td className="text-right text-neutral-600 p-2 border-t border-gray-300">$100.00</td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
-                <td className="text-left font-bold text-gray-700 p-2 border-t border-gray-300">Total</td>
-                <td className="text-right font-bold text-gray-700 p-2 border-t border-gray-300">$100.00</td>
+                <td className="text-left font-bold text-neutral-600 p-2 border-t border-gray-300">Total</td>
+                <td className="text-right font-bold text-neutral-600 p-2 border-t border-gray-300">$100.00</td>
               </tr>
             </tfoot>
           </table>

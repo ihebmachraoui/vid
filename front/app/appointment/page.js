@@ -151,7 +151,7 @@ function page() {
 							<div className="flex flex-col items-center justify-center space-y-4">
 								<svg
 									aria-hidden="true"
-									className="w-12 h-12 text-gray-200 animate-spin dark:text-gray-600 fill-[#64a646]"
+									className="w-12 h-12 text-gray-200 animate-spin dark:text-neutral-600 fill-[#64a646]"
 									viewBox="0 0 100 101"
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +164,7 @@ function page() {
 										fill="currentFill"
 									/>
 								</svg>
-								<p className="text-lg font-medium text-gray-700">Submitting your request...</p>
+								<p className="text-lg font-medium text-neutral-600">Submitting your request...</p>
 							</div>
 						) : (
 							<div>
