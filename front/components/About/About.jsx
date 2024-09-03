@@ -27,7 +27,7 @@ export default () => {
     <>
       <section className="dark:bg-gray-100 dark:text-neutral-600 relative">
         <div className="min-h-screen grid gap-6 mx-auto lg:grid-cols-2 xl:grid-cols-5">
-          <div className="relative xl:col-span-3 bg-[#83cc61] group">
+          <div className="relative xl:col-span-3 bg-[#83cc61] group hidden lg:flex">
             <video
               ref={videoRef}
               src="https://videos.pexels.com/video-files/8375608/8375608-uhd_2732_1440_25fps.mp4"

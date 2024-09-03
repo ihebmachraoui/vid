@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles.css";
 import { FaHome, FaChevronRight, FaUserCircle, FaCog } from 'react-icons/fa';
+import { SiBloglovin } from "react-icons/si";
+
 import Recent from "./Recent";
 import BlogDetails from './BlogDetails';
 function page() {
@@ -65,47 +67,7 @@ function page() {
 	if (!blog) {
 		return (
 			<>
-				<div
-					className="pt-14 pb-4 sm:pt-20  lg:px-36  lg:flex justify-between items-center"
-					style={{
-						background:
-							"linear-gradient(45deg, rgba(90, 158, 124, 0.8), rgba(131, 204, 97, 0.8))",
-					}}>
-					<p className="text-4xl font-jost capitalize text-white p-4 mt-4 lg:p-5 lg:mt-0">
-						{" "}
-						Blog{" "}
-					</p>
-
-					<div>
-						<ol className="flex items-center bg-white opacity-60 rounded-lg p-3 ">
-							<li className="inline-flex items-center">
-								<a
-									className="flex items-center text-sm text-gray-500 hover:text-neutral-600 focus:outline-none  dark:text-neutral-500 "
-									href="/">
-								
-									Home
-								</a>
-								
-							</li>
-
-							<li className="flex items-center text-sm text-gray-500 hover:text-neutral-600 focus:outline-none  dark:text-neutral-500 ">
-								
-								<a
-									className="flex items-center text-sm text-gray-500 hover:text-neutral-600 focus:outline-none  dark:text-neutral-500 "
-									href="/blog">
-									Blog
-								</a>
-								
-							</li>
-							<li
-								className="inline-flex items-center text-sm font-semibold text-neutral-600 truncate dark:text-neutral-200"
-								aria-current="page">
-								
-								<p className="mx-2">Details</p>
-							</li>
-						</ol>
-					</div>
-				</div>
+			<h1>Loading Blogs</h1>
 			</>
 		);
 	}
@@ -113,48 +75,35 @@ function page() {
 	return (
 		<>
 			<div
-				className="pt-14 pb-4 sm:pt-20  lg:px-36  lg:flex justify-between items-center"
-				style={{
-					background:
-						"linear-gradient(45deg, rgba(90, 158, 124, 0.8), rgba(131, 204, 97, 0.8))",
-				}}>
+				className="pt-14 sm:pt-20 bg-[#143324] lg:px-36  lg:flex justify-between items-center"
+				>
 				<p className="text-4xl font-jost capitalize text-white p-4 mt-4 lg:p-5 lg:mt-0">
 					{" "}
-					Blog{" "}
+					The Blog Corner{" "}
 				</p>
 
-				<div className="bg-gray-200 dark:bg-gray-800">
-      <div className="container flex items-center px-6 py-4 mx-auto overflow-x-auto whitespace-nowrap">
-        <a href="/" className="text-neutral-600 dark:text-gray-200">
-          <FaHome className="w-5 h-5" />
+				<div className="border text-xs ">
+      <div className="container flex items-center px-6 py-4 mx-auto uppercase overflow-x-auto whitespace-nowrap">
+        <a href="/" className="text-white">
+		<span className="mx-2">Home</span>
         </a>
 
-        <span className="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
-          <FaChevronRight className="w-5 h-5" />
+        <span className="mx-5 text-[#296747]  rtl:-scale-x-100">
+          <FaChevronRight className="w-3 h-3" />
         </span>
 
-        <a href="#" className="flex items-center text-neutral-600 -px-2 dark:text-gray-200 hover:underline">
-          <FaUserCircle className="w-6 h-6 mx-2" />
-          <span className="mx-2">Account</span>
+        <a href="/blog" className="flex items-center text-white -px-2 hover:underline">
+          <span className="mx-2">Blogs</span>
         </a>
-
-        <span className="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
-          <FaChevronRight className="w-5 h-5" />
+		<span className="mx-5 text-[#296747]  rtl:-scale-x-100">
+          <FaChevronRight className="w-3 h-3" />
         </span>
-
-        <a href="#" className="flex items-center text-neutral-600 -px-2 dark:text-gray-200 hover:underline">
-          <FaCog className="w-6 h-6 mx-2" />
-          <span className="mx-2">Profile</span>
+        
+        <a href="#" className="flex items-center text-white -px-2 hover:underline">
+          <span className="mx-2">Blog</span>
         </a>
 
-        <span className="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
-          <FaChevronRight className="w-5 h-5" />
-        </span>
-
-        <a href="#" className="flex items-center text-blue-600 -px-2 dark:text-blue-400 hover:underline">
-          <FaCog className="w-6 h-6 mx-2" />
-          <span className="mx-2">Settings</span>
-        </a>
+    
       </div>
     </div>
 			</div>
