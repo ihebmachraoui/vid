@@ -5,12 +5,12 @@ const PaymentCards = () => {
     <>
       <section className="bg-neutral-900 py-24 lg:py-32">
         <div className="max-w-5xl mx-auto px-4 xl:px-0">
-          <h1 className="text-5xl md:text-6xl font-semibold text-white">
+          <h1 className="text-4xl md:text-6xl font-semibold text-white">
             <span className="text-[#83cc61]">SociAlly Consulting:</span> Where
             Understanding Meets Action
           </h1>
           <div className="max-w-4xl mt-5">
-            <p className="text-lg text-neutral-400">
+            <p className="text-base text-neutral-400">
               At SociAlly Consulting, we turn sociological insights into
               actionable solutions. Our expertise bridges understanding and
               real-world impact, guiding you to make informed decisions and
