@@ -5,7 +5,7 @@ import axios from "axios";
 import Button from "../../../constants/Button/Button";
 import Modal from "../../../constants/Modal/Modal";
 function app() {
-	const [paymentFailed, setPaymentFailed] = useState(true);
+	const [paymentFailed, setPaymentFailed] = useState(false);
 	const [appointmentId, setAppointmentId] = useState("");
 	const [found, setFound] = useState(true);
 	const [appointment, setAppointment] = useState({
