@@ -39,7 +39,7 @@ function Page() {
 
   return (
     <>
-      <div className="mx-auto max-w-screen-lg pt-8 text-center bg-white">
+      <div className="mx-auto max-w-screen-lg pt-8 text-center bg-white ">
         <div className="relative mt-24 bg-[#f9f9f9] px-4 sm:px-8 sm:py-12">
           {/* <span className="rounded-full text-black font-medium px-3 mb-2 bg-[#e1ffd4] py-2">
             Blogs
