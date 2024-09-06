@@ -134,7 +134,7 @@ function page() {
 
 	return (
 		<>
-			<div className="flex justify-center items-center min-h-screen bg-gray-100">
+			<div className="flex justify-center items-center min-h-screen bg-gray-100 lg:pt-11">
 				<Form
 					handleChange={handleChange}
 					formData={formData}
