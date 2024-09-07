@@ -20,6 +20,7 @@ module.exports = {
         eduVic: ['"Edu VIC WA NT Beginner"', 'sans-serif'],
         newAmsterdam: ['"New Amsterdam"', 'serif'],
         jost: ['"Jost"', 'Helvetica', 'Arial', 'sans-serif'],
+        cursive: ['Cedarville Cursive', 'cursive'],
 
       },
       backgroundColor: {

@@ -15,7 +15,9 @@ import CoupleCon from "./images/couple-consult.jpg"
 import Stress from "./images/stress.jpg";
 import Coach from "./images/Coach.jpg";
 import Relax from "./images/Relax.jpg";
+import Trauma from "./images/trauma.jpg";
 export {
+    Trauma,
     Relax,
     Coach,
     Stress,
