@@ -51,74 +51,174 @@ function page() {
 		setIsLoading(true);
 
 		try {
-			const response = await axios.post(
-				"https://sociosolution-api.vercel.app/appointment",
-				formData
-			);
-
-			if (response.status === 200) {
-				await sendEmail(response.data._id);
-				setTimeout(() => {
-					setIsLoading(false);
-					setFormData({
-						firstName: "",
-						lastName: "",
-						phoneNumber: "",
-						email: "",
-						age: "",
-						date: "",
-						time: "",
-						consultation: "",
-						urgent: "no",
-					});
-				}, 1000);
-			} else {
-				alert("Failed to create an appointment. Please try again.");
-				setIsLoading(false);
-			}
-		} catch (error) {
-			alert("Error sending request:", error.message);
-			setIsLoading(false);
-		}
+			// Send the POST request
+			const response = await axios.post("https://sociosolution-api.vercel.app/appointment", formData);
+		
+			// If the request is successful, send the email and reset form data
+			await sendEmail(response.data._id);
+		
+			// Show the loading state and reset form data after a short delay
+			setTimeout(() => {
+			  setIsLoading(false);
+			  setFormData({
+				firstName: "",
+				lastName: "",
+				phoneNumber: "",
+				email: "",
+				age: "",
+				date: "",
+				time: "",
+				consultation: "",
+				urgent: "no",
+			  });
+			}, 1000);
+		  } catch (error) {
+			// Handle errors
+			alert("Error sending request: " + error.message);
+			
+		  }
 	};
 
 	const sendEmail = async (id) => {
 		const timenow = new Date().getFullYear();
 		const emailContent = `
-			<section className="container">
-				<header>
-					<a href="http://sociosolution.vercel.app/" target="_blank">
-						<img className="logo" src="https://sociosolution.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo.248c666a.png&w=256&q=75" alt="" />
-					</a>
-				</header>
-				<main className="content">
-					<h2 className="greeting">Hi ${formData.firstName},</h2>
-					<p className="message">
-						You have successfully deployed your request. Continue to the payment to get in touch with our
-						<span className="highlight">SociAlly Expert</span>.
-					</p>
-					<a href="https://sociosolution.vercel.app/appointment/${id}" target="_blank" className="pay-link">
-						Click To Pay
-					</a>
-					<p className="thank-you">
-						Thanks For Trusting in, <br />
-						SociAlly team
-					</p>
-				</main>
-				<footer className="footer">
-					<p className="email-info">
-						This email was sent to
-						<a href="#" className="email-link" target="_blank">${formData.email}</a>.
-						If you'd rather not receive this kind of email, you can
-						<a href="#" className="email-link">unsubscribe</a> or
-						<a href="#" className="email-link">manage your email preferences</a>.
-					</p>
-					<p className="copyright">
-						© ${timenow} SociAlly. All Rights Reserved.
-					</p>
-				</footer>
-			</section>
-		`;
+		<style>
+		  .carousel-cell {
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+		  }
+		  .hero-slider {
+			width: 100%;
+		  }
+		  .container {
+			max-width: 32rem;
+			padding: 2rem 1.5rem;
+			margin: 0 auto;
+			background-color: #ffffff;
+			background-color: var(--bg-dark, #1a202c); /* Dark mode support */
+		  }
+		  .logo {
+			width: auto;
+			height: 3rem;
+		  }
+		  .logo.sm {
+			height: 3.5rem;
+		  }
+		  .content {
+			margin-top: 2rem;
+		  }
+		  .greeting {
+			color: #4a5568;
+			color: var(--text-dark, #edf2f7); /* Dark mode support */
+		  }
+		  .message {
+			margin-top: 0.5rem;
+			line-height: 1.625;
+			color: #718096;
+			color: var(--text-light, #a0aec0); /* Dark mode support */
+		  }
+		  .highlight {
+			font-weight: 600;
+		  }
+		  .pay-link:hover {
+			background-color: #1e2233;
+		  }
+		  .pay-link {
+			padding: 8px 12px;
+			border: 1px solid #262941;
+			border-radius: 2px;
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			color: #ffffff;
+			background-color: #262941;
+			text-decoration: none;
+			font-weight: bold;
+			display: inline-block;
+			margin-top: 1rem;
+		  }
+		  .pay-button {
+			padding: 0.5rem 1.5rem;
+			margin-top: 1rem;
+			font-size: 0.875rem;
+			font-weight: 500;
+			text-transform: capitalize;
+			color: #ffffff;
+			background-color: #38a169;
+			border-radius: 0.5rem;
+			transition: background-color 0.3s ease;
+		  }
+		  .pay-button:hover {
+			background-color: #2f855a;
+		  }
+		  .pay-button:focus {
+			outline: none;
+			box-shadow: 0 0 0 4px rgba(72, 187, 120, 0.5);
+		  }
+		  .thank-you {
+			margin-top: 2rem;
+			color: #718096;
+			color: var(--text-light, #a0aec0); /* Dark mode support */
+		  }
+		  .footer {
+			margin-top: 2rem;
+		  }
+		  .email-info {
+			color: #a0aec0;
+			color: var(--text-muted, #4a5568); /* Dark mode support */
+		  }
+		  .email-link {
+			color: #3182ce;
+			color: var(--link-dark, #63b3ed); /* Dark mode support */
+			text-decoration: underline;
+		  }
+		  .email-link:hover {
+			color: #2b6cb0;
+			color: var(--link-hover, #4299e1); /* Dark mode support */
+		  }
+		  .copyright {
+			margin-top: 0.75rem;
+			color: #a0aec0;
+			color: var(--text-muted, #4a5568); /* Dark mode support */
+		  }
+		</style>
+		<section class="container">
+		  <header>
+			<a href="http://sociosolution.vercel.app/" target="_blank">
+			  <img class="logo" src="https://sociosolution.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo.248c666a.png&w=256&q=75" alt="" />
+			</a>
+		  </header>
+		  <main class="content">
+			<h2 class="greeting">Hi ${formData.firstName},</h2>
+			<p class="message">
+			  You have successfully deployed your request. Continue to the payment to get in touch with our
+			  <span class="highlight">SociAlly Expert</span>.
+			</p>
+			<a href="https://sociosolution.vercel.app/appointment/${id}" target="_blank" class="pay-link">
+			  Click To Pay
+			</a>
+			<p class="thank-you">
+			  Thanks For Trusting in, <br />
+			  SociAlly team
+			</p>
+		  </main>
+		  <footer class="footer">
+			<p class="email-info">
+			  This email was sent to
+			  <a href="#" class="email-link" target="_blank">${formData.email}</a>.
+			  If you'd rather not receive this kind of email, you can
+			  <a href="#" class="email-link">unsubscribe</a> or
+			  <a href="#" class="email-link">manage your email preferences</a>.
+			</p>
+			<p class="copyright">
+			  © ${timenow} SociAlly. All Rights Reserved.
+			</p>
+		  </footer>
+		</section>
+	  `;
+	  
 
 		try {
 			await axios.post("https://sociosolution-api.vercel.app/send-email", {
@@ -134,7 +234,7 @@ function page() {
 
 	return (
 		<>
-			<div className="flex justify-center items-center min-h-screen bg-gray-100">
+			<div className="flex justify-center items-center min-h-screen bg-gray-100 lg:pt-11">
 				<Form
 					handleChange={handleChange}
 					formData={formData}

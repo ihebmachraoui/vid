@@ -9,7 +9,21 @@ import Couple from './images/couple.jpeg'
 import little from './images/little.png'
 import Payment from './images/payment.jpeg'
 import Checked from "./images/checked.png"
+import Services from "./images/services.jpg"
+import Cog from "./images/cog.jpg"
+import CoupleCon from "./images/couple-consult.jpg"
+import Stress from "./images/stress.jpg";
+import Coach from "./images/Coach.jpg";
+import Relax from "./images/Relax.jpg";
+import Trauma from "./images/trauma.jpg";
 export {
+    Trauma,
+    Relax,
+    Coach,
+    Stress,
+    CoupleCon,
+    Cog,
+    Services,
     Checked,
     Logo,
     imgCarousel1,
