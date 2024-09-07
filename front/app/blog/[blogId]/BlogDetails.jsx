@@ -47,7 +47,7 @@ function BlogDetails({ blog , settrack}) {
 	return (
 		<div className="col-span-1 lg:col-span-2  p-4">
 			<div className="lg:px-14">
-				<h1 className="flex font-jost text-4xl  text-secondary capitalize font-semibold mb-4">
+				<h1 className="flex text-2xl  text-secondary capitalize font-bold mb-4 lg:text-4xl">
 					{blog.title}
 				</h1>
 				<div className="relative">
@@ -60,7 +60,7 @@ function BlogDetails({ blog , settrack}) {
 						alt="details"
 					/>
 				</div>
-				<p className="pt-4 text-xl font-sans font-semibold tracking-wide">
+				<p className="pt-4 text-base leading-6 font-light  tracking-wide lg:font-normal">
 					{blog.description}
 				</p>
 				<div className="flex items-center justify-between pt-2">

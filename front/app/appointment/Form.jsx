@@ -289,7 +289,7 @@ function Form({ handleChange, formData, onSubmit }) {
               <Button
                 text="Submit Your Appointment"
                 onClick={handleFormSubmit}
-                className="cursor-pointer w-full text-center font-semibold"
+                className="w-full text-center font-medium btn-round bg-[#296747] uppercase"
               />
             </div>
           </div>
