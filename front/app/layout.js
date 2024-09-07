@@ -12,26 +12,26 @@ import FAQ from "../components/FAQ/Faq";
 import CookiePolicy from "../constants/Cookies/Cookies";
 
 const inter = Inter({ subsets: ["latin"] });
+
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Set loading to true when the pathname changes
-    setLoading(true);
+    setLoading(true);  // Start loading when pathname changes
 
-    // Set a timeout to simulate loading time (e.g., 500ms)
+    // Simulate loading time (e.g., 500ms)
     const timer = setTimeout(() => {
-      setLoading(false);
+      setLoading(false);  // Set loading to false after timeout
     }, 1000);
 
-    // Clean up timeout if pathname changes again before timeout
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timer);  // Clean up on component unmount
   }, [pathname]);
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* this is the clerk button , just ignore it for now */}
+        {/* Ignore the Clerk button */}
         {/* <div className="hidden">
 						<SignedOut>
 							<SignInButton />
@@ -40,18 +40,27 @@ export default function RootLayout({ children }) {
 							<UserButton />
 						</SignedIn>
 					</div> */}
+        {/* Show Loader while loading */}
         {loading && <Loader />}
-        <CookiePolicy />
 
-        <div className="fixed z-40 w-full mx-auto justify-between">
-          <Navbar />
-        </div>
+        {/* Render content only after loading is finished */}
+        {!loading && (
+          <>
+            <CookiePolicy />
 
-        {children}
-        <FAQ />
-        <PaymentCards />
-        <Newsletter />
-        <Footer />
+            <div className="fixed z-40 w-full mx-auto justify-between">
+              <Navbar />
+            </div>
+
+            {/* Render children components */}
+            {children}
+
+            <FAQ />
+            <PaymentCards />
+            <Newsletter />
+            <Footer />
+          </>
+        )}
       </body>
     </html>
   );
