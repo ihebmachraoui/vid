@@ -4,7 +4,7 @@ import Button from "../../constants/Button/Button";
 import Form from "./Form";
 import axios from "axios";
 import Link from "next/link";
-
+import "./styles.css"
 function page() {
 	const [formData, setFormData] = useState({
 		firstName: "",
@@ -51,69 +51,66 @@ function page() {
 		setIsLoading(true);
 
 		try {
-			const response = await axios.post(
-				"https://sociosolution-api.vercel.app/appointment",
-				formData
-			);
-
-			if (response.status === 200) {
-				await sendEmail(response.data._id);
-				setTimeout(() => {
-					setIsLoading(false);
-					setFormData({
-						firstName: "",
-						lastName: "",
-						phoneNumber: "",
-						email: "",
-						age: "",
-						date: "",
-						time: "",
-						consultation: "",
-						urgent: "no",
-					});
-				}, 1000);
-			} else {
-				alert("Failed to create an appointment. Please try again.");
-				setIsLoading(false);
-			}
-		} catch (error) {
-			alert("Error sending request:", error.message);
-			setIsLoading(false);
-		}
+			// Send the POST request
+			const response = await axios.post("https://sociosolution-api.vercel.app/appointment", formData);
+		
+			// If the request is successful, send the email and reset form data
+			await sendEmail(response.data._id);
+		
+			// Show the loading state and reset form data after a short delay
+			setTimeout(() => {
+			  setIsLoading(false);
+			  setFormData({
+				firstName: "",
+				lastName: "",
+				phoneNumber: "",
+				email: "",
+				age: "",
+				date: "",
+				time: "",
+				consultation: "",
+				urgent: "no",
+			  });
+			}, 1000);
+		  } catch (error) {
+			// Handle errors
+			alert("Error sending request: " + error.message);
+			
+		  }
 	};
 
 	const sendEmail = async (id) => {
 		const timenow = new Date().getFullYear();
 		const emailContent = `
-			<section className="container">
+			<section class="container">
 				<header>
 					<a href="http://sociosolution.vercel.app/" target="_blank">
-						<img className="logo" src="https://sociosolution.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo.248c666a.png&w=256&q=75" alt="" />
+						<img class="logo" src="https://sociosolution.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo.248c666a.png&w=256&q=75" alt="" />
 					</a>
 				</header>
-				<main className="content">
-					<h2 className="greeting">Hi ${formData.firstName},</h2>
-					<p className="message">
+				<main class="content">
+					<h2 class="greeting">Hi ${formData.firstName},</h2>
+					<p class="message">
 						You have successfully deployed your request. Continue to the payment to get in touch with our
-						<span className="highlight">SociAlly Expert</span>.
+						<span class="highlight">SociAlly Expert</span>.
 					</p>
-					<a href="https://sociosolution.vercel.app/appointment/${id}" target="_blank" className="pay-link">
+					<a href="https://sociosolution.vercel.app/appointment/${id}" target="_blank" class="pay-link">
 						Click To Pay
 					</a>
-					<p className="thank-you">
+					<p class="thank-you">
 						Thanks For Trusting in, <br />
 						SociAlly team
 					</p>
 				</main>
-				<footer className="footer">
-					<p className="email-info">
+				<footer class="footer">
+					<p class="email-info">
 						This email was sent to
-						<a href="#" className="email-link" target="_blank">${formData.email}</a>.
+						<a href="#" class="email-link" target="_blank">${formData.email}</a>.
 						If you'd rather not receive this kind of email, you can
-						<a href="#" className="email-link">unsubscribe</a> or
-						<a href="#" className="email-link">manage your email preferences</a>.
+						<a href="#" class="email-link">unsubscribe</a> or
+						<a href="#" class="email-link">manage your email preferences</a>.
 					</p>
-					<p className="copyright">
+					<p class="copyright">
 						© ${timenow} SociAlly. All Rights Reserved.
 					</p>
 				</footer>
