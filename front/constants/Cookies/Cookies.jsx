@@ -14,7 +14,7 @@ const CookiePolicy = () => {
         background: "#ffffff",
         border: "1px solid #e5e7eb",
         borderRadius: "0.75rem",
-        left: "1rem",
+        left: "0rem",
         bottom: "rem",
         maxWidth: "28rem",
         padding: "1rem",

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import * as images from "../../assets/index";
 import Button from "../../constants/Button/Button";
 import axios from "axios";
-import { FaCommentDots } from "react-icons/fa";
+import { FaCommentDots, FaPlus } from "react-icons/fa";
 
 function Page() {
   const truncateText = (text = "", wordLimit = 10) => {
@@ -39,38 +39,33 @@ function Page() {
 
   return (
     <>
-      <div className="mx-auto max-w-screen-lg pt-8 text-center bg-white ">
-        <div className="relative mt-24 bg-[#f9f9f9] px-4 sm:px-8 sm:py-12">
-          {/* <span className="rounded-full text-black font-medium px-3 mb-2 bg-[#e1ffd4] py-2">
-            Blogs
-          </span> */}
-          <h1 className="mt-4 text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            Share Your Story
-          </h1>
-          <p className="mt-4 text-sm text-neutral-600 leading-6 px-4 sm:px-12 sm:text-base sm:leading-8">
-            Do you have a story or issue you'd like to share? Whether it's a
-            personal experience, a challenge you're facing, or something that's
-            been on your mind, this is the place for you. By sharing, you can
-            receive valuable opinions from others and even gain insights from a
-            professional sociologist.
-          </p>
+     
+     <div className="relative bg-[#f9f9f9]">
+         	<div
+				className="pt-14 sm:pt-20 bg-[#143324] lg:px-36  lg:flex justify-between items-center"
+				>
+				<p className="text-4xl font-jost capitalize text-white p-4 mt-4 lg:p-5 lg:mt-0">
+					{" "}
+					The Blog Corner{" "}
+				</p>
 
-          <div className="mt-6">
-            <Button
-              text="Add a blog"
-              href={"blog/add-blog"}
-              className="my-2 cursor-pointer bg-rose-500 text-white px-4 py-2 rounded-md"
-            />
-          </div>
-        </div>
+				<div className="border text-xs ">
+      <div className="container flex items-center px-6 py-4 mx-auto uppercase overflow-x-auto whitespace-nowrap">
+      
+		<span className="mx-2 text-[#296747]  rtl:-scale-x-100">
+          <FaPlus className="w-5 h-5" />
+        </span>
+        
+        <a href="blog/add-blog" className="flex items-center text-white text-sm -px-2 hover:font-semibold transition-all duration-300 ease-in-out">
+          <span className="mx-2">Share Your Story</span>
+        </a>
 
-        <img
-          className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover"
-          src={images.AboutIMG.src}
-          alt=""
-        />
+    
       </div>
+    </div>
+			</div>
 
+        </div>
       <aside aria-label="Recent Blogs" className="mx-auto max-w-screen-xl py-8">
         <div className="mx-auto max-w-screen-xl px-4 md:px-8">
           <div className="mb-10 md:mb-16">

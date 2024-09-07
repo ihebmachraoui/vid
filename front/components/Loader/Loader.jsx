@@ -1,15 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
-function page() {
+const quotes = [
+  "Patience is the key to success.",
+  "Great things take time.",
+  "Stay positive and strong.",
+  "Good things come to those who wait.",
+  "Loading your experience..."
+];
+
+function Loader() {
+  const [quoteIndex, setQuoteIndex] = useState(0);
+
+  useEffect(() => {
+    const changeQuote = () => {
+      setQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
+    };
+
+    const intervalId = setInterval(changeQuote, 200); // Change quote every 3 seconds
+
+    return () => clearInterval(intervalId); // Clear interval on component unmount
+  }, []);
+
   return (
-    <div className="flex items-center justify-center h-screen z-50 bg-[#f0f8ff]">
-    <div className="relative">
-        <div className="h-24 w-24 rounded-full border-t-8 border-b-8 border-green-200"></div>
-        <div className="absolute top-0 left-0 h-24 w-24 rounded-full border-t-8 border-b-8 border-green-500 animate-spin">
-        </div>
+    <div className="fixed inset-0 flex items-center justify-center bg-[#f0f8ff] z-50">
+      <div className="text-center p-4">
+        <p className="text-xl font-semibold animate-pulse text-green-700">
+          {typeof window !== 'undefined' ? quotes[quoteIndex] : quotes[0]}
+        </p>
+      </div>
     </div>
-</div>
-  )
+  );
 }
 
-export default page
+export default Loader;
