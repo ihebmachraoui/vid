@@ -1,5 +1,4 @@
-import React from "react";
-
+import * as Images from '../../assets/index'
 const PaymentCards = () => {
   return (
     <>
@@ -29,7 +28,7 @@ const PaymentCards = () => {
             </h2>
             <div className="flex justify-between items-center gap-6 mb-4">
               <img
-                src="https://d17.tn/images/logod17bnk.png"
+                src={Images.D17.src}
                 alt="D17 Bank Logo"
                 className="w-9 h-auto py-3 lg:py-5 md:w-20 lg:w-22 lg:h-24"
               />

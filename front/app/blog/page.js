@@ -85,7 +85,7 @@ function Page() {
             </div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-2 xl:grid-cols-2 xl:gap-16">
+          <div className="max-w-5xl mx-auto grid gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-2 xl:grid-cols-2 xl:gap-16">
             {blogs.map((blog, index) => (
               <a href={`/blog/${blog._id}`} key={index}>
                 <article className="flex flex-col items-center gap-4 p-4 rounded-lg border bg-white md:flex-row lg:gap-6 transition-transform duration-200">
@@ -102,7 +102,7 @@ function Page() {
                       <h2 className="text-lg font-bold text-neutral-600">
                         <a
                           href={`/blog/${blog._id}`}
-                          className="hover:text-rose-500 active:text-rose-600 transition duration-100"
+                          className="hover:underline transition duration-100"
                         >
                           {blog.title}
                         </a>
@@ -119,13 +119,13 @@ function Page() {
                         alt={blog.username}
                         className="h-6 w-6 rounded-full object-cover"
                       />
-                      <span>{formatUsername(blog.username)}</span>
+                      {/* <span>{formatUsername(blog.username)}</span> */}
                       <span className="text-gray-400">|</span>
                       <span>{blog.type}</span>
                       <span className="text-gray-400">|</span>
                       <span className="flex gap-2 items-center">
                         <FaCommentDots />
-                        &nbsp;{blog.comments.length} Comments
+                        &nbsp;{blog.comments.length}
                       </span>
                     </div>
                   </div>
