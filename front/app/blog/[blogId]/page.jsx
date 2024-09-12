@@ -101,7 +101,7 @@ function page() {
 
             <a
               href="#"
-              className="flex items-center text-white -px-2 hover:underline"
+              className="flex items-center text-white -px-2"
             >
               <span className="mx-2">Blog</span>
             </a>

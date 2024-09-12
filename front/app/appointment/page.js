@@ -184,35 +184,35 @@ function page() {
 			color: var(--text-muted, #4a5568); /* Dark mode support */
 		  }
 		</style>
-		<section class="container">
+		<section className="container">
 		  <header>
 			<a href="http://sociosolution.vercel.app/" target="_blank">
-			  <img class="logo" src="https://sociosolution.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo.248c666a.png&w=256&q=75" alt="" />
+			  <img className="logo" src="https://sociosolution.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo.248c666a.png&w=256&q=75" alt="" />
 			</a>
 		  </header>
-		  <main class="content">
-			<h2 class="greeting">Hi ${formData.firstName},</h2>
-			<p class="message">
+		  <main className="content">
+			<h2 className="greeting">Hi ${formData.firstName},</h2>
+			<p className="message">
 			  You have successfully deployed your request. Continue to the payment to get in touch with our
-			  <span class="highlight">SociAlly Expert</span>.
+			  <span className="highlight">SociAlly Expert</span>.
 			</p>
-			<a href="https://sociosolution.vercel.app/appointment/${id}" target="_blank" class="pay-link">
+			<a href="https://sociosolution.vercel.app/appointment/${id}" target="_blank" className="pay-link">
 			  Click To Pay
 			</a>
-			<p class="thank-you">
+			<p className="thank-you">
 			  Thanks For Trusting in, <br />
 			  SociAlly team
 			</p>
 		  </main>
-		  <footer class="footer">
-			<p class="email-info">
+		  <footer className="footer">
+			<p className="email-info">
 			  This email was sent to
-			  <a href="#" class="email-link" target="_blank">${formData.email}</a>.
+			  <a href="#" className="email-link" target="_blank">${formData.email}</a>.
 			  If you'd rather not receive this kind of email, you can
-			  <a href="#" class="email-link">unsubscribe</a> or
-			  <a href="#" class="email-link">manage your email preferences</a>.
+			  <a href="#" className="email-link">unsubscribe</a> or
+			  <a href="#" className="email-link">manage your email preferences</a>.
 			</p>
-			<p class="copyright">
+			<p className="copyright">
 			  © ${timenow} SociAlly. All Rights Reserved.
 			</p>
 		  </footer>

@@ -16,6 +16,8 @@ import Stress from "./images/stress.jpg";
 import Coach from "./images/Coach.jpg";
 import Relax from "./images/Relax.jpg";
 import Trauma from "./images/trauma.jpg";
+import Contact from './images/contact.jpg'
+import D17 from './images/d17.png'
 export {
     Trauma,
     Relax,
@@ -34,5 +36,7 @@ export {
     little,
     Couple,
     Appointment,
-    Payment
+    Payment,
+    Contact,
+    D17
 }
