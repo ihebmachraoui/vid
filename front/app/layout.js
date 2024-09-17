@@ -10,6 +10,7 @@ import Newsletter from "../components/Newsletter/Newsletter";
 import PaymentCards from "../components/PaymentCards/PaymentCards";
 import FAQ from "../components/FAQ/Faq";
 import CookiePolicy from "../constants/Cookies/Cookies";
+import AudioPlayer from "../components/AudioPlayer/AudioPlayer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,15 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* Ignore the Clerk button */}
-        {/* <div className="hidden">
-						<SignedOut>
-							<SignInButton />
-						</SignedOut>
-						<SignedIn>
-							<UserButton />
-						</SignedIn>
-					</div> */}
+      <AudioPlayer />  {/* Add the AudioPlayer here */}
         {/* Show Loader while loading */}
         {loading && <Loader />}
 
@@ -48,12 +41,12 @@ export default function RootLayout({ children }) {
           <>
             <CookiePolicy />
 
+
             <div className="fixed z-40 w-full mx-auto justify-between">
               <Navbar />
             </div>
 
             {/* Render children components */}
-            
             {children}
             
             <FAQ />
