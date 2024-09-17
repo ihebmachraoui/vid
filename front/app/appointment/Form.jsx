@@ -289,7 +289,7 @@ function Form({ handleChange, formData, onSubmit }) {
               <Button
                 text="Submit Your Appointment"
                 onClick={handleFormSubmit}
-                className="bg-[#20563a]  hover:bg-[#296747] cursor-pointer w-full text-center font-semibold"
+                className="bg-[#20563a] btn-round hover:bg-[#296747] cursor-pointer w-full text-center font-semibold"
               />
             </div>
           </div>
