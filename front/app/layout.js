@@ -49,10 +49,11 @@ export default function RootLayout({ children }) {
             {/* Render children components */}
             {children}
             
-            <FAQ />
+           
             <PaymentCards />
             <Newsletter />
             <Footer />
+           
           </>
         )}
       </body>

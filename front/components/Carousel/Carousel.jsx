@@ -57,7 +57,7 @@ const HeroSlider = () => {
         <div
           className="carousel-cell"
           style={{
-              backgroundImage: `url(${images.imgCarousel1.src})`,
+              backgroundImage: `url(${images.Hadil.src})`,
           }}
         >
           <div className="overlay"></div>
@@ -73,7 +73,7 @@ const HeroSlider = () => {
         <div
           className="carousel-cell"
           style={{
-              backgroundImage: `url(${images.imgCarousel2.src})`,
+              backgroundImage: `url(${images.Hadil2.src})`,
           }}
         >
           <div className="overlay"></div>
