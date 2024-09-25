@@ -3,9 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.WTF{
-z-index: 999;
+.video-js .vjs-big-play-button{
+display: none !important;
 }
+
 
 body {
   font-family: "Open Sans", sans-serif !important;

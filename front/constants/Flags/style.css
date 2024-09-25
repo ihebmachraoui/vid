@@ -1,0 +1,15 @@
+.dropdown-wrapper {
+    position: absolute;
+    margin-top: 0.5rem; /* Adjust as necessary */
+    margin-left: 0.5rem; /* Adjust as necessary */
+    right: 0;
+    z-index: 30;
+}
+
+.dropdown-menu {
+    background-color: white;
+    color: #4a5568; /* Tailwind gray-700 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem; /* Tailwind rounded */
+    min-width: 12rem; /* 48 */
+}
