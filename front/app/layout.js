@@ -18,6 +18,8 @@ import global_ar from "../public/translations/ar/translation.json";
 import global_fr from "../public/translations/fr/translation.json";
 import { I18nextProvider } from "react-i18next";
 import Cookies from 'js-cookie'; // Import js-cookie at the top
+import { Analytics } from '@vercel/analytics/react';
+
 
 const inter = Inter({ subsets: ["latin"] });
 const getInitialLanguage = () => {
@@ -65,6 +67,7 @@ export default function RootLayout({ children }) {
     <html lang={i18next.language} dir={isRTL ? "rtl" : "ltr"}>
       {/* Dynamically set dir to rtl for Arabic */}
       <body className={`${inter.className} ${isRTL ? "rtl" : ""}`}>
+      <Analytics />
         <I18nextProvider i18n={i18next}>
           <AudioPlayer /> {/* Add the AudioPlayer here */}
           {/* Show Loader while loading */}
