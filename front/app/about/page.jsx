@@ -15,7 +15,7 @@ const Page = () => {
 								<div className="w-full px-3 sm:px-4 bg-pink-200 rounded-t-[50px]">
 									<div className="relative z-10">
 										<img
-											src={Images.Person.src}
+											src="https://res.cloudinary.com/dzuvxegtt/image/upload/v1727304005/Remove-bg.ai_1727301581975_ktrlpy.png"
 											alt={t("Page.sociologist_alt")}
 											className="w-full rounded-2xl"
 										/>
@@ -89,7 +89,7 @@ const Page = () => {
 						<div className="hidden -ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden lg:flex">
 							<img
 								alt={t("Page.sociologist_alt")}
-								src={Images.Person.src}
+								src="https://res.cloudinary.com/dzuvxegtt/image/upload/v1727304005/Remove-bg.ai_1727301581975_ktrlpy.png"
 								className="w-[48rem] max-w-none rounded-xl bg-pink-200 shadow-xl transform scale-x-[-1] sm:w-[57rem]"
 							/>
 						</div>
