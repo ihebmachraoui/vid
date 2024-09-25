@@ -1,15 +1,34 @@
 import React from 'react';
 import { FaUsers, FaFileAlt, FaMapMarkerAlt } from 'react-icons/fa'; // Import icons
 import { RiUserVoiceFill } from "react-icons/ri";
-
-const facts = [
-  { icon: <RiUserVoiceFill className="text-[#296747] w-12 h-12 mb-3 inline-block" />, title: "178", description: "Testimonials" },
-  { icon: <FaUsers className="text-[#296747] w-12 h-12 mb-3 inline-block" />, title: "+200", description: "Satisfied Client" },
-  { icon: <FaFileAlt className="text-[#296747] w-12 h-12 mb-3 inline-block" />, title: "66", description: "Case Studies" },
-  { icon: <FaMapMarkerAlt className="text-[#296747] w-12 h-12 mb-3 inline-block" />, title: "1", description: "Tunis, Tunisia" }
-];
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 
 const Facts = () => {
+  const { t } = useTranslation('global'); // Use useTranslation hook for translations
+
+  const facts = [
+    {
+      icon: <RiUserVoiceFill className="text-[#296747] w-12 h-12 mb-3 inline-block" />,
+      title: t("Facts.testimonials.title"), // Translated title
+      description: t("Facts.testimonials.description") // Translated description
+    },
+    {
+      icon: <FaUsers className="text-[#296747] w-12 h-12 mb-3 inline-block" />,
+      title: t("Facts.satisfiedClients.title"), // Translated title
+      description: t("Facts.satisfiedClients.description") // Translated description
+    },
+    {
+      icon: <FaFileAlt className="text-[#296747] w-12 h-12 mb-3 inline-block" />,
+      title: t("Facts.caseStudies.title"), // Translated title
+      description: t("Facts.caseStudies.description") // Translated description
+    },
+    {
+      icon: <FaMapMarkerAlt className="text-[#296747] w-12 h-12 mb-3 inline-block" />,
+      title: t("Facts.location.title"), // Translated title
+      description: t("Facts.location.description") // Translated description
+    }
+  ];
+
   return (
     <section className="text-neutral-600 body-font">
       <div className="container mx-auto">
@@ -25,6 +44,6 @@ const Facts = () => {
       </div>
     </section>
   );
-}
+};
 
 export default Facts;
