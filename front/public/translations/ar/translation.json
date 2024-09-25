@@ -1,0 +1,57 @@
+{
+    "HomePage": {
+      "title": "مرحبا بالعالم!",
+      "about": "اذهب إلى صفحة حول"
+    },
+      "HeroSlider": {
+        "slogan": "SociAlly",
+        "transformHealth": "حول صحتك العقلية",
+        "letsBegin": "لنبدأ!",
+        "innerPeaceJourney": "ابدأ رحلة السلام الداخلي",
+        "ourServices": "خدماتنا"
+      },
+      "NavBar":{
+        "home": "الرئيسية",
+        "about": "من نحن",
+        "appointment": "حجز موعد",
+        "services": "خدماتنا",
+        "studyCase": "دراسة الحالة",
+        "blog": "المدونة",
+        "contact": "تواصل معنا",
+        "appointmentBtn": "حجز موعد",
+        "support": {
+          "needHelp": "تحتاج مساعدة؟",
+          "phoneNumber": "اتصل بنا: +123 456 789"
+        }
+      },
+      "About": {
+        "title": "معلومات عنا",
+        "subtitle": "غيّر صحتك النفسية",
+        "facts": [
+          "خدمات علاج نفسي شاملة.",
+          "فريق ذو خبرة ورحمة.",
+          "نهج شامل للعافية النفسية."
+        ],
+        "description": "يقع في تونس العاصمة، تونس، متخصص SociAlly في تقديم خدمات علاج نفسي استثنائية. فريقنا المخصص من المحترفين ذوي الخبرة ملتزم بدعم صحتك النفسية ونموك الشخصي. ثق في SociAlly لجميع احتياجات العلاج النفسي في تونس.",
+        "button": "المزيد من المعلومات"
+      },"Facts": {
+    "testimonials": {
+      "title": "178",
+      "description": "شهادات"
+    },
+    "satisfiedClients": {
+      "title": "+200",
+      "description": "عملاء راضون"
+    },
+    "caseStudies": {
+      "title": "66",
+      "description": "دراسات الحالة"
+    },
+    "location": {
+      "title": "1",
+      "description": "تونس، تونس"
+    }
+  }
+    
+  }
+  

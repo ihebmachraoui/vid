@@ -60,7 +60,7 @@ function BlogDetails({ blog, settrack }) {
             alt="details"
           />
         </div>
-        <p className="pt-4 text-base leading-6 font-light  tracking-wide lg:font-normal">
+        <p className="pt-4 text-base text-neutral-600 leading-relaxed font-light  tracking-wide lg:font-normal">
           {blog.description}
         </p>
         <div className="flex items-center justify-between pt-2">

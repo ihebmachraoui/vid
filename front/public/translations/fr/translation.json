@@ -1,0 +1,58 @@
+{
+    "HomePage": {
+      "title": "Bonjour le monde !",
+      "about": "Allez à la page à propos"
+    },
+    "HeroSlider": {
+      "slogan": "SociAlly",
+      "transformHealth": "Transformez votre santé mentale",
+      "letsBegin": "Commençons!",
+      "innerPeaceJourney": "Commencez votre voyage vers la paix intérieure",
+      "ourServices": "Nos Services"
+    },
+    "NavBar":{
+      "home": "Accueil",
+      "about": "À propos",
+      "appointment": "Rendez-vous",
+      "services": "Services",
+      "studyCase": "Étude de cas",
+      "blog": "Blog",
+      "contact": "Contact",
+      "appointmentBtn": "Rendez-vous",
+      "support": {
+        "needHelp": "Besoin d'aide?",
+        "phoneNumber": "+123 456 789"
+      }
+    },
+    "About": {
+        "title": "À Propos de Nous",
+        "subtitle": "Transformez votre santé mentale",
+        "facts": [
+          "Services de psychothérapie complets.",
+          "Équipe expérimentée et compatissante.",
+          "Approche holistique du bien-être mental."
+        ],
+        "description": "Situé à Tunis, en Tunisie, SociAlly se spécialise dans l'offre de services de psychothérapie exceptionnels. Notre équipe dévouée de professionnels expérimentés est engagée à soutenir votre bien-être mental et votre croissance personnelle. Faites confiance à SociAlly pour tous vos besoins en psychothérapie en Tunisie.",
+        "button": "En savoir plus"
+      },
+      "Facts": {
+        "testimonials": {
+          "title": "178",
+          "description": "Témoignages"
+        },
+        "satisfiedClients": {
+          "title": "+200",
+          "description": "Clients Satisfaits"
+        },
+        "caseStudies": {
+          "title": "66",
+          "description": "Études de Cas"
+        },
+        "location": {
+          "title": "1",
+          "description": "Tunis, Tunisie"
+        }
+      }
+    
+  }
+  
