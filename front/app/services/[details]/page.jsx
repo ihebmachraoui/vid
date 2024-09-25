@@ -9,101 +9,104 @@ function page() {
   const [service, setService] = useState(null);
   const services = [
     {
-      title: "Cognitive Behavioral Therapy",
-      description:
-        "A structured, goal-oriented form of therapy that helps patients manage emotional difficulties by changing patterns of thinking and behavior.",
-      imageUrl: Images.Cog.src,
+      title: "Individual Counseling and Therapy",
+      description: "Tailored support for clients facing a variety of personal issues, including mental health concerns, family problems, relationship challenges, and overthinking. This service applies sociological insights to address the underlying social and cultural influences that contribute to these issues.",
+      initialAssessment: "The therapist conducts an initial assessment session to understand the client's concerns, history, and goals, helping in creating a tailored treatment plan.",
+      establishingGoals: "SMART goals are collaboratively set to guide the therapeutic process and provide direction for future sessions.",
+      monitoringProgress: "Progress is regularly reviewed to ensure goals are being met and adjustments to the treatment plan are made as needed.",
+      explorationAndInsight: "Sessions focus on exploring thoughts, feelings, and behaviors, helping clients gain deeper self-understanding and insight into their life experiences.",
       color: "#3B82F6",
       price: "120",
-      initialAssessment:
-        "The therapist and client start with an initial assessment session to understand the client's concerns, history, and goals, helping in creating a tailored treatment plan.",
-      establishingGoals:
-        "SMART goals are collaboratively set to guide the therapeutic process and provide direction for future sessions.",
-      monitoringProgress:
-        "Progress is regularly reviewed to ensure goals are being met and adjustments to the treatment plan are made as needed.",
-      explorationAndInsight:
-        "Sessions focus on exploring thoughts, feelings, and behaviors, helping clients gain deeper self-understanding and insight into their life experiences.",
+      imgUrl: "https://example.com/images/individual_counseling.jpg"
     },
     {
-      title: "Stress Management Counseling",
-      description:
-        "A service designed to help individuals identify stress triggers and develop coping strategies to reduce anxiety and improve overall well-being.",
-      imageUrl: Images.Stress.src,
-      color: "#10B981",
-      price: "110",
-      initialAssessment:
-        "The initial session involves understanding the client's stressors, current coping mechanisms, and personal background to develop a customized stress management plan.",
-      establishingGoals:
-        "The therapist and client set specific goals for reducing stress and improving coping strategies, aiming for measurable improvements in stress levels.",
-      monitoringProgress:
-        "Progress is monitored through regular sessions to track changes in stress levels and effectiveness of coping strategies, making adjustments as necessary.",
-      explorationAndInsight:
-        "Clients explore their stress triggers and reactions, gaining insights into their stress responses and learning new techniques for managing stress effectively.",
-    },
-    {
-      title: "Couples and Relationship Counseling",
-      description:
-        "Therapy sessions aimed at helping couples resolve conflicts, improve communication, and strengthen their relationship.",
-      imageUrl: Images.CoupleCon.src,
-      color: "#F472B6",
+      title: "Family Counseling",
+      description: "Guidance and support for families navigating various challenges such as parenting difficulties and complex family dynamics. This service helps families understand the root causes of their conflicts.",
+      initialAssessment: "An initial family assessment session is conducted to identify family dynamics, communication patterns, and specific challenges faced by family members.",
+      establishingGoals: "Collaborative goals are established to improve communication and resolve conflicts within the family unit.",
+      monitoringProgress: "Regular check-ins assess improvements in family relationships and communication effectiveness.",
+      explorationAndInsight: "Sessions encourage open dialogue among family members to explore underlying issues affecting family dynamics.",
+      color: "#FF5733",
       price: "150",
-      initialAssessment:
-        "The therapist conducts an initial assessment to understand each partner's perspective, relationship history, and the issues causing conflict, setting the stage for effective counseling.",
-      establishingGoals:
-        "Together, the couple and therapist establish goals for improving communication, resolving conflicts, and enhancing relationship satisfaction.",
-      monitoringProgress:
-        "Progress is regularly reviewed to ensure that relationship goals are being met and to address any ongoing or new issues.",
-      explorationAndInsight:
-        "Sessions involve exploring each partner’s needs, expectations, and relationship dynamics, fostering deeper understanding and empathy between partners.",
+      imgUrl: "https://example.com/images/family_counseling.jpg"
     },
     {
-      title: "Career and Life Coaching",
-      description:
-        "Provides guidance for individuals seeking clarity in their professional or personal lives, helping them set goals and take actionable steps toward fulfillment.",
-      imageUrl: Images.Coach.src,
-      color: "#FBBF24",
-      price: "130",
-      initialAssessment:
-        "The initial assessment focuses on understanding the client’s career aspirations, current challenges, and personal goals to create a tailored coaching plan.",
-      establishingGoals:
-        "Clear, actionable goals are set to guide the client’s career or life path, helping them achieve specific milestones and overall satisfaction.",
-      monitoringProgress:
-        "Progress is tracked through regular sessions to ensure that the client is making headway toward their goals and to make adjustments to the coaching plan as needed.",
-      explorationAndInsight:
-        "Clients explore their values, strengths, and ambitions, gaining insight into their career and life choices and developing strategies for achieving their goals.",
-    },
-    {
-      title: "Mindfulness and Relaxation Therapy",
-      description:
-        "A practice that focuses on improving mental health through relaxation techniques and mindfulness exercises, reducing stress and promoting mental clarity.",
-      imageUrl: Images.Relax.src,
-      color: "#8B5CF6",
+      title: "Meditation and Self-Connection",
+      description: "This service focuses on guiding clients through meditation practices to help them reconnect with their inner selves and uncover core issues causing confusion or distress.",
+      initialAssessment: "An initial session assesses the client's current state of mind and their familiarity with meditation practices.",
+      establishingGoals: "Clients set personal goals related to self-awareness and emotional clarity through meditation.",
+      monitoringProgress: "Progress is monitored by discussing insights gained during meditation sessions and any changes in emotional well-being.",
+      explorationAndInsight: "Sessions emphasize self-exploration through guided meditation techniques that facilitate deeper understanding of personal issues.",
+      color: "#28A745",
       price: "100",
-      initialAssessment:
-        "The therapist begins with an assessment to understand the client’s current stress levels and mindfulness practices, tailoring the therapy to their needs.",
-      establishingGoals:
-        "Goals are set to enhance mindfulness and relaxation practices, aiming to reduce stress and improve mental clarity over time.",
-      monitoringProgress:
-        "The therapist reviews the client’s progress in incorporating mindfulness techniques and relaxation exercises into their daily routine.",
-      explorationAndInsight:
-        "Sessions focus on exploring mindfulness practices, helping clients develop a deeper awareness of their thoughts and emotions and fostering overall mental well-being.",
+      imgUrl: "https://example.com/images/meditation_self_connection.jpg"
     },
     {
-      title: "Trauma Therapy",
-      description:
-        "Specialized therapy to help individuals process and heal from traumatic experiences and their effects on mental health.",
-      imageUrl: Images.Trauma.src,
-      color: "#9B111E",
-      price: "140",
-      initialAssessment:
-        "The initial session is dedicated to understanding the client’s trauma history, current symptoms, and goals for therapy to create a comprehensive treatment plan.",
-      establishingGoals:
-        "Therapist and client set specific goals for addressing trauma-related issues and improving emotional resilience.",
-      monitoringProgress:
-        "The therapist regularly assesses the client’s progress in managing trauma symptoms and adjusts the treatment plan as needed to support healing.",
-      explorationAndInsight:
-        "Sessions provide a safe space for clients to explore their trauma experiences, gaining insights into their emotional responses and working towards healing and recovery.",
+      title: "Group Therapy and Social Support",
+      description: "Structured focus groups designed for individuals facing similar challenges to foster connection, support, and shared experiences.",
+      initialAssessment: "An initial assessment identifies participants' common challenges and group dynamics.",
+      establishingGoals: "Group goals are collaboratively established to promote mutual support and understanding among participants.",
+      monitoringProgress: "Progress is evaluated through participant feedback on their experiences within the group setting.",
+      explorationAndInsight: "Discussions focus on sharing personal stories, insights gained from others’ experiences, and strategies for overcoming challenges.",
+      color: "#FFC107",
+      price: "80",
+      imgUrl: "https://example.com/images/group_therapy.jpg"
     },
+    {
+      title: "Active Listening",
+      description: "A dedicated space where individuals can express their thoughts and emotions without interruption or judgment, focusing on empathy and understanding.",
+      initialAssessment: "A brief initial session identifies the client's needs for expression versus problem-solving.",
+      establishingGoals: "Goals revolve around creating a safe space for clients to articulate their feelings freely.",
+      monitoringProgress: "Feedback is gathered on how clients feel after sessions regarding their emotional relief or sense of being heard.",
+      explorationAndInsight: "The focus is on validating feelings through attentive listening while encouraging clients to explore their narratives.",
+      color: "#6F42C1",
+      price: "70",
+      imgUrl: "https://example.com/images/active_listening.jpg"
+    },
+    {
+      title: "Stress Management and Social Coping Strategies",
+      description:  "This service helps individuals understand stress by exploring social factors contributing to it while providing practical coping strategies tailored to their social context.",
+         initialAssessment:"An assessment session identifies specific stressors in the client’s life related to social interactions or expectations.",       
+         establishingGoals:"Clients establish coping goals tailored to managing stress effectively in their social environments.",       
+         monitoringProgress:"Regular reviews assess the effectiveness of coping strategies implemented in real-life situations.",       
+         explorationAndInsight:"Sessions involve exploring how social norms impact stress levels while developing healthier responses.",       
+         color:"#17A2B8",       
+         price:"90", 
+         imgUrl:"https://example.com/images/stress_management.jpg"
+    },
+    {
+         title:"Depression Therapy",
+         description:"This service addresses depression by examining social influences that contribute to an individual's experience of depression.",       
+         initialAssessment:"An initial evaluation assesses symptoms of depression along with social factors affecting mental health.",       
+         establishingGoals:"Collaborative goals focus on building supportive social networks while addressing negative patterns related to depression.",       
+         monitoringProgress:"Regular assessments track changes in mood symptoms as well as improvements in social interactions.",       
+         explorationAndInsight:"Sessions explore how societal pressures impact mental health while fostering a sense of belonging.",       
+         color:"#E83E8C",       
+         price:"130", 
+         imgUrl:"https://example.com/images/depression_therapy.jpg"
+    },
+    {
+         title:"Life Transition Counseling",
+         description:"This service guides young individuals through key life transitions while addressing unique social pressures they face during pivotal stages of life.",       
+         initialAssessment:"An assessment identifies the specific transition challenges faced by the client (e.g., entering adolescence or starting a new job).",       
+         establishingGoals:"Clients establish goals focused on navigating transitions with confidence while building resilience.",       
+         monitoringProgress:"Progress is monitored through discussions about challenges encountered during transitions and strategies employed to cope with them.",       
+         explorationAndInsight:"Sessions involve exploring identity changes influenced by peer groups, family dynamics, societal norms, etc.",       
+         color:"#20C997",        
+       		price:"110", 
+       		imgUrl:"https://example.com/images/life_transition_counseling.jpg"
+    },
+    {
+     	title:"Positivity Reboot and Life Enrichment",
+     	description:"This service empowers individuals to identify toxic influences in their lives while fostering a positive mindset through sociological exploration of societal norms.",        
+     	initialAssessment:"An initial session assesses current toxic influences impacting the client’s life perspective.",        
+     	establishingGoals:"Clients set goals aimed at removing negativity from their lives while cultivating positivity.",        
+     	monitoringProgress:"Regular check-ins evaluate shifts in mindset as clients work towards positive changes in their environments.",        
+     	explorationAndInsight:"Sessions emphasize discovering meaning in everyday experiences while reframing negative thoughts into constructive actions.",        
+     	color:"#343A40",        
+     	price:"140", 
+	   	imgUrl:"https://example.com/images/positivity_reboot.jpg"
+	}
   ];
   useEffect(() => {
     // Check if window is defined (client-side only)

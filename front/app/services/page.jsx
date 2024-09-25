@@ -33,7 +33,7 @@ function page() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Service Cards */}
           <ServiceCard
-            title="Cognitive Behavioral Therapy"
+            title="Individual Counseling and Therapy"
             description="A structured, goal-oriented form of therapy that helps patients manage emotional difficulties by changing patterns of thinking and behavior."
             imageSrc={Images.Cog.src}
             href="/services/cognitive-behavioral-therapy"

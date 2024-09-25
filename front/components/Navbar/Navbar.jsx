@@ -65,7 +65,7 @@ const Navbar = () => {
         >
           <Image
             src={images.Logo.src}
-            alt="Company Logo"
+            alt="SociAlly Logo"
             width={200}
             height={100}
             priority

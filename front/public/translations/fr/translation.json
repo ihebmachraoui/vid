@@ -21,7 +21,7 @@
       "appointmentBtn": "Rendez-vous",
       "support": {
         "needHelp": "Besoin d'aide?",
-        "phoneNumber": "Appelez: +123 456 789"
+        "phoneNumber": "+123 456 789"
       }
     },
     "About": {

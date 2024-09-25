@@ -18,6 +18,9 @@ import Relax from "./images/Relax.jpg";
 import Trauma from "./images/trauma.jpg";
 import Contact from './images/contact.jpg'
 import D17 from './images/d17.png'
+import Person from './images/person.webp'
+import Hadil from './images/hadil.png'
+import Hadil2 from './images/hadil2.jpg'
 export {
     Trauma,
     Relax,
@@ -38,5 +41,8 @@ export {
     Appointment,
     Payment,
     Contact,
-    D17
+    D17,
+    Person,
+    Hadil,
+    Hadil2
 }
