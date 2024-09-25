@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import * as images from "../../assets/index";
 import Button from "../../constants/Button/Button";
+import { useTranslation } from "react-i18next";
 
 function Form({ handleChange, formData, onSubmit }) {
+  const { t } = useTranslation("global");
   const [errorMessages, setErrorMessages] = useState({});
 
   const handleFormSubmit = (e) => {
@@ -11,17 +13,17 @@ function Form({ handleChange, formData, onSubmit }) {
     const errors = {};
 
     if (!formData.firstName.trim())
-      errors.firstName = "Please fill out this field.";
+      errors.firstName = t("form.fillField");
     if (!formData.lastName.trim())
-      errors.lastName = "Please fill out this field.";
+      errors.lastName = t("form.fillField");
     if (!formData.phoneNumber.trim())
-      errors.phoneNumber = "Please fill out this field.";
-    if (!formData.age.trim()) errors.age = "Please fill out this field.";
-    if (!formData.email.trim()) errors.email = "Please fill out this field.";
-    if (!formData.date.trim()) errors.date = "Please fill out this field.";
-    if (!formData.time.trim()) errors.time = "Please fill out this field.";
+      errors.phoneNumber = t("form.fillField");
+    if (!formData.age.trim()) errors.age = t("form.fillField");
+    if (!formData.email.trim()) errors.email = t("form.fillField");
+    if (!formData.date.trim()) errors.date = t("form.fillField");
+    if (!formData.time.trim()) errors.time = t("form.fillField");
     if (!formData.consultation.trim())
-      errors.consultation = "Please fill out this field.";
+      errors.consultation = t("form.fillField");
 
     setErrorMessages(errors);
 
@@ -42,24 +44,25 @@ function Form({ handleChange, formData, onSubmit }) {
 
       <div className="lg:w-1/2 w-full h-full flex items-center px-4 py-16 lg:py-0 lg:px-8">
         <div className="w-full h-full">
-        <div className="bg-gradient-to-r from-[#a4eca4] to-[#64a646] font-sans px-6 py-12">
-      <div className="container mx-auto flex flex-col justify-center items-center text-center">
-        <h2 className="text-white sm:text-4xl text-3xl font-bold mb-4">Book An Appointment!</h2>
-      
-      </div>
-    </div>
+          <div className="bg-gradient-to-r from-[#a4eca4] to-[#64a646] font-sans px-6 py-12">
+            <div className="container mx-auto flex flex-col justify-center items-center text-center">
+              <h2 className="text-white sm:text-4xl text-3xl font-bold mb-4">
+                {t("form.bookAppointment")}
+              </h2>
+            </div>
+          </div>
           <div className="mx-auto w-full mt-8">
             <form
               className="block lg:grid lg:grid-cols-2 lg:gap-4"
               onSubmit={handleFormSubmit}
             >
               <div className="mb-4">
-              <label
-                    htmlFor="FirstName"
-                    className="mb-2 block text-sm font-medium "
-                  >
-                    First Name
-                  </label>
+                <label
+                  htmlFor="fName"
+                  className="mb-2 block text-sm font-medium "
+                >
+                  {t("form.firstName")}
+                </label>
                 <input
                   required
                   value={formData.firstName}
@@ -67,7 +70,7 @@ function Form({ handleChange, formData, onSubmit }) {
                   type="text"
                   name="firstName"
                   id="fName"
-                  placeholder="First Name"
+                  placeholder={t("form.firstName")}
                   className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
                 />
                 {errorMessages.firstName && (
@@ -78,19 +81,19 @@ function Form({ handleChange, formData, onSubmit }) {
               </div>
 
               <div className="mb-4">
-              <label
-                    htmlFor="LastName"
-                    className="mb-2 block text-sm font-medium "
-                  >
-                    Last Name
-                  </label>
+                <label
+                  htmlFor="lName"
+                  className="mb-2 block text-sm font-medium "
+                >
+                  {t("form.lastName")}
+                </label>
                 <input
                   value={formData.lastName}
                   onChange={handleChange}
                   type="text"
                   name="lastName"
                   id="lName"
-                  placeholder="Last Name"
+                  placeholder={t("form.lastName")}
                   className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
                 />
                 {errorMessages.lastName && (
@@ -106,7 +109,7 @@ function Form({ handleChange, formData, onSubmit }) {
                     htmlFor="Email"
                     className="mb-2 block text-sm font-medium "
                   >
-                    Email
+                    {t("form.email")}
                   </label>
                   <input
                     value={formData.email}
@@ -114,7 +117,7 @@ function Form({ handleChange, formData, onSubmit }) {
                     type="text"
                     name="email"
                     id="Email"
-                    placeholder="Email Address"
+                    placeholder={t("form.email")}
                     className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
                   />
                   {errorMessages.email && (
@@ -129,16 +132,15 @@ function Form({ handleChange, formData, onSubmit }) {
                     htmlFor="Number"
                     className="mb-2 block text-sm font-medium "
                   >
-                    Phone Number
+                    {t("form.phoneNumber")}
                   </label>
                   <input
-                    required
                     value={formData.phoneNumber}
                     onChange={handleChange}
                     type="tel"
                     name="phoneNumber"
                     id="Number"
-                    placeholder="Phone Number"
+                    placeholder={t("form.phoneNumber")}
                     className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
                   />
                   {errorMessages.phoneNumber && (
@@ -153,7 +155,7 @@ function Form({ handleChange, formData, onSubmit }) {
                     htmlFor="age"
                     className="mb-2 block text-sm font-medium "
                   >
-                    Age
+                    {t("form.age")}
                   </label>
                   <input
                     value={formData.age}
@@ -161,9 +163,8 @@ function Form({ handleChange, formData, onSubmit }) {
                     type="number"
                     name="age"
                     id="age"
-                    placeholder="Age"
-                    min="0"
-                    className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:right-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
+                    placeholder={t("form.age")}
+                    className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
                   />
                   {errorMessages.age && (
                     <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
@@ -173,69 +174,69 @@ function Form({ handleChange, formData, onSubmit }) {
                 </div>
               </div>
 
-
-              <div className="mb-4">
-                <label
-                  htmlFor="date"
-                  className="mb-2 block text-sm font-medium "
-                >
-                  Date
-                </label>
-                <input
-                  value={formData.date}
-                  onChange={handleChange}
-                  type="date"
-                  name="date"
-                  id="date"
-                  className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
-                />
-                {errorMessages.date && (
-                  <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
-                    {errorMessages.date}
-                  </p>
-                )}
-              </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="time"
-                  className="mb-2 block text-sm font-medium "
-                >
-                  Time
-                </label>
-                <input
-                  value={formData.time}
-                  onChange={handleChange}
-                  type="time"
-                  name="time"
-                  id="time"
-                  className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
-                />
-                {errorMessages.time && (
-                  <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
-                    {errorMessages.time}
-                  </p>
-                )}
-              </div>
-
-              <div className="col-span-2 mb-4">
-                <div className="flex mb-2 items-center">
+              <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+                <div>
                   <label
-                    htmlFor="consultation"
-                    className="flex items-center text-sm font-medium "
+                    htmlFor="date"
+                    className="mb-2 block text-sm font-medium "
                   >
-                    Why you want to consult
+                    {t("form.date")}
                   </label>
-                  <AiOutlineInfoCircle className="ml-2 " size={20} />
+                  <input
+                    value={formData.date}
+                    onChange={handleChange}
+                    type="date"
+                    name="date"
+                    id="date"
+                    placeholder={t("form.date")}
+                    className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
+                  />
+                  {errorMessages.date && (
+                    <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
+                      {errorMessages.date}
+                    </p>
+                  )}
                 </div>
+
+                <div>
+                  <label
+                    htmlFor="time"
+                    className="mb-2 block text-sm font-medium "
+                  >
+                    {t("form.time")}
+                  </label>
+                  <input
+                    value={formData.time}
+                    onChange={handleChange}
+                    type="time"
+                    name="time"
+                    id="time"
+                    placeholder={t("form.time")}
+                    className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
+                  />
+                  {errorMessages.time && (
+                    <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
+                      {errorMessages.time}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="mb-4 lg:col-span-2">
+                <label
+                  htmlFor="consultation"
+                  className="mb-2 block text-sm font-medium "
+                >
+                  {t("form.consultation")}
+                </label>
                 <textarea
                   value={formData.consultation}
                   onChange={handleChange}
                   name="consultation"
                   id="consultation"
-                  placeholder="Describe in two lines your issue"
-                  className="w-full rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
-                />
+                  placeholder={t("form.describeIssue")}
+                  className="w-full h-32 rounded-md border border-[#64a646] bg-white py-2 px-4 text-sm font-medium outline-none focus:border-[#64a646] focus:ring-1 focus:ring-[#64a646] transition duration-300 ease-in-out"
+                ></textarea>
                 {errorMessages.consultation && (
                   <p className="text-red-600 bg-red-50 py-1.5 mt-2 rounded-md px-4 text-sm">
                     {errorMessages.consultation}
@@ -243,51 +244,24 @@ function Form({ handleChange, formData, onSubmit }) {
                 )}
               </div>
 
-              <div className="col-span-2 mb-4">
-                <label className="mb-2 block text-sm font-medium ">
-                  Do you consider your case Urgent?
+              <div className="mb-4 lg:col-span-2">
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="urgent"
+                    onChange={handleChange}
+                    checked={formData.urgent}
+                    className="form-checkbox h-5 w-5 text-[#64a646] transition duration-150 ease-in-out"
+                  />
+                  <span className="ml-2 text-sm">{t("form.urgent")}</span>
                 </label>
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      name="urgent"
-                      value="yes"
-                      id="radioButton1"
-                      className="h-4 w-4 text-[#64a646]"
-                      checked={formData.urgent === "yes"}
-                      onChange={handleChange}
-                    />
-                    <label
-                      htmlFor="radioButton1"
-                      className="pl-2 text-sm font-medium "
-                    >
-                      Yes
-                    </label>
-                  </div>
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      name="urgent"
-                      value="no"
-                      id="radioButton2"
-                      className="h-4 w-4 text-[#64a646]"
-                      checked={formData.urgent === "no"}
-                      onChange={handleChange}
-                    />
-                    <label
-                      htmlFor="radioButton2"
-                      className="pl-2 text-sm font-medium "
-                    >
-                      No
-                    </label>
-                  </div>
-                </div>
               </div>
+
+
             </form>
             <div className="flex flex-col items-center mt-6">
               <Button
-                text="Submit Your Appointment"
+                text={t("form.submitAppointment")}
                 onClick={handleFormSubmit}
                 className="bg-[#20563a] btn-round hover:bg-[#296747] cursor-pointer w-full text-center font-semibold"
               />

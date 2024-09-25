@@ -73,7 +73,7 @@ const HeroSlider = () => {
         <div
           className="carousel-cell"
           style={{
-            backgroundImage: `url(https://res.cloudinary.com/dzuvxegtt/image/upload/v1727217456/IMG_9775_igkmdu.webp)`,
+            backgroundImage: `url(https://res.cloudinary.com/dzuvxegtt/image/upload/v1727282439/IMG_9800_1_exv920.webp)`,
           }}
         >
           <div className="overlay"></div>

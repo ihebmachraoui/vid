@@ -7,8 +7,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false, // true for 465, false for other ports
   auth: {
-    user: 'MS_tDUwIQ@trial-351ndgw991r4zqx8.mlsender.net',
-    pass: '1sz303whCdN1ddS4',
+    user: 'MS_YuIVXM@trial-vywj2lp2wmqg7oqz.mlsender.net',
+    pass: 'glbPS3NISVmgFwVc',
   },
   tls: {
     rejectUnauthorized: false, // Allows self-signed certificates
@@ -28,7 +28,7 @@ const sender = async (req, res) => {
 
   try {
     let info = await transporter.sendMail({
-      from: '"Socially" <MS_tDUwIQ@trial-351ndgw991r4zqx8.mlsender.net>', // Sender address
+      from: '"Socially" <MS_YuIVXM@trial-vywj2lp2wmqg7oqz.mlsender.net>', // Sender address
       to: to, // List of receivers
       subject: subject, // Subject line
       html: html, // HTML body
