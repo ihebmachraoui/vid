@@ -8,6 +8,7 @@ const connectDatabase = require('../db/config.js'); // Import your database conn
 const mailRoutes= require('../Mailsender/emailRoute.js')
 const appointmentRoutes = require('../db/Routes/appointmentRoutes.js');
 const paymentRoutes = require('../Payment/paymentRoutes.js');
+const streamingRoutes = require('../Streaming/index.js');
 // Connect to the database
 connectDatabase();
 
@@ -16,6 +17,7 @@ app.use(bodyParser.json()); // Parse JSON requests
 
 // Use the  routes
 
+app.use('/', streamingRoutes);
 app.use('/', blogRoutes);
 app.use('/', mailRoutes);
 app.use('/', appointmentRoutes);
