@@ -32,9 +32,9 @@ const Facts = () => {
   return (
     <section className="text-neutral-600 body-font">
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 gap-4 text-center py-4 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 text-center pb-4 md:grid-cols-4">
           {facts.map((fact, index) => (
-            <div key={index} className="border-2 border-gray-100 px-4 py-6 rounded-3xl">
+            <div key={index} className="border-2 border-gray-100 px-4 py-4 rounded-3xl">
               {fact.icon}
               <h2 className="title-font font-medium text-base text-gray-900">{fact.title}</h2>
               <p className="leading-relaxed text-sm">{fact.description}</p>

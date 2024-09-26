@@ -32,7 +32,7 @@ export default () => {
 				"https://res.cloudinary.com/dzuvxegtt/image/upload/v1727242066/about-hadil_y9gtzu.webp",
 			sources: [
 				{
-					src: "https://res.cloudinary.com/dzuvxegtt/video/upload/Welcome_to_SociAlly_pvldkq.mp4",
+					src: "https://res.cloudinary.com/dnntpvrmp/video/upload/q_90/v1727308157/DiscoverSociAlly_iq4h2z.mp4",
 					type: "video/mp4",
 				},
 			],
@@ -52,13 +52,14 @@ export default () => {
 
 	return (
 		<>
-			<section className="dark:bg-gray-100 dark:text-neutral-600 relative">
-				<div className="grid mx-auto lg:grid-cols-2 xl:grid-cols-5">
-					<div className="relative xl:col-span-2 lg:col-span-1 bg-[#83cc61] group flex flex-col justify-center items-center">
-						<div className="relative w-full h-56 md:h-72 lg:h-full">
+			<section className="bg-white relative">
+				<div className="grid grid-cols-1 lg:grid-cols-[60%,40%] mx-auto w-full h-screen"> {/* 60% video, 40% text content */}
+					{/* Video Section */}
+					<div className="relative w-full h-full bg-[#83cc61] group flex flex-col justify-center items-center">
+						<div className="relative w-full  h-56 md:h-72 lg:h-full">
 							<video
 								ref={videoRef}
-								className="video-js vjs-default-skin absolute w-full h-full object-cover !bg-white" // Added object-cover
+								className="video-js absolute w-full h-full object-cover !bg-white" // Use object-cover to fill the container
 								id="my-player"
 								data-setup="{}">
 								Your browser does not support the video tag.
@@ -77,30 +78,30 @@ export default () => {
 							/>
 						</div>
 					</div>
-					<div className="w-full px-6 py-8 rounded-md sm:px-12 md:px-16 xl:col-span-3 dark:bg-gray-50">
-						<span className="rounded-full text-black font-medium px-3 mb-2 bg-[#e1ffd4] py-2">
-							{t('About.title')}
-						</span>
-						<h1 className="text-4xl font-extrabold mt-8 capitalize lg:text-6xl">
-    {t('About.subtitle').split(' ').slice(0, -1).join(' ')}<br /> 
-    <span className="text-[#83cc61]">{t('About.subtitle').split(' ').slice(-1)}</span>
-</h1>
+
+					{/* Text Content Section */}
+					<div className="w-full px-6 py-8 rounded-md sm:px-12 md:px-16 lg:h-full dark:bg-gray-50 flex flex-col justify-center">
+					
+						<h1 className="text-4xl font-extrabold capitalize lg:text-5xl">
+							{t('About.subtitle').split(' ').slice(0, -1).join(' ')}
+							<span className="text-[#83cc61]">&nbsp;{t('About.subtitle').split(' ').slice(-1)}</span>
+						</h1>
 						<p className="my-8 text-neutral-600 leading-8">
-							<span className="font-semibold text-left bg-[#ffb7ce] rounded-r-full p-2 me-2 text-white">
+							<span className="font-semibold text-left bg-[#ffb7ce] rounded-r-full p-1 me-2 text-white">
 								SociAlly{" "}
 							</span>
 							{t('About.description')}
 						</p>
-						<div className="pb-4">
+					{/* 	<div className="pb-4">
 							{facts.map((fact, index) => (
 								<p
 									key={index}
-									className="flex items-center text-neutral-600 py-3">
+									className="flex items-center text-sm text-neutral-600 py-2">
 									<TiTick className="text-[#296747] text-2xl mr-2" />
 									{fact}
 								</p>
 							))}
-						</div>
+						</div> */}
 
 						<Facts />
 
