@@ -55,7 +55,7 @@ const Navbar = () => {
     <>
       <nav
         className={`relative transition-colors duration-500 uppercase ${
-          isScrolled ? "bg-white shadow-xl" : "bg-transparent"
+          isScrolled ? "bg-white shadow-xl px-4" : "bg-transparent"
         }`}
       >
         <div
@@ -72,7 +72,7 @@ const Navbar = () => {
             className="logo"
           />
 
-          <div className="flex justify-center items-center md:order-2 space-x-3 rtl:space-x-reverse">
+          <div className="flex justify-center items-center  md:order-2 space-x-3 rtl:space-x-reverse">
             <div className="hidden lg:flex justify-center items-center px-8">
               <BiSupport className="text-4xl text-[#83cc61] font-bold mx-2" />
               <p
@@ -90,11 +90,11 @@ const Navbar = () => {
             </div>
             <a
               href="/appointment"
-              className="hidden lg:flex items-center btn-width  justify-center text-white bg-[#296747] focus:outline-none font-medium btn-round text-sm py-4 text-center dark:hover:shadow-booking cursor-pointer"
+              className="hidden lg:flex items-center btn-width  justify-center text-white bg-[#296747] focus:outline-none font-medium  text-sm py-4 text-center dark:hover:shadow-booking cursor-pointer"
             >
               {t("NavBar.appointmentBtn")}
             </a>
-
+            <Flags className="" />
             <button
               type="button"
               className={`inline-flex items-center p-2 w-10 h-10 justify-center text-sm transition-colors duration-500 ${
@@ -119,7 +119,7 @@ const Navbar = () => {
                 />
               </svg>
             </button>
-            <Flags className="" />
+          
           </div>
 
           <div
