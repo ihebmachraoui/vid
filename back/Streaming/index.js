@@ -13,7 +13,7 @@ router.get('/video', async (req, res) => {
     const videoLang = validLangs.includes(lang) ? lang : 'en';
 
     // Construct the raw GitHub URL for the video
-    const videoUrl = `https://raw.githubusercontent.com/ihebmachraoui/sociosolution/main/back/Streaming/videos/${videoLang}.mp4`;
+    const videoUrl = `https://raw.githubusercontent.com/ihebmachraoui/sociosolution/blob/main/back/Streaming/videos/${videoLang}.mp4`;
 
     try {
         // Fetch the video file using axios
